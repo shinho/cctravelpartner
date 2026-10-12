@@ -1,0 +1,766 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="pt-PT"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Carla Coelho | Viagens de Luxo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dedcb1",
+                        "inverse-primary": "#ffb77c",
+                        "on-tertiary-container": "#f4fffc",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#904d00",
+                        "tertiary-fixed": "#61f9e9",
+                        "surface-container-low": "#f8f6c9",
+                        "tertiary": "#00685f",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#323214",
+                        "primary-container": "#af6005",
+                        "secondary-fixed-dim": "#e9c349",
+                        "terracotta": "#CC7722",
+                        "on-secondary-fixed-variant": "#574500",
+                        "surface-container": "#f2f0c4",
+                        "secondary": "#735c00",
+                        "paper-cream": "#FFFDD0",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#fed65b",
+                        "on-secondary-fixed": "#241a00",
+                        "outline-variant": "#dac2b2",
+                        "tertiary-fixed-dim": "#3adccc",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#008379",
+                        "primary-fixed-dim": "#ffb77c",
+                        "on-surface": "#1d1d03",
+                        "on-primary-fixed": "#2e1500",
+                        "on-error": "#ffffff",
+                        "outline": "#877365",
+                        "on-primary-fixed-variant": "#6d3900",
+                        "on-tertiary-fixed": "#00201d",
+                        "on-secondary-container": "#745c00",
+                        "on-surface-variant": "#544437",
+                        "on-primary-container": "#fffbff",
+                        "primary": "#8c4b00",
+                        "tropical-lagoon": "#40E0D0",
+                        "secondary-fixed": "#ffe088",
+                        "on-background": "#1d1d03",
+                        "surface-variant": "#e6e5b9",
+                        "surface-container-highest": "#e6e5b9",
+                        "on-secondary": "#ffffff",
+                        "background": "#fefccf",
+                        "deep-onyx": "#0D0C22",
+                        "surface-bright": "#fefccf",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffdcc2",
+                        "surface-container-high": "#eceabe",
+                        "error-container": "#ffdad6",
+                        "heritage-gold": "#D4AF37",
+                        "surface": "#fefccf",
+                        "inverse-on-surface": "#f5f3c7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "section-gap": "120px",
+                        "base": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-xl": ["Playfair Display"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "label-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        @layer base {
+            html {
+                overscroll-behavior: none;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pattern-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+    </style>
+<meta content="web_standard" name="shell-type"></head>
+<body class="bg-background text-on-background font-body-md selection:bg-heritage-gold/30">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-background/90 backdrop-blur-md border-b border-on-background/10 transition-transform duration-300">
+<nav class="flex justify-between items-center w-full px-margin-desktop h-20 max-w-[1280px] mx-auto" data-active-classes="text-primary border-b-2 border-primary font-semibold">
+<a class="flex items-center gap-4" data-path="carla-coelho-home" href="#">
+<img alt="Carla Coelho" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UucvQBicrFhUxb_qC3Fbv7KSYuMKO6SskCcJiksNyY48_EMMj3L3wj70C32-Pf8gy0N1VlH9c-h7DunWbJ3-_uuiMduSlbfpQb8OerBQNwnNFOmYyyUlJPopY8BQNX5BR9ZYLL9pV2Zd2HShZ0qkXZpdbUCTsEmP_jm097A7SVDp_UxE7Vzcr_9Lh3nmBwWhphQZ7JFJhbrysn7lloaKaz3r95wDDsFdYcH8SaiobnXcpoyrKThLQMukc">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">Carla Coelho</span>
+</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-1" data-path="sobre-mim" href="#sobre-mim">Sobre Mim</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-1" data-path="destinos" href="#destinos">Destinos</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-1" data-path="servicos" href="#servicos">Serviços</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-1" data-path="viagens-grupo" href="#viagens-grupo">Viagens de Grupo</a>
+<a aria-current="page" class="transition-colors pb-1 text-primary border-b-2 border-primary font-semibold" data-path="oportunidades" href="#oportunidades">Oportunidades</a>
+</div>
+<button class="bg-tropical-lagoon text-deep-onyx font-label-lg text-label-lg px-6 py-3 rounded-sm active:scale-95 transition-all hover:brightness-110 shadow-sm">
+                Check Availability
+            </button>
+</nav>
+</header>
+<main class="pt-20"><div class="flex flex-col w-full">
+<!-- Top Hero Section -->
+<section class="relative w-full overflow-hidden bg-background pt-12 pb-24 md:py-32">
+<div class="pattern-bg absolute inset-0 opacity-40 pointer-events-none"></div>
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<!-- Hero Copy -->
+<div class="lg:col-span-7 flex flex-col items-start space-y-8">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container text-primary border-0 shadow-sm">
+<span class="material-symbols-outlined text-sm leading-none text-terracotta">flight_takeoff</span>
+<span class="font-label-lg text-label-sm tracking-wider uppercase font-semibold text-primary">Travel Partner &amp; Empreendedorismo</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface uppercase tracking-tight">
+            Transforma a tua paixão por viajar numa oportunidade
+          </h1>
+<p class="font-headline-sm text-headline-sm text-terracotta font-semibold leading-snug italic">
+            "E se aquilo que mais gostas de fazer pudesse gerar um rendimento extra ou até uma nova carreira?"
+          </p>
+<div class="space-y-4 font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+<p class="">
+              Muitas pessoas adoram viajar, ajudar amigos a planear férias, descobrir novos destinos e partilhar experiências. Mas poucas imaginam que essa paixão pode transformar-se numa atividade flexível e gratificante.
+            </p>
+<p class="">
+              Foi precisamente isso que me levou a descobrir o mundo dos Travel Partners.
+            </p>
+<p class="">
+              Hoje ajudo outras pessoas a organizar viagens memoráveis e, ao mesmo tempo, tenho a oportunidade de desenvolver um projeto próprio, com liberdade para gerir o meu tempo e trabalhar a partir de onde quiser.
+            </p>
+<p class="font-semibold text-on-surface">
+              E a melhor parte? Tu também podes fazê-lo.
+            </p>
+</div>
+<!-- CTAs -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 pt-4 w-full sm:w-auto">
+<a class="inline-flex items-center justify-center gap-3 bg-tropical-lagoon text-deep-onyx font-label-lg text-label-lg px-8 py-4 rounded-sm shadow-md hover:brightness-105 active:scale-95 transition-all text-center" href="#candidatura">
+<span class="">Quero Saber Mais Sobre a Oportunidade</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-sm text-primary hover:text-terracotta font-label-lg text-label-lg transition-colors group" href="#minha-historia">
+<span class="">Conhecer a Minha História</span>
+<span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">south</span>
+</a>
+</div>
+<!-- Micro Metric Highlights -->
+<div class="grid grid-cols-3 gap-6 pt-6 w-full max-w-lg">
+<div class="bg-surface-container-low p-4 rounded-sm">
+<span class="font-headline-sm text-headline-sm text-primary block font-bold">100%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-1">Horário Livre</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-sm">
+<span class="font-headline-sm text-headline-sm text-primary block font-bold">Global</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-1">Trabalho Remoto</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-sm">
+<span class="font-headline-sm text-headline-sm text-primary block font-bold">1:1</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-1">Mentoria Exclusiva</span>
+</div>
+</div>
+</div>
+<!-- Hero Visual Composition -->
+<div class="lg:col-span-5 relative">
+<div class="relative mx-auto max-w-md lg:max-w-none">
+<!-- Decorative Offset Frame -->
+<div class="absolute -top-6 -right-6 w-full h-full bg-secondary-fixed/30 rounded-xl pointer-events-none"></div>
+<!-- Main Portrait Card -->
+<div class="relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-xl">
+<img class="w-full h-[520px] object-cover object-center" data-alt="Editorial warm portrait of Carla Coelho, an elegant professional travel curator in a Mediterranean terrace bathed in golden sunlight. She wears an ivory linen blazer with a patterned silk blouse, holding a leather journal, wooden table with antique maps in background, evoking prestigious luxury travel planning and joyful lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAovEs2Z5-m_ao24Uh7-BEdMw9VC412vQZklrkXVZz-rQNLodfyPX99YYeAkIXai8n9EsINVjzUak1glPvhTfOg7ew3UWM3f6UOi7Cqt8O6_hlDjX_KPJ9PHwKNdbB_zaxeM-Tjqgg7jKnRP_eCauNrPdrClKQcmYWZ5QrDN559OrJ5ad1o_YA0R_iutwGAICSFZsDlt4LiChDmMtUkjkFJzzBkss88d4KLoM7ZsDASO7MnECJt2diZ">
+<div class="p-6 bg-surface-container flex items-center justify-between">
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">Carla Coelho</p>
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Fundadora &amp; Mentora de Viagens</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-heritage-gold/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">stars</span>
+</div>
+</div>
+</div>
+<!-- Floating Sub-badge -->
+<div class="absolute -bottom-6 -left-6 bg-deep-onyx text-surface-container-lowest p-5 rounded-lg shadow-xl max-w-xs flex items-center gap-4">
+<span class="material-symbols-outlined text-tropical-lagoon text-3xl">public</span>
+<div>
+<p class="font-label-sm text-label-sm text-surface-container-low uppercase tracking-wider font-semibold">Liberdade Geográfica</p>
+<p class="font-body-md text-body-md font-medium text-surface-container-lowest leading-tight">Vive e viaja nos teus próprios termos.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: A Minha História -->
+<section class="w-full py-24 md:py-32 bg-surface-container-low relative" id="minha-historia">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<!-- Imagery Left -->
+<div class="lg:col-span-5 order-2 lg:order-1">
+<div class="relative space-y-6">
+<div class="overflow-hidden rounded-lg shadow-lg">
+<img class="w-full h-80 object-cover" data-alt="Luxurious infinity pool overlooking sunset in a tropical private resort in Southeast Asia with lush tropical foliage, warm amber sky reflections and elegant couple enjoying sunset cocktails, representing dream travel lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjVfVU0Xsu2TryPKi_hXmYVT7QMW0zeRvs894ih_DMbRD8E5_569Eave_WyWvw_WCoA0OahKwk64oIadu1YGu8h-hFt-iJwoG7XLWTWWNC0UPD5QNvaP6_4ZOqaEBwC_MvmeKpTVF39Sljuqt12zaqVHZagXCQ3cSTkKarCrpZRKKpgQ0LPqiRcrjqD2X-Ag44Mh3-cFxKOU0WnLzpKu5bHeiGVk6Gc4U6AtLrM2KckOO8xnrJoBbv">
+</div>
+<div class="overflow-hidden rounded-lg shadow-lg -mt-10 ml-8 relative z-10 bg-surface-container-lowest p-4">
+<img class="w-full h-64 object-cover rounded" data-alt="Scenic cliffside balcony in Santorini during twilight sunset with couple sipping vintage champagne looking out to caldera sea view with vibrant bougainvillea flowers, luxury boutique atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMxRalqBoX2FRjV88IqI73obAuOj0CSi3wcuoXurI7juU7tz3nMt2s8AP4ldRtcQR1rWu4pmfsaBphr0gUH_SAO9h4nBPx7m7VpCAx_PR96cGoT2Ep3SYTwmzGoMLy8kH97kdHLBsW6_43EgNQjSbVUMukwE1J27uH7SQzIMn4gefxiK8Hr3gxWmFy4Noig5qUM1l6piDbWgkPKt_JposSYKIwunewQPmIU0oUetm_yD2-yKTSelgD">
+</div>
+<!-- Quote Callout -->
+<div class="bg-surface p-6 rounded-lg shadow-sm">
+<p class="font-headline-sm text-headline-sm text-primary italic font-serif">
+                "O trabalho não deve limitar os nossos horizontes. Deve expandi-los."
+              </p>
+<div class="flex items-center gap-2 mt-4 text-on-surface-variant font-label-lg text-label-lg">
+<span class="w-8 h-0.5 bg-heritage-gold"></span>
+<span class="">Carla Coelho</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Narrative Right -->
+<div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-surface text-primary">
+<span class="material-symbols-outlined text-sm">auto_stories</span>
+<span class="font-label-lg text-label-sm uppercase tracking-widest font-semibold">Trajetória &amp; Propósito</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">
+            A Minha História
+          </h2>
+<h3 class="font-headline-sm text-headline-sm text-terracotta">
+            Como uma paixão se transformou numa oportunidade
+          </h3>
+<div class="space-y-5 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p class="">
+              Sempre gostei de viajar, planear itinerários, procurar destinos diferentes e descobrir experiências únicas.
+            </p>
+<p class="">
+              Com o tempo percebi que aquilo que fazia por gosto podia também ajudar outras pessoas. Foi assim que encontrei uma forma de unir a paixão pelas viagens ao espírito empreendedor, criando uma atividade que me permite crescer pessoal e profissionalmente enquanto ajudo outros viajantes a concretizarem os seus sonhos.
+            </p>
+<p class="text-on-surface font-medium">
+              Hoje quero partilhar essa oportunidade com outras pessoas que procuram algo mais.
+            </p>
+</div>
+<div class="pt-4 flex items-center gap-6">
+<div class="flex flex-col">
+<span class="font-headline-xl text-headline-xl text-primary font-bold">10+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Anos de Experiência</span>
+</div>
+<div class="w-px h-12 bg-outline-variant/40"></div>
+<div class="flex flex-col">
+<span class="font-headline-xl text-headline-xl text-primary font-bold">40+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Países Explorados</span>
+</div>
+<div class="w-px h-12 bg-outline-variant/40"></div>
+<div class="flex flex-col">
+<span class="font-headline-xl text-headline-xl text-primary font-bold">100%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Mentoria Dedicada</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: E Se Fosse A Tua Vez? (Desmistificar) -->
+<section class="w-full py-24 md:py-32 bg-background relative overflow-hidden">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="max-w-3xl mb-16 space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-surface-container text-primary">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span class="font-label-lg text-label-sm uppercase tracking-widest font-semibold">O Teu Ponto de Partida</span>
+</div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-xl text-on-surface">
+          E se fosse a tua vez?
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Desmistificamos as dúvidas comuns para que possas dar o primeiro passo com absoluta confiança e clareza.
+        </p>
+</div>
+<!-- Contrast Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<!-- Card 1 (What you don't need) -->
+<div class="bg-surface-container-low p-8 rounded-lg shadow-sm flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div class="space-y-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-xl">block</span>
+</div>
+<span class="font-label-sm text-label-sm text-terracotta uppercase tracking-widest font-semibold block">Sem Barreiras</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">
+              Não precisas de ter experiência em turismo.
+            </h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-6">
+            Oferecemos toda a formação inicial de raiz e as ferramentas necessárias para dominares a curadoria e reserva.
+          </p>
+</div>
+<!-- Card 2 (What you don't need) -->
+<div class="bg-surface-container-low p-8 rounded-lg shadow-sm flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div class="space-y-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-xl">schedule</span>
+</div>
+<span class="font-label-sm text-label-sm text-terracotta uppercase tracking-widest font-semibold block">Total Flexibilidade</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">
+              Não precisas de abandonar a tua atividade atual.
+            </h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-6">
+            Podes começar em part-time, ao teu próprio ritmo, sem riscos e mantendo a tua principal fonte de rendimento.
+          </p>
+</div>
+<!-- Card 3 (What you don't need) -->
+<div class="bg-surface-container-low p-8 rounded-lg shadow-sm flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div class="space-y-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-xl">travel_explore</span>
+</div>
+<span class="font-label-sm text-label-sm text-terracotta uppercase tracking-widest font-semibold block">Acessível a Todos</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">
+              Não precisas de ser especialista em viagens.
+            </h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-6">
+            O ecossistema disponibiliza suporte contínuo, fornecedores de prestígio global e roteiros comprovados.
+          </p>
+</div>
+</div>
+<!-- The High-Contrast "O que REALMENTE precisas" Card -->
+<div class="bg-surface-container p-8 md:p-12 rounded-xl shadow-md relative overflow-hidden">
+  <div class="absolute right-0 top-0 translate-x-12 -translate-y-12 w-64 h-64 bg-heritage-gold/15 rounded-full pointer-events-none"></div>
+  <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+    <div class="lg:col-span-7 space-y-5">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest text-primary shadow-sm">
+        <span class="material-symbols-outlined text-sm text-heritage-gold">check_circle</span>
+        <span class="font-label-lg text-label-sm uppercase tracking-wider font-semibold">O Que Realmente Precisas</span>
+      </div>
+      <p class="font-headline-sm text-headline-sm md:text-headline-lg text-on-surface font-semibold leading-tight">
+        Precisas apenas de vontade de aprender, gosto por comunicar com pessoas e ambição para construir algo teu.
+      </p>
+      <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+        Com formação, acompanhamento e uma comunidade pronta a ajudar-te, poderás descobrir como transformar a tua paixão por viajar num projeto com potencial de crescimento e verdadeira liberdade geográfica.
+      </p>
+      <div class="pt-2">
+        <a class="bg-primary text-on-primary font-label-lg text-label-lg px-8 py-4 rounded-sm shadow-sm hover:brightness-110 active:scale-95 transition-all inline-flex items-center gap-2" href="#candidatura">
+          <span class="">Dar o Primeiro Passo</span>
+          <span class="material-symbols-outlined text-base">north_east</span>
+        </a>
+      </div>
+    </div>
+    <div class="lg:col-span-5 relative">
+      <div class="relative rounded-xl overflow-hidden shadow-lg border-2 border-surface-container-lowest/80 group">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQdS35DXyclpvSA9aGFy2VtYTXduYDfLnGI9aQTjOLDLTXHF8ECh5yKNzKOmpx6wH6lGvjWF00quBn6RkS5zXtOPDL0l9NRkCntZaok6fFPv0swvTmd4yJzCkq8o7fktyHvD0vXbJZBBp-U9PFasyMHezeWOBR3RSqsf_j6-eqZ_cs6uDkkiDxlkdlqBy5-PNnav9Md8nYO2J_L6f8e6JJnDHTebZXydIwsm5ZnnBOXGWghXesQ2Ku" alt="Inspiring luxury lifestyle and flexible travel work: a modern professional enjoying freedom working remotely from a sunlit cliffside cafe terrace overlooking the Mediterranean ocean" class="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-r from-deep-onyx to-inverse-surface/90 text-surface-container-lowest backdrop-blur-sm flex items-center justify-between">
+          <div>
+            <p class="font-label-sm text-label-sm text-tropical-lagoon uppercase tracking-widest font-semibold">Liberdade &amp; Flexibilidade</p>
+            <p class="font-body-md text-sm text-surface-container-low font-medium">Trabalha a partir de qualquer lugar</p>
+          </div>
+          <div class="w-9 h-9 rounded-full bg-tropical-lagoon/20 flex items-center justify-center text-tropical-lagoon shrink-0">
+            <span class="material-symbols-outlined text-lg">laptop_mac</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- Section 4: O Que Poderás Encontrar Nesta Oportunidade? -->
+<section class="w-full py-24 md:py-32 bg-surface-container relative">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div class="space-y-3 max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-surface-container-low text-primary">
+<span class="material-symbols-outlined text-sm">workspace_premium</span>
+<span class="font-label-lg text-label-sm uppercase tracking-widest font-semibold">Vantagens Exclusivas</span>
+</div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-xl text-on-surface">
+            O que poderás encontrar nesta oportunidade?
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Um ecossistema completo desenhado para transformar a tua dedicação em independência, liberdade e sucesso duradouro.
+          </p>
+</div>
+<div class="hidden md:flex items-center gap-3">
+<span class="font-label-lg text-label-sm uppercase tracking-wider text-on-surface-variant">7 Benefícios Centrais</span>
+<div class="w-12 h-px bg-primary"></div>
+</div>
+</div>
+<!-- Bento-style 7 Benefits Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Benefit 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-md bg-surface-container flex items-center justify-center text-terracotta mb-6">
+<span class="material-symbols-outlined text-2xl font-bold">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">01 / Autonomia</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-2 mb-3">
+              Flexibilidade para gerir o teu horário
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Define quando e quanto trabalhas de acordo com o teu equilíbrio familiar, estudos ou atividade profissional.
+            </p>
+</div>
+</div>
+<!-- Benefit 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-md bg-surface-container flex items-center justify-center text-terracotta mb-6">
+<span class="material-symbols-outlined text-2xl font-bold">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">02 / Mobilidade</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-2 mb-3">
+              Possibilidade de trabalhar a partir de qualquer lugar
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Basta uma ligação à internet e o teu computador ou smartphone para atender clientes de qualquer canto do mundo.
+            </p>
+</div>
+</div>
+<!-- Benefit 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-md bg-surface-container flex items-center justify-center text-terracotta mb-6">
+<span class="material-symbols-outlined text-2xl font-bold">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">03 / Mentoria</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-2 mb-3">
+              Formação contínua e acompanhamento
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Acesso a sessões de treino, webinars técnicos, melhores práticas comerciais e acompanhamento individualizado.
+            </p>
+</div>
+</div>
+<!-- Benefit 4 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-md bg-surface-container flex items-center justify-center text-terracotta mb-6">
+<span class="material-symbols-outlined text-2xl font-bold">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">04 / Evolução</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-2 mb-3">
+              Desenvolvimento pessoal e profissional
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Expande as tuas competências de liderança, vendas de luxo, comunicação interpessoal e estratégia de negócio.
+            </p>
+</div>
+</div>
+<!-- Benefit 5 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-md bg-surface-container flex items-center justify-center text-terracotta mb-6">
+<span class="material-symbols-outlined text-2xl font-bold">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">05 / Comunidade</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-2 mb-3">
+              Integração numa equipa dinâmica e inspiradora
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Junta-te a profissionais ambiciosos com os mesmos valores de hospitalidade, partilha e paixão pela vida ao ar livre.
+            </p>
+</div>
+</div>
+<!-- Benefit 6 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-md bg-surface-container flex items-center justify-center text-terracotta mb-6">
+<span class="material-symbols-outlined text-2xl font-bold">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">06 / Renda</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-2 mb-3">
+              Rendimento complementar ou construção de uma atividade a tempo inteiro
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Gera receitas progressivas através de um modelo transparente e alinhado com a dedicação investida.
+            </p>
+</div>
+</div>
+<!-- Benefit 7 (Featured Span Card) -->
+<div class="lg:col-span-3 bg-gradient-to-r from-deep-onyx to-inverse-surface text-surface-container-lowest p-8 md:p-10 rounded-lg shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<div class="flex items-start md:items-center gap-5">
+<div class="w-14 h-14 rounded-full bg-tropical-lagoon/20 flex items-center justify-center text-tropical-lagoon shrink-0">
+<span class="material-symbols-outlined text-3xl font-bold">check</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-tropical-lagoon uppercase tracking-widest font-semibold block">07 / Prestígio Global</span>
+<h3 class="font-headline-sm text-headline-sm text-surface-container-lowest mt-1">
+                A oportunidade de fazer parte da indústria das viagens
+              </h3>
+<p class="font-body-md text-body-md text-surface-container-low/80 mt-1 max-w-2xl">
+                Acesso preferencial às redes de luxo, operadores mundiais e fornecedores exclusivos que transformam clientes em viajantes frequentes.
+              </p>
+</div>
+</div>
+<a class="bg-tropical-lagoon text-deep-onyx font-label-lg text-label-lg px-6 py-3.5 rounded-sm hover:brightness-110 active:scale-95 transition-all whitespace-nowrap" href="#candidatura">
+            Fazer Parte Agora
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: A Minha Missão -->
+<section class="w-full py-24 md:py-32 bg-paper-cream relative overflow-hidden">
+<div class="pattern-bg absolute inset-0 opacity-30 pointer-events-none"></div>
+<div class="max-w-[1080px] mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container text-primary mb-8">
+<span class="material-symbols-outlined text-sm">spa</span>
+<span class="font-label-lg text-label-sm uppercase tracking-widest font-semibold">Visão &amp; Valores</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg md:text-headline-xl text-primary mb-12">
+        A Minha Missão
+      </h2>
+<!-- Manifesto Blockquote -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-sm p-10 md:p-16 rounded-2xl shadow-xl space-y-8">
+<div class="text-terracotta flex justify-center">
+<span class="material-symbols-outlined text-5xl">format_quote</span>
+</div>
+<p class="font-display-lg text-headline-sm md:text-headline-xl text-on-surface leading-tight font-serif italic max-w-4xl mx-auto">
+          "Ajudar pessoas apaixonadas por viagens a descobrir novas oportunidades de crescimento pessoal e profissional, construindo uma atividade flexível e alinhada com os seus objetivos de vida."
+        </p>
+<div class="w-24 h-0.5 bg-heritage-gold mx-auto"></div>
+<p class="font-headline-sm text-headline-sm text-terracotta font-medium max-w-2xl mx-auto">
+          "Porque acredito que o trabalho não deve limitar os nossos sonhos. Deve ser uma ferramenta para os alcançar."
+        </p>
+<div class="pt-4 flex flex-col items-center">
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold">Carla Coelho</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Travel Partner Mentor &amp; Luxury Curator</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Final Invitation & Conversion Card -->
+<section class="w-full py-24 md:py-32 bg-background relative" id="candidatura">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+<!-- Left Explanatory Column -->
+<div class="lg:col-span-5 space-y-6">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded bg-surface-container text-primary">
+<span class="material-symbols-outlined text-sm">mark_email_read</span>
+<span class="font-label-lg text-label-sm uppercase tracking-wider font-semibold">Conversa Inicial</span>
+</div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-xl text-on-surface">
+            Pronto para descobrir mais?
+          </h2>
+<div class="space-y-5 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p class="">
+              Se gostas de viajar, conhecer pessoas e procuras uma oportunidade diferente, talvez este seja o momento de explorares um caminho que nunca tinhas considerado.
+            </p>
+<p class="text-on-surface font-semibold text-headline-sm text-terracotta">
+              Quem sabe se a tua próxima viagem não será o início da tua próxima aventura profissional?
+            </p>
+</div>
+<!-- Direct Channels -->
+<div class="pt-6 space-y-4">
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-low shadow-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Acompanhamento Direto</p>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Sessão individual de esclarecimento</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-low shadow-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Compromisso de Privacidade</p>
+<p class="font-body-md text-body-md text-on-surface font-semibold">100% Confidencial e sem compromisso</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Luxury Interactive Form -->
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest p-8 md:p-12 rounded-2xl shadow-xl border-0">
+<div class="mb-8">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">
+                Candidatar-me a Travel Partner
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Preenche os teus dados abaixo para receberes o guia detalhado e agendares uma conversa personalizada com a Carla Coelho.
+              </p>
+</div>
+<form class="space-y-6" id="partnerForm" onsubmit="event.preventDefault(); handleSubmit();">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Nome -->
+<div class="space-y-2">
+<label class="block font-label-lg text-label-lg text-on-surface" for="nome">Nome Completo *</label>
+<input class="w-full px-4 py-3 bg-surface-container-low rounded-sm focus:outline-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline border-0" id="nome" name="nome" placeholder="Ex: Maria Santos" required="" type="text">
+</div>
+<!-- Email -->
+<div class="space-y-2">
+<label class="block font-label-lg text-label-lg text-on-surface" for="email">Email Preferencial *</label>
+<input class="w-full px-4 py-3 bg-surface-container-low rounded-sm focus:outline-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline border-0" id="email" name="email" placeholder="maria.santos@email.com" required="" type="email">
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Telemovel -->
+<div class="space-y-2">
+<label class="block font-label-lg text-label-lg text-on-surface" for="telemovel">Telemóvel / WhatsApp *</label>
+<input class="w-full px-4 py-3 bg-surface-container-low rounded-sm focus:outline-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline border-0" id="telemovel" name="telemovel" placeholder="+351 912 345 678" required="" type="tel">
+</div>
+<!-- Atividade Atual -->
+<div class="space-y-2">
+<label class="block font-label-lg text-label-lg text-on-surface" for="situacao">Situação Profissional</label>
+<select class="w-full px-4 py-3 bg-surface-container-low rounded-sm focus:outline-none focus:ring-2 focus:ring-primary text-on-surface border-0" id="situacao" name="situacao">
+<option value="empregado">Empregado (procuro rendimento extra)</option>
+<option value="independente">Trabalhador Independente / Freelancer</option>
+<option value="transicao">Em transição de carreira</option>
+<option value="outro">Outra situação</option>
+</select>
+</div>
+</div>
+<!-- Mensagem -->
+<div class="space-y-2">
+<label class="block font-label-lg text-label-lg text-on-surface" for="mensagem">O que mais te atrai nesta oportunidade?</label>
+<textarea class="w-full px-4 py-3 bg-surface-container-low rounded-sm focus:outline-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline border-0" id="mensagem" name="mensagem" placeholder="Conta-me brevemente sobre o teu gosto por viagens ou objetivos pessoais..." rows="3"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-2">
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg py-4 px-8 rounded-sm shadow-md active:scale-[0.99] transition-all flex items-center justify-center gap-3 cursor-pointer" id="submitBtn" type="submit">
+<span class="">Iniciar Conversa com a Carla</span>
+<span class="material-symbols-outlined text-lg">send</span>
+</button>
+</div>
+<div class="hidden p-4 rounded bg-surface-container text-primary font-body-md text-center" id="formSuccess">
+                ✓ Obrigado pelo teu interesse! A Carla entrará em contacto contigo nas próximas 24 horas.
+              </div>
+</form>
+<div class="mt-8 pt-6 border-t border-on-background/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">verified</span>
+                Vagas limitadas por trimestre para acompanhamento 1:1
+              </span>
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="">Dúvidas Frequentes</span>
+<span class="material-symbols-outlined text-sm">help_outline</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>
+    function handleSubmit() {
+      const btn = document.getElementById('submitBtn');
+      const msg = document.getElementById('formSuccess');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-lg">progress_activity</span> A enviar pedido...';
+      
+      setTimeout(() => {
+        btn.classList.add('hidden');
+        msg.classList.remove('hidden');
+      }, 900);
+    }
+  </script>
+</div></main>
+<!-- Footer -->
+<footer class="w-full py-gutter px-margin-desktop bg-surface-container border-t border-on-background/10">
+<div class="max-w-[1280px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
+<div class="max-w-xs">
+<a class="flex items-center gap-4 mb-6" data-path="carla-coelho-home" href="#">
+<img alt="Carla Coelho" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UucvQBicrFhUxb_qC3Fbv7KSYuMKO6SskCcJiksNyY48_EMMj3L3wj70C32-Pf8gy0N1VlH9c-h7DunWbJ3-_uuiMduSlbfpQb8OerBQNwnNFOmYyyUlJPopY8BQNX5BR9ZYLL9pV2Zd2HShZ0qkXZpdbUCTsEmP_jm097A7SVDp_UxE7Vzcr_9Lh3nmBwWhphQZ7JFJhbrysn7lloaKaz3r95wDDsFdYcH8SaiobnXcpoyrKThLQMukc">
+<span class="font-headline-sm text-headline-sm text-primary">Carla Coelho</span>
+</a>
+<p class="font-body-md text-body-md text-on-surface-variant">Curadoria de viagens de luxo para exploradores modernos que valorizam a exclusividade e a autenticidade.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div>
+<h6 class="font-label-lg text-label-lg text-primary uppercase mb-6">Serviços</h6>
+<ul class="flex flex-col gap-3 font-body-md text-body-md text-on-surface-variant">
+<li class=""><a class="hover:text-terracotta transition-colors" data-path="consultoria" href="#servicos">Consultoria</a></li>
+<li class=""><a class="hover:text-terracotta transition-colors" data-path="roteiros" href="#servicos">Roteiros</a></li>
+<li class=""><a class="hover:text-terracotta transition-colors" data-path="vip-concierge" href="#servicos">VIP Concierge</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-label-lg text-label-lg text-primary uppercase mb-6">Agência</h6>
+<ul class="flex flex-col gap-3 font-body-md text-body-md text-on-surface-variant">
+<li class=""><a class="hover:text-terracotta transition-colors" data-path="sobre-mim" href="#sobre-mim">Sobre Mim</a></li>
+<li class=""><a class="hover:text-terracotta transition-colors" data-path="oportunidades" href="#oportunidades">Oportunidades</a></li>
+<li class=""><a class="hover:text-terracotta transition-colors" data-path="contactos" href="#contactos">Contactos</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-1">
+<h6 class="font-label-lg text-label-lg text-primary uppercase mb-6">Legal</h6>
+<ul class="flex flex-col gap-3 font-body-md text-body-md text-on-surface-variant">
+<li class=""><a class="hover:text-terracotta transition-colors" data-path="privacidade" href="#">Privacidade</a></li>
+<li class=""><a class="hover:text-terracotta transition-colors" data-path="termos" href="#">Termos</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-on-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Carla Coelho. Todos os direitos reservados.</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            if (!header) return;
+            if (currentScroll <= 0) {
+                header.classList.remove('shadow-sm');
+                return;
+            }
+            if (currentScroll > lastScroll && currentScroll > 80) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+                header.classList.add('shadow-sm');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+
+
+</body></html>

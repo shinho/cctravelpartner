@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-on-surface": "#f5f3c7", "paper-cream": "#FFFDD0", "on-secondary-fixed-variant": "#574500", "error": "#ba1a1a", "surface-container-highest": "#e6e5b9", "tertiary-fixed": "#61f9e9", "on-primary-container": "#fffbff", "surface-variant": "#e6e5b9", "terracotta": "#CC7722", "primary-fixed-dim": "#ffb77c", "surface-dim": "#dedcb1", "surface-container-lowest": "#ffffff", "secondary-container": "#fed65b", "outline": "#877365", "on-secondary-container": "#745c00", "on-surface-variant": "#544437", "on-error-container": "#93000a", "surface-bright": "#fefccf", "tertiary-container": "#008379", "on-primary-fixed": "#2e1500", "tertiary-fixed-dim": "#3adccc", "on-tertiary-container": "#f4fffc", "on-tertiary-fixed-variant": "#005049", "primary": "#8c4b00", "tertiary": "#00685f", "on-secondary-fixed": "#241a00", "inverse-primary": "#ffb77c", "secondary": "#735c00", "on-background": "#1d1d03", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#e9c349", "heritage-gold": "#D4AF37", "primary-fixed": "#ffdcc2", "secondary-fixed": "#ffe088", "inverse-surface": "#323214", "surface-container": "#f2f0c4", "on-surface": "#1d1d03", "primary-container": "#af6005", "deep-onyx": "#0D0C22", "tropical-lagoon": "#40E0D0", "background": "#fefccf", "on-tertiary-fixed": "#00201d", "outline-variant": "#dac2b2", "error-container": "#ffdad6", "on-error": "#ffffff", "on-primary": "#ffffff", "surface-container-high": "#eceabe", "surface-tint": "#904d00", "surface-container-low": "#f8f6c9", "on-primary-fixed-variant": "#6d3900", "on-secondary": "#ffffff", "surface": "#fefccf" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "base": "8px", "gutter": "24px", "margin-mobile": "16px", "margin-desktop": "64px", "section-gap": "120px" }, "fontFamily": { "label-sm": [ "Hanken Grotesk" ], "headline-sm": [ "Playfair Display" ], "body-md": [ "Hanken Grotesk" ], "display-lg": [ "Playfair Display" ], "label-lg": [ "Hanken Grotesk" ], "headline-xl": [ "Playfair Display" ], "headline-lg": [ "Playfair Display" ], "body-lg": [ "Hanken Grotesk" ], "display-lg-mobile": [ "Playfair Display" ] }, "fontSize": { "label-sm": [ "12px", { "lineHeight": "16px", "fontWeight": "500" } ], "headline-sm": [ "24px", { "lineHeight": "32px", "fontWeight": "600" } ], "body-md": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "display-lg": [ "64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" } ], "headline-xl": [ "48px", { "lineHeight": "56px", "fontWeight": "600" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ], "display-lg-mobile": [ "40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-all duration-300"><div class="h-20 max-w-[1280px] mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between"><div class="flex items-center gap-4"><a class="flex items-center gap-3 group" data-path="destinos" href="#"><img alt="Brand logo. - Primary color: #cc7722
+- Font: playfairDisplay
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XvATIcZXkMS9Va5datwIWG8vk5OJIzRqxOnZmu7-uBSmzApFK9ZIoz7B10Jj5kopt17-IdspneAfvCCdFJakKPEZ6dtlKS7DjxAsXv3IDTbyDzgaTtpTSLoAjS2CHbV_ritAu7n9yQ9OCcooxw5ko02WWfec71767O4RuvYr1CO5pwWkNqaiTWpS7cnrf9F8FiANMZ1rH_I9vZqZwPbotA7q_1lO87fUCYVmAlGQ9WGE0sHGi8UNYNQJg"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight group-hover:text-primary transition-colors duration-200">Carla Coelho</span><span class="font-label-sm text-label-sm text-outline tracking-widest uppercase">Viagens &amp; Experiências</span></div></a></div><nav class="hidden lg:flex items-center gap-gutter" data-active-classes="text-primary font-semibold relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="sobre-mim" href="#">Sobre Mim</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="destinos" href="#">Destinos</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="servicos" href="#">Serviços</a><a aria-current="page" class="transition-colors py-1 text-primary font-semibold relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-primary" data-path="viagens-de-grupo" href="#">Viagens de Grupo</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="oportunidades" href="#">Oportunidades</a></nav><div class="flex items-center gap-base"><a class="hidden sm:inline-flex items-center justify-center px-gutter py-base bg-primary text-on-primary font-label-lg text-label-lg rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" data-path="pedir-proposta" href="#">Pedir Proposta</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full overflow-hidden bg-surface-container-low pt-12 pb-20 lg:pt-16 lg:pb-28">
+<div class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- Left Editorial Content -->
+<div class="lg:col-span-7 flex flex-col items-start z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-secondary-container/40 text-on-secondary-container mb-6">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold">EXPERIÊNCIAS COLETIVAS DE AUTOR</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 leading-tight">
+            Viagens de Grupo <span class="text-primary italic font-serif font-normal">Exclusivas</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-8">
+            Experiências únicas para quem acredita que as melhores memórias são vividas em conjunto.
+          </p>
+<!-- Editorial Quote Box -->
+<div class="relative bg-surface-container-lowest p-6 sm:p-8 rounded-xl shadow-sm mb-8 w-full max-w-xl">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-terracotta text-3xl shrink-0 opacity-80">format_quote</span>
+<p class="font-headline-sm text-headline-sm italic text-on-surface leading-snug">
+                “Viajar em grupo é descobrir novos destinos, criar ligações genuínas e partilhar momentos que se tornam recordações para toda a vida.”
+              </p>
+</div>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-surface-container">
+<span class="font-label-lg text-label-lg uppercase tracking-wider text-outline">Carla Coelho · Curadoria &amp; Liderança</span>
+<div class="flex items-center gap-1 text-heritage-gold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<!-- Quick Stats Badges -->
+<div class="flex flex-wrap items-center gap-3">
+<div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">person_check</span>
+<span class="font-label-lg text-label-lg font-semibold">Máx. 16 Viajantes</span>
+</div>
+<div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[20px]">verified</span>
+<span class="font-label-lg text-label-lg font-semibold">Líder de Viagem Especialista</span>
+</div>
+<div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-terracotta text-[20px]">diamond</span>
+<span class="font-label-lg text-label-lg font-semibold">100% Curadoria Privada</span>
+</div>
+</div>
+</div>
+<!-- Right Cinematic Image Mosaic -->
+<div class="lg:col-span-5 relative mt-8 lg:mt-0">
+<div class="relative mx-auto max-w-md lg:max-w-none">
+<div class="overflow-hidden rounded-2xl shadow-xl aspect-[4/5] bg-surface-container">
+<img alt="Experiência de viagem exclusiva em grupo com vista deslumbrante ao entardecer" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1XebZtqhnqZtOyo5hqRFXCkOJNmsodhcMjOxMr0R-jsBL39e-e1n1W10zv8VfW9O0MnOycs5KUKDHfNr8x7glzJaV8UknKaQsLyVq69avtXagvHRsybYjyNiVptYxq4qFz6Ma2MWWHglLY2zu61kGMdv_HHQpS9nx3NCkOmouKW7rVU0Ut5rLgFWNRuQPGt9D-KVxtVk_cJj6mZY3msIsH_sEUxSoIgonzC71fxsEhDLwPRqDOaeWgZBEE"/>
+</div>
+<!-- Floating Detail Card -->
+<div class="absolute -bottom-6 -left-6 sm:-left-8 bg-surface-container-lowest p-5 rounded-xl shadow-lg max-w-[260px] hidden sm:flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-2xl">sentiment_satisfied</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface leading-tight">100%</span>
+<span class="font-label-sm text-label-sm text-outline">Índice de repetição e conexão humana</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- A FILOSOFIA & O QUE ESPERAR -->
+<section class="w-full py-20 lg:py-28 bg-background">
+<div class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin-desktop">
+<!-- Two Column Philosophy Editorial -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start mb-20">
+<div class="lg:col-span-5">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold block mb-3">A Nossa Filosofia</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-6">
+            O sentido autêntico de viajar lado a lado
+          </h2>
+<div class="h-1 w-20 bg-primary mb-8 rounded"></div>
+<div class="relative overflow-hidden rounded-xl aspect-[16/10] shadow-md bg-surface-container">
+<img alt="Planeamento minucioso, mapas e diário de itinerário personalizado" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VVcWF8aLlAIOwq01CA_rpBMQhCt7hTQ3g6zm8XZExNVroUVLsmNtucT6sgzzGhEpT76GfkeEVmbb1nj1H1u9eGjGLieMUI80VZLvx3daoxzLo9wnxoARLY-_CM-KvIuQvZdDlCY7MJgrInoJdKZUGFKfNkwvYqiSieWnO6aIkka3QgDe9G0zqNxs25AtCSgu9vAp0gdKNSU8gWnjTtD7N-EwDXDjUSLjvuBw3Pszo_svKUJrItMZWFyU4"/>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col gap-6 text-on-surface-variant font-body-lg text-body-lg">
+<p class="leading-relaxed text-on-surface font-medium">
+            As minhas viagens de grupo são cuidadosamente concebidas para proporcionar experiências autênticas, enriquecedoras e inesquecíveis, permitindo que cada participante viaje com conforto, segurança e sem preocupações.
+          </p>
+<p class="leading-relaxed">
+            Cada programa é pensado ao detalhe, equilibrando os locais mais emblemáticos de cada destino com experiências genuínas, cultura local, gastronomia, momentos de convívio e tempo livre para desfrutar ao seu próprio ritmo.
+          </p>
+<p class="leading-relaxed">
+            Os grupos são reduzidos, promovendo um ambiente mais próximo e acolhedor, onde é fácil criar novas amizades e viver a viagem de uma forma mais personalizada.
+          </p>
+<div class="bg-surface-container-low p-6 rounded-xl text-on-surface">
+<p class="font-body-md text-body-md leading-relaxed">
+              Desde o momento da inscrição até ao regresso a casa, acompanho todo o processo para que apenas tenha de fazer uma coisa: aproveitar cada instante da aventura.
+            </p>
+</div>
+</div>
+</div>
+<!-- Section "O que pode esperar das nossas viagens de grupo?" -->
+<div class="w-full mb-16">
+<div class="text-center max-w-2xl mx-auto mb-12">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-terracotta font-semibold block mb-2">Padrão de Excelência</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">O que pode esperar das nossas viagens de grupo?</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[24px]">map</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 font-bold">check_circle</span>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Itinerários cuidadosamente planeados</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Roteiros desenhados ao milímetro, sem pressas, que combinam grandes ícones a passagens exclusivas fora dos trilhos comuns.
+            </p>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[24px]">local_activity</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 font-bold">check_circle</span>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Experiências autênticas e diferenciadoras</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Degustações privadas com produtores locais, acesso antecipado a monumentos e vivências culturais genuínas.
+            </p>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 font-bold">check_circle</span>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Acompanhamento próximo e personalizado</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Presença dedicada de um líder especialista durante toda a jornada, assegurando harmonia e assistência contínua.
+            </p>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[24px]">diversity_3</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 font-bold">check_circle</span>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Grupos reduzidos e ambiente familiar</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Tamanho restrito a 16 membros que facilita conversas profundas, empatia natural e respeito mútuo.
+            </p>
+</div>
+<!-- Item 5 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[24px]">schedule</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 font-bold">check_circle</span>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Equilíbrio com tempo livre</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Atividades organizadas e momentos soltos para passear, relaxar no hotel ou explorar recantos a seu gosto.
+            </p>
+</div>
+<!-- Item 6 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[24px]">shield</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 font-bold">check_circle</span>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Segurança, conforto e tranquilidade</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Veículos de qualidade superior, hotéis de charme com padrões rigorosos e assistência médica e operacional 24/7.
+            </p>
+</div>
+</div>
+</div>
+<!-- Key Quote Banner -->
+<div class="w-full bg-primary text-on-primary rounded-2xl p-8 sm:p-12 text-center shadow-lg relative overflow-hidden">
+<div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+<span class="material-symbols-outlined text-paper-cream/60 text-4xl mb-4">stars</span>
+<p class="font-headline-xl text-headline-xl text-paper-cream italic leading-snug">
+            “Porque algumas viagens visitam lugares. As melhores criam histórias, emoções e amizades que ficam para sempre.”
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- COMO FUNCIONAM & TAMANHO DOS GRUPOS (DUAL EDITORIAL CARDS) -->
+<section class="w-full py-16 lg:py-24 bg-surface-container-low">
+<div class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-8 sm:p-10 rounded-2xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">route</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Organização Transparente</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-6">
+              Como funcionam as viagens de grupo?
+            </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-6">
+              Cada viagem de grupo é preparada com dedicação e atenção aos detalhes, para que os participantes possam simplesmente desfrutar da experiência. Os itinerários foram pensados para combinar os locais mais emblemáticos com experiências autênticas, proporcionando uma imersão verdadeira na cultura e no estilo de vida de cada destino.
+            </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Com grupos mais pequenos e um ambiente acolhedor, cada viagem torna-se uma oportunidade para criar memórias, partilhar momentos e estabelecer novas amizades.
+            </p>
+</div>
+<div class="mt-8 pt-6 border-t border-surface-container flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px]">thumb_up</span>
+<span class="font-label-lg text-label-lg font-semibold">Tudo incluído e gerido sem sobressaltos</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-8 sm:p-10 rounded-2xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">groups_2</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Exclusividade &amp; Ritmo</span>
+</div>
+<span class="px-3 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold uppercase tracking-wider">
+                Máximo 16 pessoas por grupo
+              </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-6">
+              Qual é o tamanho dos grupos?
+            </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-6">
+              Privilegiamos grupos reduzidos, com um máximo de 16 pessoas, acompanhadas por um líder de viagem experiente, para garantir uma experiência mais exclusiva e personalizada.
+            </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Esta dimensão permite um maior conforto, uma dinâmica mais próxima entre os participantes e o acesso a experiências cuidadosamente selecionadas que valorizam a autenticidade de cada destino.
+            </p>
+</div>
+<div class="mt-8 pt-6 border-t border-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">check</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Acesso a espaços intimistas e quintas privadas</span>
+</div>
+<span class="font-label-lg text-label-lg text-primary font-bold">16 máx.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CONTINENTES & DESTINOS INTERATIVOS -->
+<section class="w-full py-20 lg:py-28 bg-background" id="destinos-grupo">
+<div class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin-desktop">
+<!-- Section Title Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold block mb-2">Expedições com Inscrições Abertas</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">As nossas viagens de grupo</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-xl">
+            Selecione um continente para explorar as expedições de autor e roteiros com inscrições abertas ou em preparação.
+          </p>
+</div>
+<!-- Interactive Continent Tabs -->
+<div class="flex items-center gap-2 p-1.5 rounded-xl bg-surface-container overflow-x-auto shrink-0 shadow-inner" id="continent-tabs">
+<button class="continent-tab-btn active px-5 py-2.5 rounded-lg font-label-lg text-label-lg font-semibold transition-all duration-200 bg-primary text-on-primary shadow-sm" data-continent="africa" type="button">
+            África
+          </button>
+<button class="continent-tab-btn px-5 py-2.5 rounded-lg font-label-lg text-label-lg font-semibold transition-all duration-200 text-on-surface-variant hover:text-on-surface" data-continent="asia" type="button">
+            Ásia
+          </button>
+<button class="continent-tab-btn px-5 py-2.5 rounded-lg font-label-lg text-label-lg font-semibold transition-all duration-200 text-on-surface-variant hover:text-on-surface" data-continent="europa" type="button">
+            Europa
+          </button>
+<button class="continent-tab-btn px-5 py-2.5 rounded-lg font-label-lg text-label-lg font-semibold transition-all duration-200 text-on-surface-variant hover:text-on-surface" data-continent="americas" type="button">
+            Américas
+          </button>
+</div>
+</div>
+<!-- CONTINENT PANELS CONTAINER -->
+<div id="continents-container">
+<!-- 1. ÁFRICA TAB CONTENT -->
+<div class="continent-panel grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="tab-africa">
+<!-- Card 1: Marrocos -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Glamping de luxo no deserto do Saara com tendas tradicionais elegantes, almofadas berberes ao pôr-do-sol dourado em dunas de areia macia em tons quentes de terracota e linho cru" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBofYobX4iXAy7mUoV3boeBcJy__2KzyzFOC-YqvISSiye4JKd_sVtxnDi8q1BO_6L4EFP3oqoGWagbv32pjxLDCRF_qBtHB4HfWadTHzTTWqdIzqUF6vdelZw3TvE_we4dT7VlRuvdDe_qFq9ZBS92iQ_VXPnZ3vkTmbVhG8KgqJHOxoa-t_-G6qP8Q19pDemW8RrBEdWtDd3KEvktg-mwdK8CIhAlzmPYqY0fN9Z27xQaQFu5f4LK')"></div>
+<span class="absolute top-4 left-4 px-3 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold uppercase tracking-wider shadow">
+                Vagas Limitadas
+              </span>
+<span class="absolute bottom-4 right-4 px-3 py-1 rounded bg-deep-onyx/80 backdrop-blur text-paper-cream font-label-sm text-label-sm">
+                Máx. 16 Viajantes
+              </span>
+</div>
+<div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span> 8 Dias · Outubro 2025</span>
+<span class="font-medium text-terracotta">Marrocos</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3 group-hover:text-primary transition-colors">
+                  Marrocos &amp; Deserto do Saara
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                  Glamping de luxo nas dunas ondulantes, noite sob o manto de estrelas, aromas das medinas históricas de Marraquexe e palácios ancestrais nos vales do Atlas.
+                </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg group-hover:bg-primary group-hover:text-on-primary transition-colors" data-path="pedir-proposta" href="#">
+<span>Ver Programa Detalhado</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2: Tanzânia -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Safári africano ao pôr-do-sol na Tanzânia com leões e zebras sob acácia monumental, céu em gradiente de ouro e terracota, fotografia de luxo requintada" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBHECR2U-7Ba2Eh68aAH6jp5ybWybEhkuxO4dD4l8yTefFpI-uTJOzBPngIx5zf8KMTl7vKeZPUY4p0gXSKIdwAC1rYOEXwF4JemVBSP6O4PleKkAHFz2AbaAboyygPn-THHGehdvLNwqYNf2PRxlCVVBSeXe7G72Za-37t_p_ZqPbr0ZBTXAlCCoJOe578CuGRaXsqfZ74-dOb2Mfuz3o7G9v8I7RwwTSB4zv1Kn1Lnz1UkDoo8ik9')"></div>
+<span class="absolute top-4 left-4 px-3 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold uppercase tracking-wider shadow">
+                Inscrições Abertas
+              </span>
+<span class="absolute bottom-4 right-4 px-3 py-1 rounded bg-deep-onyx/80 backdrop-blur text-paper-cream font-label-sm text-label-sm">
+                Máx. 16 Viajantes
+              </span>
+</div>
+<div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span> 11 Dias · Novembro 2025</span>
+<span class="font-medium text-terracotta">Tanzânia &amp; Zanzibar</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3 group-hover:text-primary transition-colors">
+                  Safári &amp; Esplendor Africano
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                  Vida selvagem intocada nas planícies do Serengeti, o anfiteatro natural da Cratera de Ngorongoro e refúgio final em águas turquesas de Zanzibar.
+                </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg group-hover:bg-primary group-hover:text-on-primary transition-colors" data-path="pedir-proposta" href="#">
+<span>Ver Programa Detalhado</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3: Namíbia -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Dunas vermelhas monumentais de Sossusvlei na Namíbia com árvores petrificadas em Deadvlei, céu azul profundo límpido e estética de expedição fotográfica de prestígio" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGWamnNXhCL43z6DbwulYZbsvPLc1e5XLe8royTaqG52bAqrP7mL5wsn0rVRHKMOg0PuKof7quqrBA7J5lqnzp6z4-PZE6Wip5VMREvITdJqVIsDQPsb9fXiefP0fPeg35MF-aPFVZRGhLX1V1vcau0qa-M1Bpi9UGb7MCNgR3b6xFWdIFG3CTvwRXp2WNZUuErd_S9SgZZMqZp5YsWGTAzKOofbeQWPoiCWK8T44q1QX6waRhN2Xu')"></div>
+<span class="absolute top-4 left-4 px-3 py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold uppercase tracking-wider shadow">
+                Em Preparação
+              </span>
+<span class="absolute bottom-4 right-4 px-3 py-1 rounded bg-deep-onyx/80 backdrop-blur text-paper-cream font-label-sm text-label-sm">
+                Máx. 16 Viajantes
+              </span>
+</div>
+<div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span> 10 Dias · Março 2026</span>
+<span class="font-medium text-terracotta">Namíbia</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3 group-hover:text-primary transition-colors">
+                  Namíbia: O Silêncio das Dunas
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                  A imensidão misteriosa de Sossusvlei, a Costa dos Esqueletos e noites sob um dos céus mais estrelados do planeta com veículos privados adaptados.
+                </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg group-hover:bg-primary group-hover:text-on-primary transition-colors" data-path="pedir-proposta" href="#">
+<span>Ver Programa Detalhado</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- 2. ÁSIA TAB CONTENT -->
+<div class="continent-panel hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="tab-asia">
+<!-- Card 1: Japão -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Templo histórico de Quioto iluminado à noite com cerejeiras em flor sakura, caminho de pedra molhado e ambiente espiritual sereno no Japão tradicional" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmZ98-9YLda2wW4bujr2_wYmxD2phsptS7u_gweSt47ER7if6OsuLYhoe5NhE2pInyQiEP0ynz0NkMP4Eo3dIxs1mFdYpAw6UdzsUXTpSiWTYpoABUt93hgqcxpbW4YaZIe48mb2LzLvBlSngYdDADPwVVR4m-490SbvWqfqH3r4f3k2H2GX20PYa7zgMIeUrDGiI8wX8wgCiox0lwAOW_MzKsYzi07MWddXE2ebk2oIJlvv-c5eLR')"></div>
+<span class="absolute top-4 left-4 px-3 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold uppercase tracking-wider shadow">
+                Alta Procura
+              </span>
+<span class="absolute bottom-4 right-4 px-3 py-1 rounded bg-deep-onyx/80 backdrop-blur text-paper-cream font-label-sm text-label-sm">
+                Máx. 16 Viajantes
+              </span>
+</div>
+<div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span> 12 Dias · Abril 2026</span>
+<span class="font-medium text-terracotta">Japão</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3 group-hover:text-primary transition-colors">
+                  Japão: Tradição e Vanguarda
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                  Templos centenários em Quioto na época das cerejeiras, Tóquio contemporânea e ryokans de autor com banhos termais onsen privados.
+                </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg group-hover:bg-primary group-hover:text-on-primary transition-colors" data-path="pedir-proposta" href="#">
+<span>Ver Programa Detalhado</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2: Vietname & Camboja -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Templos de Angkor Wat refletidos na água ao nascer do sol dourado, barcos tradicionais de madeira em rio tranquilo no Camboja e Vietname, luxo e serenidade" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDy4PXC_IgKe1L3jZpbDB4Xy1rD4CFQjT_f_y90AdBz40lCpicKnnK1786500bdXz5Y0_udSH4NV_aSN5l_VVw0BcWxOTQ_fBX6FvAaf03zdetKwMwAAjm4Iq60BY6Lh2W1KciRiPg37DOUgpovIMDB_kItvCdjASAoOxG_jEQluRMb-1XFOSTcd3eRyxVXZ7H4MZKb4vXZWmYougnJMJj-8jR46lFOylCjE_xYa0_ub84LEk_vvWUa')"></div>
+<span class="absolute top-4 left-4 px-3 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold uppercase tracking-wider shadow">
+                Inscrições Abertas
+              </span>
+<span class="absolute bottom-4 right-4 px-3 py-1 rounded bg-deep-onyx/80 backdrop-blur text-paper-cream font-label-sm text-label-sm">
+                Máx. 16 Viajantes
+              </span>
+</div>
+<div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span> 13 Dias · Janeiro 2026</span>
+<span class="font-medium text-terracotta">Vietname &amp; Camboja</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3 group-hover:text-primary transition-colors">
+                  Templos Secretos do Mekong
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                  Navegação intimista pela Baía de Lan Ha, a majestade espiritual de Angkor Wat e experiências gastronómicas refinadas na Indochina.
+                </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg group-hover:bg-primary group-hover:text-on-primary transition-colors" data-path="pedir-proposta" href="#">
+<span>Ver Programa Detalhado</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3: Jordânia & Petra -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Monumento do Tesouro em Petra esculpido em arenito rosa ao entardecer com lanternas acesas e deserto de Wadi Rum em tons quentes e dramáticos" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBePgIyCJaNpZajzq-GQHRow11gMSDxMJ5DHN5VK6QM_xVoavsqFtIEsLoZkh74dQvrth64AUmZl0xiaDvPSyAMUF37Op3rByQ9bZapBrlTSv7oYlN8uTQabRuxqdQKi5IVyFQQa5MfN1UQOtCDYDqHzMh9xxQVgZHoR-FhL8cTHjChfVYCCfP6XQK-w7-mWlbax_CyUyIA_O7LLOhM1sBXs1rBCThOENbjBXKUhvSZp9ktQI9AbDDk')"></div>
+<span class="absolute top-4 left-4 px-3 py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold uppercase tracking-wider shadow">
+                Últimos Lugares
+              </span>
+<span class="absolute bottom-4 right-4 px-3 py-1 rounded bg-deep-onyx/80 backdrop-blur text-paper-cream font-label-sm text-label-sm">
+                Máx. 16 Viajantes
+              </span>
+</div>
+<div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span> 8 Dias · Outubro 2025</span>
+<span class="font-medium text-terracotta">Jordânia</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3 group-hover:text-primary transition-colors">
+                  Jordânia &amp; Petra: Segredos Nabateus
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                  A cidade talhada na rocha de Petra iluminada por velas, acampamento de luxo marciano em Wadi Rum e flutuação nas águas do Mar Morto.
+                </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg group-hover:bg-primary group-hover:text-on-primary transition-colors" data-path="pedir-proposta" href="#">
+<span>Ver Programa Detalhado</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- 3. EUROPA TAB CONTENT -->
+<div class="continent-panel hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="tab-europa">
+<!-- Card 1: Costa Amalfitana -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Costa Amalfitana com vilas em cascata sobre o mar azul profundo de Positano, falésias verdes com buganvílias floridas em cores vivas ao sol da tarde italiana" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbAJsLCwtEWgwQRTkUq8Haz5MuABj4VmUpX9HpqTZJyV2pVJSFU4itsW_o5GlvsJYTtm-jE-iHz68G-DyCT2Pq-BFREhjfWCOjVB7EP_LaQS1R66Mb4qiO7298DmJzB9bwsh4BwnuTU8gJDfTAL00dxdEM_PeCUPgW-Axw4LBrWO6esiHy5wCcSutABlYMQUwBjdT1Fir8cP2SlxqwZP92hLemk5j4P55p15i1Wi6PUrbASkdIvwQV')"></div>
+<span class="absolute top-4 left-4 px-3 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold uppercase tracking-wider shadow">
+                Exclusivo de Verão
+              </span>
+<span class="absolute bottom-4 right-4 px-3 py-1 rounded bg-deep-onyx/80 backdrop-blur text-paper-cream font-label-sm text-label-sm">
+                Máx. 16 Viajantes
+              </span>
+</div>
+<div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span> 7 Dias · Junho 2025</span>
+<span class="font-medium text-terracotta">Itália</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3 group-hover:text-primary transition-colors">
+                  Costa Amalfitana &amp; Capri de Autor
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                  Vilas históricas debruçadas sobre o Tirreno, navegação privada de iate em torno dos Faraglioni de Capri e alta gastronomia campana.
+                </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg group-hover:bg-primary group-hover:text-on-primary transition-colors" data-path="pedir-proposta" href="#">
+<span>Ver Programa Detalhado</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2: Dolomitas & Lagos -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative aspect-[16/10] overflow-hidden bg-surface-container">
+<img alt="Estrada cénica nos Alpes e Dolomitas com montanhas majestosas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1WGx7FEky1owI1B7O-jLSl3VndIihLoWGfZIr0LB64hMQSBO57NuTm7FvZxRgTcmcHBYIUGmnzsiOHZnfIzSj5nEkibZW6Lxh4WIjslx6ayyJaDz3vVbw0n8VibAd8HpBQTbWIjxzuhq2lgWpA-BLnLc9HpwveVXBgmZg6wpTogphZ-GFo_HFTpNWcxElMundE-NKdC7cZ_IWraz_QDXRfZKjeDLvrjq2Abj4g7isBXq9S4Ai_ATHJBqJs"/>
+<span class="absolute top-4 left-4 px-3 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold uppercase tracking-wider shadow">
+                Inscrições Abertas
+              </span>
+<span class="absolute bottom-4 right-4 px-3 py-1 rounded bg-deep-onyx/80 backdrop-blur text-paper-cream font-label-sm text-label-sm">
+                Máx. 16 Viajantes
+              </span>
+</div>
+<div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span> 8 Dias · Julho 2025</span>
+<span class="font-medium text-terracotta">Norte de Itália</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3 group-hover:text-primary transition-colors">
+                  Dolomitas &amp; Lagos Italianos
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                  Rotas cénicas alpinas no topo dos picos declarados património UNESCO, lagos de águas esmeralda e estadias em chalets históricos de montanha.
+                </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg group-hover:bg-primary group-hover:text-on-primary transition-colors" data-path="pedir-proposta" href="#">
+<span>Ver Programa Detalhado</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3: Toscana & Úmbria -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Jantar nobre ao pôr-do-sol numa colina da Toscana com vinhas a perder de vista, vinho Chianti, claustros renascentistas iluminados à luz de velas e arquitetura de pedra antiga" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4plI7VDlhwtaJ3nN4ejv32TyvpfoA5p1uykOQMx2JAC6wnPq6iuWgNF49b7JpSqZ9pCzIMQWkfwRn3QFgWQUAmAQc2PpUZta4V04ckIsmhOlsVFeQpTb8HfcDBGnIuHRVWJ9L3D5btooEV5pdW4YZCXlNGXYv8p1XPVK0zl6I3gRdd5jSfosfxDSHrcTjRap_yXf6J6t-w-BxGxnHtoFSBr5ieCqHARaAqvvHlJljV5QHx7DW5hKn')"></div>
+<span class="absolute top-4 left-4 px-3 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold uppercase tracking-wider shadow">
+                Época das Vindimas
+              </span>
+<span class="absolute bottom-4 right-4 px-3 py-1 rounded bg-deep-onyx/80 backdrop-blur text-paper-cream font-label-sm text-label-sm">
+                Máx. 16 Viajantes
+              </span>
+</div>
+<div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span> 7 Dias · Setembro 2025</span>
+<span class="font-medium text-terracotta">Itália</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3 group-hover:text-primary transition-colors">
+                  Toscana &amp; Úmbria: Vínica &amp; Palácios
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                  Vindimas em quintas biodinâmicas familiares, claustros e mosteiros fechados ao público e jantares de autor sob as colinas douradas.
+                </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg group-hover:bg-primary group-hover:text-on-primary transition-colors" data-path="pedir-proposta" href="#">
+<span>Ver Programa Detalhado</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- 4. AMÉRICAS TAB CONTENT -->
+<div class="continent-panel hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="tab-americas">
+<!-- Card 1: Patagónia -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Torres del Paine na Patagónia com lago turquesa translúcido, montanhas dramáticas com glaciares e estepe intocada sob luz dourada e límpida" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-m63TGQi1OBll4PR5iybuV2YkxsUPXgyXV9nz5cwjw0u2V48ADJIM8ZQpq6r00kOk2N0kIKQWWTpHqW8h9dDQUtBd8U4uLLlk_4jpvBeScFqJWeiyTUxw1XK1A6kh1PWjtDyytG8tvVX0tUbNQeDniCQTuKOzKkfiXpjhGsv84KHBNHEmpL1RovftKLrC5QieCevBMoq0fnVRFB8ZCAE_a5O-BdVHEilJuxgKiyGS2QNRzytmYx3K')"></div>
+<span class="absolute top-4 left-4 px-3 py-1 rounded bg-tertiary text-on-tertiary font-label-sm text-label-sm font-semibold uppercase tracking-wider shadow">
+                Expedição Polar
+              </span>
+<span class="absolute bottom-4 right-4 px-3 py-1 rounded bg-deep-onyx/80 backdrop-blur text-paper-cream font-label-sm text-label-sm">
+                Máx. 16 Viajantes
+              </span>
+</div>
+<div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span> 12 Dias · Dezembro 2025</span>
+<span class="font-medium text-terracotta">Chile &amp; Argentina</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3 group-hover:text-primary transition-colors">
+                  Patagónia: Glaciares e Fim do Mundo
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                  Navegação pelos fiordes e campos de gelo do Perito Moreno, caminhadas nos maciços de Torres del Paine e estadias em estâncias remotas.
+                </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg group-hover:bg-primary group-hover:text-on-primary transition-colors" data-path="pedir-proposta" href="#">
+<span>Ver Programa Detalhado</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2: Peru Místico -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Cidadela de Machu Picchu envolta em névoa mística suave ao alvorecer com terraços incas verdes e montanhas imponentes dos Andes ao fundo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAoNigOS7s2WMbQI7kLUxwyzoKs4LTstZV4vkAT090tbhVb6oJaAGjf_bgG6gG41Su_DzqpOeWeFY9c1aeXG4A-7zME8SGEdBJr6vCcU3tiTf9tUbWJ90h6S3IXW12aHDRgK9TIh5k3fwXwBz8STOaD6bI8CU0ewypmjzLMLg3Nkl0Ey5PgnBU5orqzGsYywmZNQfziyEfbZXhoATfztf4Qf5HnaaOrcMSgaLXIcM4jx4RBjPqlEyP0')"></div>
+<span class="absolute top-4 left-4 px-3 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold uppercase tracking-wider shadow">
+                Inscrições Abertas
+              </span>
+<span class="absolute bottom-4 right-4 px-3 py-1 rounded bg-deep-onyx/80 backdrop-blur text-paper-cream font-label-sm text-label-sm">
+                Máx. 16 Viajantes
+              </span>
+</div>
+<div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span> 10 Dias · Maio 2026</span>
+<span class="font-medium text-terracotta">Peru</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3 group-hover:text-primary transition-colors">
+                  Peru Místico: Vale Sagrado &amp; Machu Picchu
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                  Comboio panorâmico exclusivo Hiram Bingham, cerimónias xamânicas ancestrais e património arqueológico no Vale Sagrado dos Incas.
+                </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg group-hover:bg-primary group-hover:text-on-primary transition-colors" data-path="pedir-proposta" href="#">
+<span>Ver Programa Detalhado</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3: Costa Rica -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Floresta tropical luxuriante da Costa Rica com pontes suspensas na neblina mística, cascatas de água pura e ecologia de luxo sustentável" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBtyXOm8OYP3tIrUg4litJAfbXPX5tfP68P1YEy1kebB33aJ-Un3LWQaW3tnpmr-UckXs6dVpUDsBFhb-0zEjtN1vkHTpahbVPC36EnCgvECqnUIj9NNzzfdheAEJalD-Xij5j7_9uanPvh9nAWX_agbODu6cWYviz3KdzErK6hmhLfXrTv4nXqT9sD8zsWTNH80SMRbhG0u1kmJmacmMzGW_lU4Bmj9ZAWrXFknnj7GOK1c8HZTnpB')"></div>
+<span class="absolute top-4 left-4 px-3 py-1 rounded bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-semibold uppercase tracking-wider shadow">
+                Eco-Luxo
+              </span>
+<span class="absolute bottom-4 right-4 px-3 py-1 rounded bg-deep-onyx/80 backdrop-blur text-paper-cream font-label-sm text-label-sm">
+                Máx. 16 Viajantes
+              </span>
+</div>
+<div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span> 11 Dias · Fevereiro 2026</span>
+<span class="font-medium text-terracotta">Costa Rica</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3 group-hover:text-primary transition-colors">
+                  Costa Rica: Florestas &amp; Pacífico
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                  Imersão em florestas nebulosas em Monteverde, águas termais no sopé do Vulcão Arenal e refúgios tranquilos nas praias do Pacífico.
+                </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg group-hover:bg-primary group-hover:text-on-primary transition-colors" data-path="pedir-proposta" href="#">
+<span>Ver Programa Detalhado</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ITINERÁRIO EXEMPLO: COMO É VIVER UMA JORNADA EM GRUPO -->
+<section class="w-full py-16 lg:py-24 bg-surface-container-low">
+<div class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin-desktop">
+<div class="max-w-3xl mx-auto text-center mb-16">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold block mb-2">A Experiência no Terreno</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Um dia típico numa expedição de autor</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3">
+          O equilíbrio perfeito entre a descoberta curada e a liberdade de respirar o destino sem pressas.
+        </p>
+</div>
+<!-- Timeline Component -->
+<div class="max-w-3xl mx-auto relative pl-6 sm:pl-8 border-l-2 border-heritage-gold/30 flex flex-col gap-10">
+<!-- Step 1 -->
+<div class="relative">
+<div class="absolute -left-[31px] sm:-left-[39px] top-1 w-6 h-6 rounded-full bg-heritage-gold flex items-center justify-center text-on-primary text-xs font-bold">
+            1
+          </div>
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Manhã Serene</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-2">Despertar sem pressa e pequeno-almoço com vista</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Começamos com calma, saboreando a gastronomia regional do hotel selecionado. As partidas são organizadas em horários que evitam as horas de maior afluência turística.
+          </p>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="absolute -left-[31px] sm:-left-[39px] top-1 w-6 h-6 rounded-full bg-heritage-gold flex items-center justify-center text-on-primary text-xs font-bold">
+            2
+          </div>
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Acesso Privilegiado</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-2">Visitas a portas fechadas e encontros locais</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Encontros com historiadores, artistas ou viticultores amigos. Em vez de explicações apressadas por megafone, temos uma conversa intimista em volta de um café ou oficina artesanal.
+          </p>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<div class="absolute -left-[31px] sm:-left-[39px] top-1 w-6 h-6 rounded-full bg-heritage-gold flex items-center justify-center text-on-primary text-xs font-bold">
+            3
+          </div>
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Tempo Próprio</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-2">Tarde livre para explorar ou descansar</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Acreditamos que cada viajante necessita de espaço para o seu próprio ritmo: passear por vielas floridas, ler um livro à beira da piscina ou fazer compras artesanais.
+          </p>
+</div>
+<!-- Step 4 -->
+<div class="relative">
+<div class="absolute -left-[31px] sm:-left-[39px] top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-on-primary text-xs font-bold">
+            4
+          </div>
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Mesa &amp; Celebração</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-2">Jantar partilhado à luz de velas</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            O momento alto de cada dia: sentamo-nos à mesa para brindar, partilhar fotografias, rir dos momentos vividos e antecipar o dia seguinte com amizades já consolidadas.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- CALL TO ACTION FINAL -->
+<section class="w-full py-20 lg:py-28 bg-surface-container-lowest relative overflow-hidden">
+<div class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin-desktop relative z-10">
+<div class="max-w-4xl mx-auto bg-surface-container-low rounded-3xl p-8 sm:p-14 lg:p-16 shadow-lg text-center flex flex-col items-center">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold mb-3">O Próximo Capítulo</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-6 max-w-2xl leading-tight">
+          A próxima grande aventura começa aqui
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed mb-6">
+          Parta à descoberta de destinos fascinantes através de viagens cuidadosamente planeadas, em grupos reduzidos e com acompanhamento próximo. Viva experiências genuínas, conheça pessoas inspiradoras e desfrute de cada momento sem preocupações.
+        </p>
+<p class="font-headline-sm text-headline-sm italic text-on-surface mb-10 max-w-2xl">
+          Porque as melhores viagens não são apenas aquelas que nos levam a novos lugares, mas também aquelas que nos proporcionam memórias para a vida.
+        </p>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-12">
+<a class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-semibold hover:bg-primary-container transition-all shadow-md" data-path="pedir-proposta" href="#">
+<span>Pedir Informações sobre Próximas Saídas</span>
+<span class="material-symbols-outlined ml-2 text-[20px]">arrow_forward</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-lg bg-surface text-primary border border-heritage-gold font-label-lg text-label-lg font-semibold hover:bg-surface-container transition-all" href="https://wa.me/351912345678" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined mr-2 text-[20px]">chat</span>
+<span>Conversar Diretamente com a Carla</span>
+</a>
+</div>
+<!-- Trust and Reassurance Badges -->
+<div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 pt-8 border-t border-surface-container-highest w-full text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">groups</span>
+<span class="font-semibold text-on-surface">Grupos Máx. 16 Pessoas</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">verified_user</span>
+<span class="font-semibold text-on-surface">Acompanhamento Dedicado</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-heritage-gold text-[20px]">lock</span>
+<span class="font-semibold text-on-surface">Reserva Segura &amp; Transparente</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Continent Switch Script -->
+<script>
+    (function() {
+      const tabButtons = document.querySelectorAll('.continent-tab-btn');
+      const panels = {
+        'africa': document.getElementById('tab-africa'),
+        'asia': document.getElementById('tab-asia'),
+        'europa': document.getElementById('tab-europa'),
+        'americas': document.getElementById('tab-americas')
+      };
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const target = button.getAttribute('data-continent');
+
+          // Reset all tabs styles
+          tabButtons.forEach(btn => {
+            btn.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm', 'active');
+            btn.classList.add('text-on-surface-variant');
+          });
+
+          // Set active state on clicked tab
+          button.classList.add('bg-primary', 'text-on-primary', 'shadow-sm', 'active');
+          button.classList.remove('text-on-surface-variant');
+
+          // Hide all panels & reveal target panel
+          Object.keys(panels).forEach(key => {
+            if (panels[key]) {
+              panels[key].classList.add('hidden');
+              panels[key].classList.remove('grid');
+            }
+          });
+
+          if (panels[target]) {
+            panels[target].classList.remove('hidden');
+            panels[target].classList.add('grid');
+          }
+        });
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface pt-section-gap pb-gutter"><div class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter mb-section-gap"><div class="lg:col-span-4 flex flex-col gap-base"><div class="flex items-center gap-3"><img alt="Carla Coelho Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XvATIcZXkMS9Va5datwIWG8vk5OJIzRqxOnZmu7-uBSmzApFK9ZIoz7B10Jj5kopt17-IdspneAfvCCdFJakKPEZ6dtlKS7DjxAsXv3IDTbyDzgaTtpTSLoAjS2CHbV_ritAu7n9yQ9OCcooxw5ko02WWfec71767O4RuvYr1CO5pwWkNqaiTWpS7cnrf9F8FiANMZ1rH_I9vZqZwPbotA7q_1lO87fUCYVmAlGQ9WGE0sHGi8UNYNQJg"/><span class="font-headline-sm text-headline-sm text-on-surface">Carla Coelho</span></div><p class="font-body-md text-body-md text-on-surface-variant mt-base max-w-sm">Curadoria personalizada de viagens de luxo e expedições memoráveis pelo mundo com atendimento exclusivo e atenção máxima ao detalhe.</p><div class="flex items-center gap-gutter mt-gutter"><a class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors shadow-[0_1px_8px_rgba(0,0,0,0.04)]" href="#"><span class="material-symbols-outlined text-[20px]">share</span></a><a class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors shadow-[0_1px_8px_rgba(0,0,0,0.04)]" href="#"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a><a class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors shadow-[0_1px_8px_rgba(0,0,0,0.04)]" href="#"><span class="material-symbols-outlined text-[20px]">mail</span></a></div></div><div class="lg:col-span-2 lg:col-start-6 flex flex-col gap-base"><span class="font-label-lg text-label-lg uppercase tracking-wider text-outline mb-base">Navegação</span><nav class="flex flex-col gap-base"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="sobre-mim" href="#">Sobre Mim</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="destinos" href="#">Destinos</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="servicos" href="#">Serviços</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="viagens-de-grupo" href="#">Viagens de Grupo</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="oportunidades" href="#">Oportunidades</a></nav></div><div class="lg:col-span-2 flex flex-col gap-base"><span class="font-label-lg text-label-lg uppercase tracking-wider text-outline mb-base">Experiências</span><nav class="flex flex-col gap-base"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="destinos" href="#">Lua de Mel</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="destinos" href="#">Expedições &amp; Safaris</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="destinos" href="#">Roteiros Culturais</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="destinos" href="#">Cruzeiros Exclusivos</a></nav></div><div class="lg:col-span-3 flex flex-col gap-base"><span class="font-label-lg text-label-lg uppercase tracking-wider text-outline mb-base">Contacto Direto</span><div class="flex flex-col gap-gutter"><div class="flex items-start gap-base"><span class="material-symbols-outlined text-primary mt-1">location_on</span><span class="font-body-md text-body-md text-on-surface-variant">Avenida da Liberdade, Lisboa, Portugal</span></div><div class="flex items-center gap-base"><span class="material-symbols-outlined text-primary">call</span><span class="font-body-md text-body-md text-on-surface-variant">+351 912 345 678</span></div><div class="flex items-center gap-base"><span class="material-symbols-outlined text-primary">alternate_email</span><span class="font-body-md text-body-md text-on-surface-variant">contacto@carlacoelho.pt</span></div><div class="mt-base"><a class="inline-flex items-center gap-base text-primary font-label-lg text-label-lg hover:text-primary-container transition-colors" data-path="pedir-proposta" href="#"><span>Falar Connosco</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span></a></div></div></div></div><div class="pt-gutter flex flex-col md:flex-row items-center justify-between gap-base text-outline"><p class="font-body-md text-body-md">© 2025 Carla Coelho - Viagens &amp; Experiências. Todos os direitos reservados.</p><div class="flex items-center gap-gutter"><a class="font-body-md text-body-md hover:text-on-surface transition-colors" href="#">Política de Privacidade</a><a class="font-body-md text-body-md hover:text-on-surface transition-colors" href="#">Termos e Condições</a><a class="font-body-md text-body-md hover:text-on-surface transition-colors" href="#">Registo RNAVT</a></div></div></div></footer></body></html>

@@ -6,7 +6,7 @@ export default {
   },
   nav: {
     home: 'Home',
-    sobre: 'About Us',
+    sobre: 'About Me',
     destinos: 'Destinations',
     servicos: 'Services',
     viagensGrupo: 'Group Travel',

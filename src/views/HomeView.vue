@@ -52,7 +52,7 @@
           <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 leading-relaxed font-light">
             A nossa agência nasceu da paixão pela descoberta e do compromisso inabalável com a excelência. Com uma rede global de parceiros exclusivos, garantimos acesso ao inacessível e conforto onde o luxo encontra a autenticidade.
           </p>
-          <router-link class="inline-flex items-center gap-4 text-primary font-label-lg text-label-lg hover:gap-6 transition-all tracking-widest border-b border-primary/20 pb-1" to="/sobre-nos">
+          <router-link class="inline-flex items-center gap-4 text-primary font-label-lg text-label-lg hover:gap-6 transition-all tracking-widest border-b border-primary/20 pb-1" to="/sobre-mim">
             CONHEÇA A NOSSA HISTÓRIA
             <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
           </router-link>

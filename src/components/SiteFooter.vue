@@ -21,7 +21,7 @@
           <div>
             <h6 class="font-label-lg text-label-lg text-primary uppercase mb-8 tracking-widest text-[11px]">{{ $t('footer.agencia') }}</h6>
             <ul class="flex flex-col gap-4 font-body-md text-body-md text-on-surface-variant/80 font-light">
-              <li><router-link class="hover:text-primary transition-colors" to="/sobre-nos">{{ $t('nav.sobre') }}</router-link></li>
+              <li><router-link class="hover:text-primary transition-colors" to="/sobre-mim">{{ $t('nav.sobre') }}</router-link></li>
               <li><router-link class="hover:text-primary transition-colors" to="/oportunidades">{{ $t('footer.oportunidades') }}</router-link></li>
               <li><router-link class="hover:text-primary transition-colors" to="/contactos">{{ $t('footer.contato') }}</router-link></li>
             </ul>
