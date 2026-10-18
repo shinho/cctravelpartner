@@ -1,258 +1,193 @@
 <template>
-  <div class="scroll-stack-wrapper h-screen overflow-hidden perspective-1000px">
-    <div 
-      class="scroll-stack-container h-full overflow-y-auto scroll-smooth"
-      @scroll="handleContainerScroll"
-    >
-      <div class="scroll-stack-track relative">
-        <!-- Section 1: Hero Carousel -->
-        <section 
-          class="scroll-stack-section absolute top-0 left-0 w-full h-screen overflow-hidden"
-          :style="getSectionStyle(0)"
-          data-index="0"
-        >
-          <div class="bg-deep-onyx absolute inset-0"></div>
-          <div class="flex h-full carousel-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
-            <div v-for="(slide, index) in slides" :key="index" class="min-w-full h-full relative">
-              <div class="absolute inset-0 bg-deep-onyx/30 z-10"></div>
-              <img class="w-full h-full object-cover" :src="slide.image" :alt="slide.alt" />
-            </div>
-          </div>
-          <div class="absolute inset-0 z-20 flex flex-col justify-center items-center text-center px-margin-mobile">
-            <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-6 max-w-4xl leading-tight font-serif-light">
-              Exploração de Alto Nível: <br class="hidden md:block" /> O Mundo à Sua Medida
-            </h1>
-            <p class="font-body-lg text-body-lg text-white/90 mb-10 max-w-2xl font-light">
-              Experiências de viagem exclusivas com curadoria especializada para quem procura o extraordinário.
-            </p>
-            <div class="flex gap-6">
-              <router-link class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 font-label-lg text-label-lg uppercase tracking-[0.2em] rounded-sm hover:bg-white hover:text-deep-onyx transition-all duration-500" to="/destinos">
-                Explorar Destinos
-              </router-link>
-              <router-link class="border border-white/30 text-white px-8 py-4 font-label-lg text-label-lg uppercase tracking-[0.2em] rounded-sm hover:bg-white/10 transition-all duration-500" to="/orcamento">
-                Solicitar Orçamento
-              </router-link>
-            </div>
-          </div>
-          <!-- Carousel Nav -->
-          <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-6">
-            <button
-              v-for="(slide, index) in slides"
-              :key="'dot-' + index"
-              class="rounded-full transition-all carousel-dot"
-              :class="currentSlide === index ? 'bg-white' : 'bg-white/40 hover:bg-white'"
-              :style="currentSlide === index ? { width: '12px', borderRadius: '2px' } : { width: '6px', borderRadius: '50%' }"
-              @click="moveCarousel(index)"
-            ></button>
-          </div>
-        </section>
+  <main class="sticky-sections-demo">
+    <!-- Hero Section (acts as the header) -->
+    <header class="frame frame--header" :style="{ backgroundImage: `url(${slides[0].image})` }">
+      <div class="frame__overlay"></div>
+      <div class="frame__heading">
+        <h1 class="frame__title">Carla Coelho Viagens de Luxo</h1>
+        <p class="text-meta">Exploração de Alto Nível: O Mundo à Sua Medida</p>
+      </div>
+      <div class="frame__content">
+        <p class="text-large">Experiências de viagem exclusivas com curadoria especializada para quem procura o extraordinário.</p>
+        <div class="frame__buttons">
+          <router-link class="btn btn--primary" to="/destinos">Explorar Destinos</router-link>
+          <router-link class="btn btn--secondary" to="/orcamento">Solicitar Orçamento</router-link>
+        </div>
+      </div>
+      <!-- Carousel Nav -->
+      <div class="frame__nav">
+        <button
+          v-for="(slide, index) in slides"
+          :key="'dot-' + index"
+          class="nav-dot"
+          :class="{ 'nav-dot--active': currentSlide === index }"
+          @click="moveCarousel(index)"
+        ></button>
+      </div>
+    </header>
 
-        <!-- Section 2: Sobre Nós -->
-        <section 
-          class="scroll-stack-section absolute top-0 left-0 w-full h-screen overflow-hidden"
-          :style="getSectionStyle(1)"
-          data-index="1"
-          id="sobre-nos"
-        >
-          <div class="bg-background absolute inset-0"></div>
-          <div class="absolute inset-0 arabic-ornament pointer-events-none"></div>
-          <div class="max-w-[1280px] mx-auto relative z-10 h-full px-margin-desktop flex">
-            <div class="w-full flex flex-col md:flex-row items-center gap-12 md:gap-20 overflow-hidden">
-              <div class="w-full md:w-1/2 h-full flex flex-col justify-center">
-                <div class="max-h-full overflow-y-auto pr-4">
-                  <div class="inline-block tracking-[0.2em] text-primary font-label-lg text-[11px] mb-8 uppercase">
-                    NOSSO COMPROMISSO
-                  </div>
-                  <h2 class="font-headline-xl text-headline-xl text-on-surface mb-8 font-serif-light leading-tight">A Arte de Viajar com Propósito e Elegância</h2>
-                  <p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed font-light">
-                    Na Carla Coelho Viagens de Luxo, não vendemos apenas destinos; desenhamos memórias. Cada viagem é uma obra-prima única, meticulosamente planeada para refletir os seus desejos mais profundos e superar as suas expectativas mais elevadas.
-                  </p>
-                  <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 leading-relaxed font-light">
-                    A nossa agência nasceu da paixão pela descoberta e do compromisso inabalável com a excelência. Com uma rede global de parceiros exclusivos, garantimos acesso ao inacessível e conforto onde o luxo encontra a autenticidade.
-                  </p>
-                  <router-link class="inline-flex items-center gap-4 text-primary font-label-lg text-label-lg hover:gap-6 transition-all tracking-widest border-b border-primary/20 pb-1" to="/sobre-mim">
-                    CONHEÇA A NOSSA HISTÓRIA
-                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                  </router-link>
-                </div>
-              </div>
-              <div class="w-full md:w-1/2 h-full flex items-center justify-center gap-6 overflow-hidden">
-                <div class="flex flex-col gap-6 h-full max-h-[60vh] md:max-h-full justify-center">
-                  <div class="h-1/2 max-h-[30vh] md:max-h-[40vh]">
-                    <div class="h-full bg-surface-dim overflow-hidden rounded-sm relative group shadow-2xl shadow-primary/5">
-                      <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" :src="aboutImages[0]" alt="Luxury travel accessories on marble surface" />
-                    </div>
-                  </div>
-                  <div class="h-1/2 max-h-[30vh] md:max-h-[40vh] mt-0 md:mt-12">
-                    <div class="h-full bg-surface-dim overflow-hidden rounded-sm relative group shadow-2xl shadow-primary/5">
-                      <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" :src="aboutImages[1]" alt="Boutique hotel lobby with minimalist architecture" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    <!-- Intro section -->
+    <div class="content content--highlight content--intro">
+      <p class="text-large">Na Carla Coelho Viagens de Luxo, não vendemos apenas destinos; desenhamos memórias.</p>
+    </div>
 
-        <!-- Section 3: Destinos -->
-        <section 
-          class="scroll-stack-section absolute top-0 left-0 w-full h-screen"
-          :style="getSectionStyle(2)"
-          data-index="2"
-          id="destinos"
-        >
-          <div class="bg-surface-container-low absolute inset-0"></div>
-          <div class="max-w-[1280px] mx-auto h-full px-margin-desktop flex flex-col justify-center overflow-hidden">
-            <div class="text-center mb-12 md:mb-20">
-              <h2 class="font-headline-xl text-headline-xl text-on-surface mb-6 font-serif-light">Destinos com Alma</h2>
-              <div class="h-px w-24 bg-primary/30 mx-auto"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 flex-1 min-h-0">
-              <router-link v-for="destino in destinos" :key="destino.name" class="group cursor-pointer block h-full max-h-[30vh] md:max-h-[35vh]" :to="destino.path">
-                <div class="relative h-full w-full overflow-hidden rounded-sm mb-6 border border-primary/5">
-                  <img class="w-full h-full object-cover sepia-[0.2] group-hover:sepia-0 transition-all duration-1000 group-hover:scale-105" :src="destino.image" :alt="destino.alt" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/70 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-                  <div class="absolute bottom-4 md:bottom-10 left-4 md:left-10 text-white">
-                    <h3 class="font-headline-sm text-headline-sm mb-2 font-serif-light">{{ destino.title }}</h3>
-                    <p class="font-label-sm text-label-sm uppercase tracking-[0.2em] opacity-80 font-light">{{ destino.subtitle }}</p>
-                  </div>
+    <!-- Wrap - contains all sticky sections -->
+    <div class="wrap">
+      <!-- Section 1: Sobre Nós -->
+      <div class="content content--sticky content--grid bg-1" ref="stickySections">
+        <div class="content__inner">
+          <div class="content__img-wrap">
+            <img class="content__img content__img--large content__img--left" :src="aboutImages[0]" alt="Luxury travel accessories">
+          </div>
+          <div class="content__text-wrap">
+            <span class="text-meta uppercase tracking-widest text-xs">Nosso Compromisso</span>
+            <h2 class="content__title"><i>A Arte de Viajar</i> com Propósito e Elegância</h2>
+            <p class="content__text content__text--left text-meta">Na Carla Coelho Viagens de Luxo, não vendemos apenas destinos; desenhamos memórias. Cada viagem é uma obra-prima única, meticulosamente planeada para refletir os seus desejos mais profundos e superar as suas expectativas mais elevadas.</p>
+            <p class="content__text content__text--left text-meta">A nossa agência nasceu da paixão pela descoberta e do compromisso inabalável com a excelência. Com uma rede global de parceiros exclusivos, garantimos acesso ao inacessível e conforto onde o luxo encontra a autenticidade.</p>
+            <router-link class="content__link" to="/sobre-mim">
+              CONHEÇA A NOSSA HISTÓRIA →
+            </router-link>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Destinos -->
+      <div class="content content--sticky content--grid bg-2" ref="stickySections">
+        <div class="content__inner">
+          <div class="content__img-wrap">
+            <img class="content__img content__img--large content__img--left" :src="destinos[0].image" alt="Praias Tropicais">
+          </div>
+          <div class="content__text-wrap">
+            <h2 class="content__title"><i>Destinos</i> com Alma</h2>
+            <p class="content__text content__text--left text-meta">Experiências únicas em locais extraordinários. Cada destino é cuidadosamente seleccionado para oferecer o melhor do luxo e autenticidade.</p>
+            <div class="content__grid">
+              <router-link v-for="destino in destinos" :key="destino.name" class="content__card" :to="destino.path">
+                <img :src="destino.image" :alt="destino.alt" />
+                <div class="content__card-overlay">
+                  <h3>{{ destino.title }}</h3>
+                  <p>{{ destino.subtitle }}</p>
                 </div>
               </router-link>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
 
-        <!-- Section 4: Serviços Exclusivos -->
-        <section 
-          class="scroll-stack-section absolute top-0 left-0 w-full h-screen overflow-hidden"
-          :style="getSectionStyle(3)"
-          data-index="3"
-          id="servicos"
-        >
-          <div class="bg-background absolute inset-0"></div>
-          <div class="absolute inset-0 arabic-ornament pointer-events-none opacity-5"></div>
-          <div class="max-w-[1280px] mx-auto relative z-10 h-full px-margin-desktop flex flex-col justify-center overflow-hidden">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-20 gap-4 md:gap-8">
-              <div class="max-w-xl">
-                <h2 class="font-headline-xl text-headline-xl text-on-surface mb-6 font-serif-light">Onde a Distinção se Encontra com a Conveniência</h2>
-                <p class="font-body-lg text-body-lg text-on-surface-variant font-light">Elevamos a sua viagem a um nível superior com serviços premium desenhados para a sua total tranquilidade.</p>
-              </div>
-              <router-link class="border-b border-primary/40 pb-2 font-label-lg text-label-lg text-primary hover:text-on-surface transition-all tracking-[0.15em] uppercase text-[12px] whitespace-nowrap" to="/servicos">
-                VER TODOS OS SERVIÇOS
+      <!-- Section 3: Serviços -->
+      <div class="content content--sticky content--grid bg-3" ref="stickySections">
+        <div class="content__inner">
+          <div class="content__img-wrap">
+            <img class="content__img content__img--large content__img--left" :src="aboutImages[1]" alt="Boutique hotel lobby">
+          </div>
+          <div class="content__text-wrap">
+            <h2 class="content__title"><i>Onde a Distinção</i> se Encontra com a Conveniência</h2>
+            <p class="content__text content__text--left text-meta">Elevamos a sua viagem a um nível superior com serviços premium desenhados para a sua total tranquilidade.</p>
+            <div class="content__services">
+              <router-link v-for="servico in servicos" :key="servico.name" class="service-card" :to="servico.path">
+                <span class="material-symbols-outlined">{{ servico.icon }}</span>
+                <h4>{{ servico.title }}</h4>
+                <p>{{ servico.description }}</p>
               </router-link>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 flex-1 min-h-0">
-              <router-link v-for="servico in servicos" :key="servico.name" class="bg-surface-container-lowest/50 p-6 md:p-12 border border-primary/5 hover:border-primary/20 transition-all group rounded-sm backdrop-blur-sm block h-full max-h-[30vh] md:max-h-[40vh]" :to="servico.path">
-                <div class="h-full flex flex-col justify-center">
-                  <span class="material-symbols-outlined text-3xl md:text-4xl mb-6 md:mb-10 group-hover:-translate-y-1 transition-transform text-tropical-lagoon">{{ servico.icon }}</span>
-                  <h4 class="font-headline-sm text-headline-sm text-on-surface mb-4 md:mb-6 font-serif-light">{{ servico.title }}</h4>
-                  <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed flex-1">{{ servico.description }}</p>
+            <router-link class="content__link" to="/servicos">VER TODOS OS SERVIÇOS →</router-link>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Oportunidades -->
+      <div class="content content--sticky content--grid bg-4" ref="stickySections">
+        <div class="content__inner">
+          <div class="content__img-wrap">
+            <img class="content__img content__img--large content__img--left" :src="oportunidades[0].image" alt="Alpes">
+          </div>
+          <div class="content__text-wrap">
+            <h2 class="content__title"><i>Oportunidades</i> Únicas</h2>
+            <p class="content__text content__text--left text-meta">Momentos efémeros de luxo que não voltam a repetir-se.</p>
+            <div class="content__opportunities">
+              <div class="opportunity-card opportunity-card--large">
+                <img :src="oportunidades[0].image" alt="Inverno nos Alpes" />
+                <div class="opportunity-card__content">
+                  <span class="tag">ÚLTIMAS VAGAS</span>
+                  <h3>{{ oportunidades[0].title }}</h3>
+                  <router-link :to="oportunidades[0].path" class="btn btn--small">Reservar Agora</router-link>
                 </div>
-              </router-link>
+              </div>
+              <div class="opportunity-card opportunity-card--medium">
+                <img :src="oportunidades[1].image" alt="Private Jet" />
+                <div class="opportunity-card__content">
+                  <h4>{{ oportunidades[1].title }}</h4>
+                  <p>{{ oportunidades[1].description }}</p>
+                  <router-link :to="oportunidades[1].path" class="content__link">SABER MAIS →</router-link>
+                </div>
+              </div>
+              <div class="opportunity-card opportunity-card--small">
+                <img :src="oportunidades[2].image" alt="Zen Kyoto" />
+                <div class="opportunity-card__content">
+                  <span class="tag">Wellness</span>
+                  <h4>{{ oportunidades[2].title }}</h4>
+                </div>
+              </div>
+              <div class="opportunity-card opportunity-card--small bg-light">
+                <div class="newsletter-form">
+                  <h4>Newsletter Exclusive</h4>
+                  <p>Receba ofertas secretas todas as semanas.</p>
+                  <input v-model="newsletterEmail" type="email" placeholder="O seu e-mail" />
+                  <button @click="subscribeNewsletter">Subscrever</button>
+                </div>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
 
-        <!-- Section 5: Oportunidades -->
-        <section 
-          class="scroll-stack-section absolute top-0 left-0 w-full h-screen"
-          :style="getSectionStyle(4)"
-          data-index="4"
-          id="oportunidades"
-        >
-          <div class="bg-tropical-lagoon absolute inset-0"></div>
-          <div class="max-w-[1280px] mx-auto h-full px-margin-desktop flex flex-col overflow-hidden">
-            <div class="mb-8 md:mb-16 pt-4 md:pt-10 flex-shrink-0">
-              <h2 class="font-headline-xl text-headline-xl font-serif-light text-white">Oportunidades Únicas</h2>
-              <p class="font-body-lg text-body-lg font-light mt-4 text-white/90">Momentos efémeros de luxo que não voltam a repetir-se.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-8 flex-1 min-h-0">
-              <div class="md:col-span-2 md:row-span-2 relative overflow-hidden group border border-primary/5 rounded-sm">
-                <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 sepia-[0.1]" :src="oportunidades[0].image" :alt="oportunidades[0].alt" />
-                <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/80 via-transparent to-transparent"></div>
-                <div class="absolute bottom-4 md:bottom-12 left-4 md:left-12 text-white max-w-xs md:max-w-sm">
-                  <div class="text-primary bg-background/90 px-3 md:px-4 py-1.5 text-[10px] font-bold tracking-[0.25em] uppercase mb-4 md:mb-6 inline-block rounded-full">ÚLTIMAS VAGAS</div>
-                  <h3 class="font-headline-lg text-headline-lg mb-4 md:mb-6 font-serif-light leading-tight">{{ oportunidades[0].title }}</h3>
-                  <router-link class="inline-block bg-white text-deep-onyx px-6 md:px-8 py-2 md:py-3 font-label-lg text-label-lg rounded-sm hover:bg-primary hover:text-white transition-colors tracking-widest uppercase text-[11px]" :to="oportunidades[0].path">Reservar Agora</router-link>
-                </div>
-              </div>
-              <div class="md:col-span-2 relative overflow-hidden group border border-primary/5 rounded-sm">
-                <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" :src="oportunidades[1].image" :alt="oportunidades[1].alt" />
-                <div class="absolute inset-0 bg-deep-onyx/40"></div>
-                <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4 md:p-8 text-center backdrop-blur-[2px]">
-                  <h4 class="font-headline-sm text-headline-sm mb-2 md:mb-3 font-serif-light">{{ oportunidades[1].title }}</h4>
-                  <p class="font-body-md text-body-md opacity-80 mb-4 md:mb-6 font-light">{{ oportunidades[1].description }}</p>
-                  <router-link class="text-white border-b border-white/40 pb-1 font-label-lg text-label-lg tracking-[0.2em] uppercase text-[11px] hover:border-white transition-colors" :to="oportunidades[1].path">SABER MAIS</router-link>
-                </div>
-              </div>
-              <div class="md:col-span-1 relative overflow-hidden group border border-primary/5 flex items-center justify-center p-6 md:p-12 text-center rounded-sm bg-surface-container-lowest/90">
+      <!-- Section 5: Testemunhos -->
+      <div class="content content--sticky content--grid bg-5" ref="stickySections">
+        <div class="content__inner">
+          <div class="content__img-wrap">
+            <span class="material-symbols-outlined content__quote-icon">format_quote</span>
+          </div>
+          <div class="content__text-wrap">
+            <h2 class="content__title"><i>Testemunhos</i></h2>
+            <p class="content__text content__text--left text-meta">O que os nossos clientes dizem sobre as suas experiências excepcionais.</p>
+            <div class="testimonial">
+              <p class="testimonial__text">"A Carla e a sua equipa transformaram o nosso 20º aniversário de casamento numa aventura que superou todos os sonhos. A atenção aos detalhes e o acesso exclusivo que nos proporcionaram foram simplesmente inigualáveis."</p>
+              <div class="testimonial__author">
+                <img :src="testimonialImage" alt="Ana & Ricardo Ferreira" />
                 <div>
-                  <h4 class="font-headline-sm text-headline-sm text-on-surface mb-3 md:mb-4 font-serif-light">Newsletter Exclusive</h4>
-                  <p class="font-body-md text-body-md text-on-surface-variant mb-6 md:mb-8 font-light">Receba ofertas secretas todas as semanas.</p>
-                  <input v-model="newsletterEmail" class="w-full bg-transparent border-b border-primary/30 pb-2 mb-4 md:mb-6 focus:outline-none focus:border-primary transition-colors text-center font-light placeholder:text-primary/40" placeholder="O seu e-mail" type="email" />
-                  <button class="text-primary font-label-lg text-label-lg uppercase tracking-widest text-[11px] border-b border-primary/20 hover:border-primary transition-all" @click="subscribeNewsletter">Subscrever</button>
+                  <h4>Ana & Ricardo Ferreira</h4>
+                  <p>Viajantes Frequentes</p>
                 </div>
               </div>
-              <router-link class="md:col-span-1 relative overflow-hidden group border border-primary/5 rounded-sm block" :to="oportunidades[2].path">
-                <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" :src="oportunidades[2].image" :alt="oportunidades[2].alt" />
-                <div class="absolute inset-0 bg-deep-onyx/30"></div>
-                <div class="absolute bottom-4 md:bottom-8 left-4 md:left-8 text-white">
-                  <p class="font-label-sm text-label-sm uppercase tracking-[0.2em] mb-1 font-light opacity-80">Wellness</p>
-                  <h4 class="font-headline-sm text-headline-sm font-serif-light">{{ oportunidades[2].title }}</h4>
-                </div>
-              </router-link>
             </div>
           </div>
-        </section>
-
-        <!-- Section 6: Testemunhos -->
-        <section 
-          class="scroll-stack-section absolute top-0 left-0 w-full h-screen overflow-hidden"
-          :style="getSectionStyle(5)"
-          data-index="5"
-        >
-          <div class="bg-background absolute inset-0"></div>
-          <div class="absolute inset-0 arabic-ornament pointer-events-none opacity-5"></div>
-          <div class="max-w-[1280px] mx-auto text-center relative z-10 h-full px-margin-desktop flex flex-col justify-center items-center overflow-hidden">
-            <span class="material-symbols-outlined text-primary/40 text-4xl md:text-6xl mb-6 md:mb-10 flex-shrink-0">format_quote</span>
-            <div class="max-w-4xl mx-auto italic font-headline-sm text-headline-sm text-on-surface leading-relaxed mb-10 md:mb-16 font-serif-light font-light px-4 flex-shrink-0">
-              "A Carla e a sua equipa transformaram o nosso 20º aniversário de casamento numa aventura que superou todos os sonhos. A atenção aos detalhes e o acesso exclusivo que nos proporcionaram foram simplesmente inigualáveis."
-            </div>
-            <div class="flex flex-col items-center flex-shrink-0">
-              <div class="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-4 md:mb-6 border border-primary/20 p-1.5 bg-background">
-                <img class="w-full h-full object-cover rounded-full filter grayscale-[0.3]" :src="testimonialImage" alt="Portrait of a sophisticated couple" />
-              </div>
-              <h5 class="font-label-lg text-label-lg text-on-surface tracking-widest uppercase text-[10px] md:text-[12px] mb-1">Ana & Ricardo Ferreira</h5>
-              <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.25em] font-light text-[8px] md:text-[10px]">Viajantes Frequentes</p>
-            </div>
-          </div>
-        </section>
+        </div>
       </div>
     </div>
-  </div>
+
+    <!-- Outro section -->
+    <div class="content content--highlight content--outro">
+      <p class="text-large">Pronto para começar a sua próxima aventura? Entre em contacto e deixe-nos criar a sua experiência de viagem perfeita.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="frame frame--footer">
+      <p class="frame__author"><span>Carla Coelho Viagens de Luxo</span> <span><a href="mailto:contact@carlacoelho.com">contact@carlacoelho.com</a></span></p>
+    </footer>
+  </main>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 
 const currentSlide = ref(0)
 let carouselInterval = null
-const scrollContainer = ref(null)
-const activeSection = ref(0)
-const windowHeight = ref(0)
+const newsletterEmail = ref('')
+const stickySections = ref([])
 
 const slides = [
   {
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVyqs8O_4IaIjqV92njWRIvjqnAuL3TcC4i5LDVWkZkZRiCdapTGywRf6Bc4mNYzU2z5AnASRJUp7OnXwmvguYMm_cSZN8VBfv-oVR3AoaSKGSUtNXd0Wh6ts3wkJtt1ScSgHAu9qgauP_aX-EQKpLRGhkq9jVaY835sQIT6ZrHq1gPleqjK7K8S3cc0kun5MemH8N9DT7Gfx1cCj2FUAxa1wa7T7tkAdPCG3lGKia88ZA14uFaGtV1eVSvTqUJrEObNMjMcJDpzE',
     alt: 'A breathtaking aerial view of a private tropical island resort in the Maldives'
-  },
-  {
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAkXpXrNx2_7oYVj7yPG9waxwGBmj2jhY3XOSmjdpajgTw3U_0vHEF7lcF8NDA5JIY5WIE9drocrnT5V3KsyBjH4RtabcHMQmswffegkYZVLd681FZrCmvw_gnzgDmqSAdd3H2xcL1JjBuZli8Emk6Q8Ea1c9UJZqhyxkOO64an1v-u5-oyxSBEf8DGy9esA0X2uS-NbWZ4PYwtJpmNGIex-lW0xM_gTZnHSPM889nbeJshCrs1KjHmLs-uN8S5WiFxcGnO0EbI5VQ',
-    alt: 'A romantic sunset dinner setting in the middle of a vast desert landscape'
-  },
-  {
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDOecJILLeSh2Ozxe3HKyBtTLkHz-bniYWfZtIR1A6IAyjdaFlOfXgIU6whwUuyzkOLTvdXw20mnAMMIe5kT592zpqfD-aGHo3oX2TK_4cDjYK6fsqA4cu6Uz4p_JB6rar1gzVENphQQBbOfiO1DaRfKAxaIo4Agn3NvLnxDTdJj1pael2QthoAwKtEOE8mTjs_YT9nwtQTTI-9yH7xt7KkQ0R2FS4YyqXTBJANPVUfecgvWgWgj76DjTEtokGJ5FORqgjZwEZNvHg',
-    alt: 'A historic cobblestone street in Florence, Italy, during the soft morning light'
   }
 ]
 
@@ -267,24 +202,21 @@ const destinos = [
     title: 'Praias Tropicais',
     subtitle: 'Refúgios Paradisíacos',
     path: '/destinos/praias-tropicais',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVyqs8O_4IaIjqV92njWRIvjqnAuL3TcC4i5LDVWkZkZRiCdapTGywRf6Bc4mNYzU2z5AnASRJUp7OnXwmvguYMm_cSZN8VBfv-oVR3AoaSKGSUtNXd0Wh6ts3wkJtt1ScSgHAu9qgauP_aX-EQKpLRGhkq9jVaY835sQIT6ZrHq1gPleqjK7K8S3cc0kun5MemH8N9DT7Gfx1cCj2FUAxa1wa7T7tkAdPCG3lGKia88ZA14uFaGtV1eVSvTqUJrEObNMjMcJDpzE',
-    alt: 'Aerial view of a luxury tropical beach destination with white sand and clear blue water'
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVyqs8O_4IaIjqV92njWRIvjqnAuL3TcC4i5LDVWkZkZRiCdapTGywRf6Bc4mNYzU2z5AnASRJUp7OnXwmvguYMm_cSZN8VBfv-oVR3AoaSKGSUtNXd0Wh6ts3wkJtt1ScSgHAu9qgauP_aX-EQKpLRGhkq9jVaY835sQIT6ZrHq1gPleqjK7K8S3cc0kun5MemH8N9DT7Gfx1cCj2FUAxa1wa7T7tkAdPCG3lGKia88ZA14uFaGtV1eVSvTqUJrEObNMjMcJDpzE'
   },
   {
     name: 'desertos',
     title: 'Desertos Exóticos',
     subtitle: 'Mistérios do Oriente',
     path: '/destinos/desertos-exoticos',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAkXpXrNx2_7oYVj7yPG9waxwGBmj2jhY3XOSmjdpajgTw3U_0vHEF7lcF8NDA5JIY5WIE9drocrnT5V3KsyBjH4RtabcHMQmswffegkYZVLd681FZrCmvw_gnzgDmqSAdd3H2xcL1JjBuZli8Emk6Q8Ea1c9UJZqhyxkOO64an1v-u5-oyxSBEf8DGy9esA0X2uS-NbWZ4PYwtJpmNGIex-lW0xM_gTZnHSPM889nbeJshCrs1KjHmLs-uN8S5WiFxcGnO0EbI5VQ',
-    alt: 'Dramatic desert dunes at sunset with a luxury tent camp'
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAkXpXrNx2_7oYVj7yPG9waxwGBmj2jhY3XOSmjdpajgTw3U_0vHEF7lcF8NDA5JIY5WIE9drocrnT5V3KsyBjH4RtabcHMQmswffegkYZVLd681FZrCmvw_gnzgDmqSAdd3H2xcL1JjBuZli8Emk6Q8Ea1c9UJZqhyxkOO64an1v-u5-oyxSBEf8DGy9esA0X2uS-NbWZ4PYwtJpmNGIex-lW0xM_gTZnHSPM889nbeJshCrs1KjHmLs-uN8S5WiFxcGnO0EbI5VQ'
   },
   {
     name: 'cidades',
     title: 'Cidades Históricas',
     subtitle: 'Cultura e Tradição',
     path: '/destinos/cidades-historicas',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDOecJILLeSh2Ozxe3HKyBtTLkHz-bniYWfZtIR1A6IAyjdaFlOfXgIU6whwUuyzkOLTvdXw20mnAMMIe5kT592zpqfD-aGHo3oX2TK_4cDjYK6fsqA4cu6Uz4p_JB6rar1gzVENphQQBbOfiO1DaRfKAxaIo4Agn3NvLnxDTdJj1pael2QthoAwKtEOE8mTjs_YT9nwtQTTI-9yH7xt7KkQ0R2FS4YyqXTBJANPVUfecgvWgWgj76DjTEtokGJ5FORqgjZwEZNvHg',
-    alt: 'Historical architecture of a European city at dusk'
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDOecJILLeSh2Ozxe3HKyBtTLkHz-bniYWfZtIR1A6IAyjdaFlOfXgIU6whwUuyzkOLTvdXw20mnAMMIe5kT592zpqfD-aGHo3oX2TK_4cDjYK6fsqA4cu6Uz4p_JB6rar1gzVENphQQBbOfiO1DaRfKAxaIo4Agn3NvLnxDTdJj1pael2QthoAwKtEOE8mTjs_YT9nwtQTTI-9yH7xt7KkQ0R2FS4YyqXTBJANPVUfecgvWgWgj76DjTEtokGJ5FORqgjZwEZNvHg'
   }
 ]
 
@@ -307,7 +239,7 @@ const servicos = [
     name: 'vip',
     icon: 'diamond',
     title: 'Acesso VIP',
-    description: 'Priority check-in, lounges exclusivos e convites para eventos restritos em qualquer parte do globo.',
+    description: 'Priority check-in, lounges exclusivos e convites para eventos restritos.',
     path: '/vip-concierge'
   }
 ]
@@ -323,46 +255,16 @@ const oportunidades = [
     title: 'Private Jet Experience',
     description: 'Voo exclusivo para o Mónaco com estadia VIP.',
     path: '/oportunidades/private-jet',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDnKsArknnfG0fKiCi8ksPkC0MfLSz8Ebeg0d-XqCmKJhUo0utt6QRFy8h3QfNZJuxGfWs_dk6cemxVaoWvU-8m5ftfdeQwYkuJK8dXotGwp0z0Xq3UwlLVKZizv-CYKAr6td4VLtnNvh1IXa6SdyOmmXBfWWSgbtNdup118NVqyOpM8zbrOfszTXfxQa3x9oZkRMd7q9xrK6FtRBrpzEubP5oZFiGfGndW1YS82tsf_h23vGq6GWB8d9cg84EEPkJfKPcjig_26UI',
-    alt: 'A high-end private jet interior with cream leather seats'
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDnKsArknnfG0fKiCi8ksPkC0MfLSz8Ebeg0d-XqCmKJhUo0utt6QRFy8h3QfNZJuxGfWs_dk6cemxVaoWvU-8m5ftfdeQwYkuJK8dXotGwp0z0Xq3UwlLVKZizv-CYKAr6td4VLtnNvh1IXa6SdyOmmXBfWWSgbtNdup118NVqyOpM8zbrOfszTXfxQa3x9oZkRMd7q9xrK6FtRBrpzEubP5oZFiGfGndW1YS82tsf_h23vGq6GWB8d9cg84EEPkJfKPcjig_26UI'
   },
   {
     title: 'Zen Kyoto',
     path: '/oportunidades/zen-kyoto',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCTrgVkn1rPDxoepWN30PnTWkH_kaj7PUmFdC1UeX-wTTj9Y8JjxUZUPWmSaoIP8TqImy3e2CN8GTtqgsVI4VwytIYPlOA8Zlr7VIP9WLJHpfg6gxcIm6QmyHhPWsxn4AciZO1QL85XjGxCf7qngWC0QhVir9ZAL1RFJQrjDZcSMNmigH4NbfzRQdw-YtaN_stZMoShrT9KnC7SohCNdb1AWOZn2pcrPZjLHrBX8GnI-8PJZwl05lHme17NsXuYkkg5_14LniIlcTw',
-    alt: 'A tranquil scene of a luxury spa treatment room overlooking a Japanese Zen garden'
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCTrgVkn1rPDxoepWN30PnTWkH_kaj7PUmFdC1UeX-wTTj9Y8JjxUZUPWmSaoIP8TqImy3e2CN8GTtqgsVI4VwytIYPlOA8Zlr7VIP9WLJHpfg6gxcIm6QmyHhPWsxn4AciZO1QL85XjGxCf7qngWC0QhVir9ZAL1RFJQrjDZcSMNmigH4NbfzRQdw-YtaN_stZMoShrT9KnC7SohCNdb1AWOZn2pcrPZjLHrBX8GnI-8PJZwl05lHme17NsXuYkkg5_14LniIlcTw'
   }
 ]
 
 const testimonialImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDApaCcXYZ4JVFtzZlixYiLu1cF343FzRdacnubYXb4rSx5i11sWkqmvQ8jia-S-4X98Ng9z-ut4YCubhzwCbyMjJCUPGcfXbFMFLkoYh5Qs5LabLwWvy923w5IJujG6b9W-cu-jUZjtgpwa8JWzbgZJHxlb9AumpbVcQsEGETE89gEf9kO2Ox7Sa10Mn_VqPcvfnqXuGnbcAcj-WgLwHeB30PEj_Hd48JQgal5yZBnzRu-JuASw0nc4cNAlszVCCkaSXs7ufyK0e4'
-
-const newsletterEmail = ref('')
-
-// Calculate style for each section based on scroll position
-function getSectionStyle(index) {
-  const distance = Math.abs(index - activeSection.value)
-  const wh = window.innerHeight || 1000
-  
-  // Z-index: active section gets highest
-  const zIndex = 100 - (distance * 10)
-  
-  // Position: each section at its own position
-  const top = `${index * wh}px`
-  
-  // Scale and opacity
-  const scale = 1 - (distance * 0.05)
-  const opacity = 1 - (distance * 0.15)
-  
-  const transform = distance === 0 ? 'none' : `scale(${scale})`
-  
-  return {
-    zIndex: zIndex,
-    top: top,
-    transform: transform,
-    opacity: Math.max(0.5, opacity),
-    transition: 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s ease-out'
-  }
-}
 
 function moveCarousel(index) {
   currentSlide.value = index
@@ -375,43 +277,43 @@ function subscribeNewsletter() {
   }
 }
 
-function handleContainerScroll(e) {
-  if (!scrollContainer.value) return
-  
-  const container = e.target
-  const scrollTop = container.scrollTop
-  const wh = window.innerHeight || 1000
-  
-  // Calculate which section is active based on scroll position
-  const newActiveSection = Math.min(5, Math.round(scrollTop / wh))
-  
-  if (newActiveSection !== activeSection.value) {
-    activeSection.value = newActiveSection
-  }
+function initStickySections() {
+  nextTick(() => {
+    // Get all sticky sections
+    const sections = document.querySelectorAll('.content--sticky')
+    if (!sections.length) return
+    
+    // Get the wrap element
+    const wrap = document.querySelector('.wrap')
+    if (!wrap) return
+    
+    // Set up Intersection Observer to detect when sections are in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('content--active')
+        } else {
+          entry.target.classList.remove('content--active')
+        }
+      })
+    }, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.4
+    })
+    
+    sections.forEach(section => observer.observe(section))
+  })
 }
 
 onMounted(() => {
-  // Initialize window height
-  windowHeight.value = window.innerHeight || 1000
-  
-  // Set container height
-  const container = document.querySelector('.scroll-stack-container')
-  if (container) {
-    scrollContainer.value = container
-    const track = container.querySelector('.scroll-stack-track')
-    if (track) {
-      track.style.height = `${windowHeight.value * 6}px`
-    }
-    container.style.height = `${windowHeight.value}px`
-  }
+  // Initialize sticky sections
+  initStickySections()
   
   // Start carousel
   carouselInterval = setInterval(() => {
     currentSlide.value = (currentSlide.value + 1) % slides.length
   }, 7000)
-  
-  // Initialize active section
-  activeSection.value = 0
 })
 
 onUnmounted(() => {
@@ -422,35 +324,774 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.scroll-stack-wrapper {
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-
-.scroll-stack-container {
-  height: 100vh;
-  scroll-snap-type: y mandatory;
-}
-
-.scroll-stack-track {
+/* Base styles */
+main {
+  min-height: 100vh;
   position: relative;
 }
 
-.scroll-stack-section {
-  will-change: transform, opacity, z-index;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  scroll-snap-align: start;
+/* Frame styles */
+.frame {
+  position: relative;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
 }
 
-/* Hide scrollbar but keep functionality */
-.scroll-stack-container::-webkit-scrollbar {
-  width: 0px;
+.frame--header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.frame--header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.frame__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.frame__heading {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1rem;
+}
+
+.frame__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  color: #fff;
+}
+
+.frame__title i {
+  font-style: italic;
+}
+
+.text-meta {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0.5rem 0 0;
+  font-weight: 300;
+}
+
+.text-large {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.frame__content {
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.frame__nav {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 2;
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-dot.nav-dot--active {
+  width: 14px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.frame__buttons {
+  display: flex;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.875rem 1.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn--primary {
+  background: #fff;
+  color: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn--primary:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a1a1a;
+}
+
+.btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.btn--small {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  background: #fff;
+  color: #1a1a1a;
+  border: none;
+}
+
+.btn--small:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.frame--footer {
+  padding: 2rem;
+  background: var(--color-background);
+  color: var(--color-on-surface);
+  text-align: center;
+}
+
+.frame__author {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--color-on-surface-variant);
+  font-size: 0.875rem;
+}
+
+.frame__author a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.frame__author a:hover {
+  text-decoration: underline;
+}
+
+/* Content styles */
+.content {
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.content--highlight {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content--intro {
+  background: var(--color-background);
+  color: var(--color-on-surface);
+}
+
+.content--outro {
+  background: var(--color-background);
+  color: var(--color-on-surface);
+}
+
+.wrap {
+  position: relative;
+}
+
+.content--sticky {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.content--sticky.content--active {
+  z-index: 100;
+}
+
+.content__inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.content__img-wrap {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+
+.content__img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.content__img--large {
+  width: 100%;
+  max-width: 500px;
+}
+
+.content__img--left {
+  margin-right: 2rem;
+}
+
+.content__text-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color-on-surface);
+}
+
+.content__title i {
+  font-style: italic;
+}
+
+.content__text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-on-surface-variant);
+  max-width: 600px;
+}
+
+.content__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  transition: gap 0.3s ease;
+}
+
+.content__link:hover {
+  gap: 0.75rem;
+}
+
+.content__quote-icon {
+  font-size: 3rem;
+  color: var(--color-primary);
+  opacity: 0.4;
+}
+
+/* Background colors for sticky sections */
+.bg-1 {
+  background: var(--color-background);
+}
+
+.bg-2 {
+  background: var(--color-surface-container-low);
+}
+
+.bg-3 {
+  background: var(--color-background);
+}
+
+.bg-4 {
+  background: var(--color-tropical-lagoon);
+}
+
+.bg-5 {
+  background: var(--color-background);
+}
+
+/* Content grids */
+.content__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.content__card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.content__card:hover {
+  transform: scale(1.02);
+}
+
+.content__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.content__card:hover img {
+  transform: scale(1.05);
+  filter: sepia(0);
+}
+
+.content__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.content__card:hover .content__card-overlay {
+  opacity: 1;
+}
+
+.content__card-overlay h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  margin: 0 0 0.25rem;
+}
+
+.content__card-overlay p {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+}
+
+/* Services grid */
+.content__services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: var(--color-surface-container-lowest);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-primary);
+  border-opacity: 0.1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--color-on-surface);
+  text-decoration: none;
+}
+
+.service-card:hover {
+  border-opacity: 0.3;
+  transform: translateY(-4px);
+}
+
+.service-card .material-symbols-outlined {
+  font-size: 2.5rem;
+  color: var(--color-tropical-lagoon);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .material-symbols-outlined {
+  transform: translateY(-4px);
+}
+
+.service-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-on-surface-variant);
+}
+
+/* Opportunities grid */
+.content__opportunities {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.opportunity-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-primary);
+  border-opacity: 0.1;
+  cursor: pointer;
+}
+
+.opportunity-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.opportunity-card:hover img {
+  transform: scale(1.05);
+}
+
+.opportunity-card--large {
+  grid-column: span 2;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.opportunity-card--medium {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.opportunity-card--small {
+  grid-column: span 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: var(--color-surface-container-lowest);
+}
+
+.opportunity-card__content {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  color: #fff;
+}
+
+.opportunity-card--medium .opportunity-card__content {
+  background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
+  justify-content: center;
+  text-align: center;
+}
+
+.opportunity-card__content .tag {
+  display: inline-block;
+  background: var(--color-background);
+  color: var(--color-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  align-self: flex-start;
+}
+
+.opportunity-card__content h3,
+.opportunity-card__content h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.opportunity-card__content p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.8;
+  margin: 0 0 1rem;
+}
+
+.b all-opportunities-card__content {
+  background: var(--color-surface-container-lowest);
+  color: var(--color-on-surface);
+}
+
+/* Newsletter form */
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  color: var(--color-on-surface);
+}
+
+.newsletter-form h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.newsletter-form p {
+  font-size: 0.9rem;
+  color: var(--color-on-surface-variant);
+  margin: 0;
+}
+
+.newsletter-form input {
+  width: 100%;
+  max-width: 250px;
+  padding: 0.75rem 0;
+  border: none;
+  border-bottom: 1px solid var(--color-primary);
+  border-opacity: 0.3;
   background: transparent;
+  color: var(--color-on-surface);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-opacity 0.3s ease;
 }
 
-.scroll-stack-container {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.newsletter-form input::placeholder {
+  color: var(--color-primary);
+  opacity: 0.4;
+}
+
+.newsletter-form input:focus {
+  border-opacity: 1;
+}
+
+.newsletter-form button {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: border-opacity 0.3s ease;
+  border-bottom: 1px solid var(--color-primary);
+  border-opacity: 0.2;
+}
+
+.newsletter-form button:hover {
+  border-opacity: 1;
+}
+
+/* Testimonial */
+.testimonial {
+  margin-top: 2rem;
+}
+
+.testimonial__text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--color-on-surface);
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.testimonial__author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.testimonial__author img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--color-primary);
+  border-opacity: 0.2;
+  padding: 2px;
+  filter: grayscale(30%);
+}
+
+.testimonial__author h4 {
+  font-size: 0.875rem;
+  margin: 0;
+  color: var(--color-on-surface);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.testimonial__author p {
+  font-size: 0.75rem;
+  margin: 0;
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .content__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .content__img-wrap {
+    flex: 0 0 auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .content__img--left {
+    margin: 0 auto 1rem;
+  }
+  
+  .content__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .content__services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .content__opportunities {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  
+  .opportunity-card--large,
+  .opportunity-card--medium {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+  
+  .opportunity-card--small {
+    grid-column: span 1;
+  }
+  
+  .content__opportunities {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: 2rem 1rem;
+  }
+  
+  .frame--header {
+    padding: 1rem;
+  }
+  
+  .frame__nav {
+    bottom: 1rem;
+  }
+  
+  .frame__buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .content__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .content__services {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-card {
+    padding: 1.5rem;
+  }
+  
+  .testimonial__text {
+    font-size: 1.1rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content--sticky {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.content--sticky.content--active {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.8s ease forwards;
 }
 </style>
