@@ -1,6 +1,6 @@
 <template>
   <main class="sticky-sections-demo">
-    <!-- Hero Section (acts as the header) -->
+    <!-- Header Section -->
     <header class="frame frame--header" :style="{ backgroundImage: `url(${slides[0].image})` }">
       <div class="frame__overlay"></div>
       <div class="frame__heading">
@@ -34,7 +34,7 @@
     <!-- Wrap - contains all sticky sections -->
     <div class="wrap">
       <!-- Section 1: Sobre Nós -->
-      <div class="content content--sticky content--grid bg-1" ref="stickySections">
+      <div class="content content--sticky content--grid bg-1" data-content-index="0">
         <div class="content__inner">
           <div class="content__img-wrap">
             <img class="content__img content__img--large content__img--left" :src="aboutImages[0]" alt="Luxury travel accessories">
@@ -52,7 +52,7 @@
       </div>
 
       <!-- Section 2: Destinos -->
-      <div class="content content--sticky content--grid bg-2" ref="stickySections">
+      <div class="content content--sticky content--grid bg-2" data-content-index="1">
         <div class="content__inner">
           <div class="content__img-wrap">
             <img class="content__img content__img--large content__img--left" :src="destinos[0].image" alt="Praias Tropicais">
@@ -74,7 +74,7 @@
       </div>
 
       <!-- Section 3: Serviços -->
-      <div class="content content--sticky content--grid bg-3" ref="stickySections">
+      <div class="content content--sticky content--grid bg-3" data-content-index="2">
         <div class="content__inner">
           <div class="content__img-wrap">
             <img class="content__img content__img--large content__img--left" :src="aboutImages[1]" alt="Boutique hotel lobby">
@@ -95,7 +95,7 @@
       </div>
 
       <!-- Section 4: Oportunidades -->
-      <div class="content content--sticky content--grid bg-4" ref="stickySections">
+      <div class="content content--sticky content--grid bg-4" data-content-index="3">
         <div class="content__inner">
           <div class="content__img-wrap">
             <img class="content__img content__img--large content__img--left" :src="oportunidades[0].image" alt="Alpes">
@@ -141,7 +141,7 @@
       </div>
 
       <!-- Section 5: Testemunhos -->
-      <div class="content content--sticky content--grid bg-5" ref="stickySections">
+      <div class="content content--sticky content--grid bg-5" data-content-index="4">
         <div class="content__inner">
           <div class="content__img-wrap">
             <span class="material-symbols-outlined content__quote-icon">format_quote</span>
@@ -181,8 +181,8 @@ import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 
 const currentSlide = ref(0)
 let carouselInterval = null
+let lenis = null
 const newsletterEmail = ref('')
-const stickySections = ref([])
 
 const slides = [
   {
@@ -248,7 +248,7 @@ const oportunidades = [
   {
     title: 'Inverno nos Alpes: Retiro em Chalé de Vidro',
     path: '/oportunidades/inverno-alpes',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAsilvUH6T7rjeNPt56x4I5KmlKA5MzZKD-QxCHxa0aBWL6GckMeJtt8bbyYbvn9SGfAkG_ioLLcuO2p5EaU-fmzWtC_RrhAXWL3J7fRbUXpS-tfhHkW3F68hF5RswUmjsfy9ZgpoE7z1N-pM2dyfNp2-E69Q87OWj2TBIDGwmivwoU5uEtReePI4_nsdezLaw9667bRLiXrpjisWJ1A3S9mD7kmO4bNoEZr6J7ck0axsVBPVOjtlYPlWKJqmjfejvUI0KIdnCF8c',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAsilvUH6T7rjeNP56x4I5KmlKA5MzZKD-QxCHxa0aBWL6GckMeJtt8bbyYbvn9SGfAkG_ioLLcuO2p5EaU-fmzWtC_RrhAXWL3J7fRbUXpS-tfhHkW3F68hF5RswUmjsfy9ZgpoE7z1N-pM2dyfNp2-E69Q87OWj2TBIDGwmivwoU5uEtReePI4_nsdezLaw9667bRLiXrpjisWJ1A3S9mD7kmO4bNoEZr6J7ck0axsVBPVOjtlYPlWKJqmjfejvUI0KIdnCF8c',
     alt: 'A wide-angle landscape of the Swiss Alps in winter with a luxury glass-walled chalet'
   },
   {
@@ -277,38 +277,106 @@ function subscribeNewsletter() {
   }
 }
 
-function initStickySections() {
+// Initialize GSAP ScrollTrigger animations
+function initScrollAnimations() {
   nextTick(() => {
+    // Check if GSAP is loaded
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      console.warn('GSAP or ScrollTrigger not loaded. Falling back to basic animations.')
+      return
+    }
+    
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger)
+    
     // Get all sticky sections
-    const sections = document.querySelectorAll('.content--sticky')
-    if (!sections.length) return
+    const contentElements = document.querySelectorAll('.content--sticky')
+    const totalContentElements = contentElements.length
     
-    // Get the wrap element
-    const wrap = document.querySelector('.wrap')
-    if (!wrap) return
-    
-    // Set up Intersection Observer to detect when sections are in view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('content--active')
-        } else {
-          entry.target.classList.remove('content--active')
-        }
+    // Set default styles
+    contentElements.forEach((el) => {
+      gsap.set(el, {
+        filter: 'brightness(50%)',
+        scale: 0.95,
+        borderRadius: 0
       })
-    }, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.4
     })
     
-    sections.forEach(section => observer.observe(section))
+    // Animate each section on scroll
+    contentElements.forEach((el, position) => {
+      const isLast = position === totalContentElements - 1
+      
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: el,
+          start: 'top top',
+          end: '+=100%',
+          scrub: true,
+          invalidateOnRefresh: true
+        }
+      })
+      .to(el, {
+        ease: 'none',
+        filter: isLast ? 'none' : 'brightness(100%)',
+        scale: 1,
+        borderRadius: isLast ? 0 : 40,
+        opacity: 1
+      }, 0)
+    })
+    
+    // Refresh ScrollTrigger after images load
+    const images = document.querySelectorAll('.content__img')
+    let loadedImages = 0
+    
+    images.forEach(img => {
+      if (img.complete) {
+        incrementLoaded()
+      } else {
+        img.addEventListener('load', incrementLoaded)
+        img.addEventListener('error', incrementLoaded)
+      }
+    })
+    
+    function incrementLoaded() {
+      loadedImages++
+      if (loadedImages === images.length) {
+        ScrollTrigger.refresh()
+      }
+    }
+  })
+}
+
+// Initialize Lenis smooth scrolling
+function initSmoothScrolling() {
+  nextTick(() => {
+    // Check if Lenis is loaded
+    if (typeof Lenis === 'undefined') {
+      console.warn('Lenis not loaded. Using native scrolling.')
+      return
+    }
+    
+    lenis = new Lenis({
+      lerp: 0.2,
+      smoothWheel: true
+    })
+    
+    lenis.on('scroll', () => ScrollTrigger.update())
+    
+    const scrollFn = (time) => {
+      lenis.raf(time)
+      requestAnimationFrame(scrollFn)
+    }
+    
+    requestAnimationFrame(scrollFn)
   })
 }
 
 onMounted(() => {
-  // Initialize sticky sections
-  initStickySections()
+  // Initialize smooth scrolling
+  initSmoothScrolling()
+  
+  // Initialize scroll animations
+  initScrollAnimations()
   
   // Start carousel
   carouselInterval = setInterval(() => {
@@ -320,14 +388,28 @@ onUnmounted(() => {
   if (carouselInterval) {
     clearInterval(carouselInterval)
   }
+  
+  // Clean up Lenis
+  if (lenis) {
+    lenis.destroy()
+  }
+  
+  // Clean up ScrollTrigger
+  if (typeof ScrollTrigger !== 'undefined') {
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+  }
 })
 </script>
 
 <style scoped>
+/* Load GSAP and other libraries from CDN */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
 /* Base styles */
 main {
   min-height: 100vh;
   position: relative;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Frame styles */
@@ -468,25 +550,22 @@ main {
 
 .btn--primary {
   background: #fff;
-  color: #1a1a1a;
+  color: var(--color-deep-onyx);
   border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn--primary:hover {
   background: rgba(255, 255, 255, 0.9);
-  color: #1a1a1a;
-}
-
-.btn--secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
+  color: var(--color-deep-onyx);
 }
 
 .btn--small {
   padding: 0.5rem 1rem;
   font-size: 0.75rem;
   background: #fff;
-  color: #1a1a1a;
+  color: var(--color-deep-onyx);
   border: none;
+  margin-top: 1rem;
 }
 
 .btn--small:hover {
@@ -522,6 +601,7 @@ main {
 .content {
   padding: 4rem 2rem;
   position: relative;
+  min-height: 100vh;
 }
 
 .content--highlight {
@@ -552,12 +632,11 @@ main {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 2rem;
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: filter, transform, border-radius;
 }
 
-.content--sticky.content--active {
-  z-index: 100;
+.content--grid {
+  display: grid;
 }
 
 .content__inner {
@@ -579,6 +658,7 @@ main {
   height: auto;
   border-radius: 8px;
   object-fit: cover;
+  max-height: 80vh;
 }
 
 .content__img--large {
@@ -660,6 +740,10 @@ main {
 
 .bg-5 {
   background: var(--color-background);
+}
+
+.bg-light {
+  background: var(--color-surface-container-lowest);
 }
 
 /* Content grids */
@@ -789,6 +873,7 @@ main {
   border: 1px solid var(--color-primary);
   border-opacity: 0.1;
   cursor: pointer;
+  min-height: 200px;
 }
 
 .opportunity-card img {
@@ -821,7 +906,6 @@ main {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background: var(--color-surface-container-lowest);
 }
 
 .opportunity-card__content {
@@ -868,11 +952,6 @@ main {
   line-height: 1.5;
   opacity: 0.8;
   margin: 0 0 1rem;
-}
-
-.b all-opportunities-card__content {
-  background: var(--color-surface-container-lowest);
-  color: var(--color-on-surface);
 }
 
 /* Newsletter form */
@@ -1013,8 +1092,8 @@ main {
   }
   
   .content__opportunities {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
   }
   
   .opportunity-card--large,
@@ -1070,28 +1149,19 @@ main {
   .testimonial__text {
     font-size: 1.1rem;
   }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  
+  .content__opportunities {
+    grid-template-columns: 1fr;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .opportunity-card--large,
+  .opportunity-card--medium,
+  .opportunity-card--small {
+    grid-column: span 1;
   }
-}
-
-.content--sticky {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.content--sticky.content--active {
-  opacity: 1;
-  transform: translateY(0);
-  animation: fadeInUp 0.8s ease forwards;
+  
+  .content__title {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
 }
 </style>
