@@ -56,29 +56,39 @@
         >
           <div class="bg-background absolute inset-0"></div>
           <div class="absolute inset-0 arabic-ornament pointer-events-none"></div>
-          <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center gap-20 relative z-10 h-full px-margin-desktop">
-            <div class="w-full md:w-1/2">
-              <div class="inline-block tracking-[0.2em] text-primary font-label-lg text-[11px] mb-8 uppercase">
-                NOSSO COMPROMISSO
+          <div class="max-w-[1280px] mx-auto relative z-10 h-full px-margin-desktop flex">
+            <div class="w-full flex flex-col md:flex-row items-center gap-12 md:gap-20 overflow-hidden">
+              <div class="w-full md:w-1/2 h-full flex flex-col justify-center">
+                <div class="max-h-full overflow-y-auto pr-4">
+                  <div class="inline-block tracking-[0.2em] text-primary font-label-lg text-[11px] mb-8 uppercase">
+                    NOSSO COMPROMISSO
+                  </div>
+                  <h2 class="font-headline-xl text-headline-xl text-on-surface mb-8 font-serif-light leading-tight">A Arte de Viajar com Propósito e Elegância</h2>
+                  <p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed font-light">
+                    Na Carla Coelho Viagens de Luxo, não vendemos apenas destinos; desenhamos memórias. Cada viagem é uma obra-prima única, meticulosamente planeada para refletir os seus desejos mais profundos e superar as suas expectativas mais elevadas.
+                  </p>
+                  <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 leading-relaxed font-light">
+                    A nossa agência nasceu da paixão pela descoberta e do compromisso inabalável com a excelência. Com uma rede global de parceiros exclusivos, garantimos acesso ao inacessível e conforto onde o luxo encontra a autenticidade.
+                  </p>
+                  <router-link class="inline-flex items-center gap-4 text-primary font-label-lg text-label-lg hover:gap-6 transition-all tracking-widest border-b border-primary/20 pb-1" to="/sobre-mim">
+                    CONHEÇA A NOSSA HISTÓRIA
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                  </router-link>
+                </div>
               </div>
-              <h2 class="font-headline-xl text-headline-xl text-on-surface mb-8 font-serif-light leading-tight">A Arte de Viajar com Propósito e Elegância</h2>
-              <p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed font-light">
-                Na Carla Coelho Viagens de Luxo, não vendemos apenas destinos; desenhamos memórias. Cada viagem é uma obra-prima única, meticulosamente planeada para refletir os seus desejos mais profundos e superar as suas expectativas mais elevadas.
-              </p>
-              <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 leading-relaxed font-light">
-                A nossa agência nasceu da paixão pela descoberta e do compromisso inabalável com a excelência. Com uma rede global de parceiros exclusivos, garantimos acesso ao inacessível e conforto onde o luxo encontra a autenticidade.
-              </p>
-              <router-link class="inline-flex items-center gap-4 text-primary font-label-lg text-label-lg hover:gap-6 transition-all tracking-widest border-b border-primary/20 pb-1" to="/sobre-mim">
-                CONHEÇA A NOSSA HISTÓRIA
-                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-              </router-link>
-            </div>
-            <div class="w-full md:w-1/2 grid grid-cols-2 gap-6">
-              <div class="aspect-[4/5] bg-surface-dim overflow-hidden rounded-sm relative group shadow-2xl shadow-primary/5">
-                <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" :src="aboutImages[0]" alt="Luxury travel accessories on marble surface" />
-              </div>
-              <div class="aspect-[4/5] bg-surface-dim overflow-hidden rounded-sm mt-12 relative group shadow-2xl shadow-primary/5">
-                <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" :src="aboutImages[1]" alt="Boutique hotel lobby with minimalist architecture" />
+              <div class="w-full md:w-1/2 h-full flex items-center justify-center gap-6 overflow-hidden">
+                <div class="flex flex-col gap-6 h-full max-h-[60vh] md:max-h-full justify-center">
+                  <div class="h-1/2 max-h-[30vh] md:max-h-[40vh]">
+                    <div class="h-full bg-surface-dim overflow-hidden rounded-sm relative group shadow-2xl shadow-primary/5">
+                      <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" :src="aboutImages[0]" alt="Luxury travel accessories on marble surface" />
+                    </div>
+                  </div>
+                  <div class="h-1/2 max-h-[30vh] md:max-h-[40vh] mt-0 md:mt-12">
+                    <div class="h-full bg-surface-dim overflow-hidden rounded-sm relative group shadow-2xl shadow-primary/5">
+                      <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" :src="aboutImages[1]" alt="Boutique hotel lobby with minimalist architecture" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -92,17 +102,17 @@
           id="destinos"
         >
           <div class="bg-surface-container-low absolute inset-0"></div>
-          <div class="max-w-[1280px] mx-auto h-full px-margin-desktop flex flex-col justify-center">
-            <div class="text-center mb-20">
+          <div class="max-w-[1280px] mx-auto h-full px-margin-desktop flex flex-col justify-center overflow-hidden">
+            <div class="text-center mb-12 md:mb-20">
               <h2 class="font-headline-xl text-headline-xl text-on-surface mb-6 font-serif-light">Destinos com Alma</h2>
               <div class="h-px w-24 bg-primary/30 mx-auto"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 flex-1">
-              <router-link v-for="destino in destinos" :key="destino.name" class="group cursor-pointer block" :to="destino.path">
-                <div class="relative aspect-[3/4] overflow-hidden rounded-sm mb-6 border border-primary/5">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 flex-1 min-h-0">
+              <router-link v-for="destino in destinos" :key="destino.name" class="group cursor-pointer block h-full max-h-[30vh] md:max-h-[35vh]" :to="destino.path">
+                <div class="relative h-full w-full overflow-hidden rounded-sm mb-6 border border-primary/5">
                   <img class="w-full h-full object-cover sepia-[0.2] group-hover:sepia-0 transition-all duration-1000 group-hover:scale-105" :src="destino.image" :alt="destino.alt" />
                   <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/70 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-                  <div class="absolute bottom-10 left-10 text-white">
+                  <div class="absolute bottom-4 md:bottom-10 left-4 md:left-10 text-white">
                     <h3 class="font-headline-sm text-headline-sm mb-2 font-serif-light">{{ destino.title }}</h3>
                     <p class="font-label-sm text-label-sm uppercase tracking-[0.2em] opacity-80 font-light">{{ destino.subtitle }}</p>
                   </div>
@@ -121,21 +131,23 @@
         >
           <div class="bg-background absolute inset-0"></div>
           <div class="absolute inset-0 arabic-ornament pointer-events-none opacity-5"></div>
-          <div class="max-w-[1280px] mx-auto relative z-10 h-full px-margin-desktop flex flex-col justify-center">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div class="max-w-[1280px] mx-auto relative z-10 h-full px-margin-desktop flex flex-col justify-center overflow-hidden">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-20 gap-4 md:gap-8">
               <div class="max-w-xl">
                 <h2 class="font-headline-xl text-headline-xl text-on-surface mb-6 font-serif-light">Onde a Distinção se Encontra com a Conveniência</h2>
                 <p class="font-body-lg text-body-lg text-on-surface-variant font-light">Elevamos a sua viagem a um nível superior com serviços premium desenhados para a sua total tranquilidade.</p>
               </div>
-              <router-link class="border-b border-primary/40 pb-2 font-label-lg text-label-lg text-primary hover:text-on-surface transition-all tracking-[0.15em] uppercase text-[12px]" to="/servicos">
+              <router-link class="border-b border-primary/40 pb-2 font-label-lg text-label-lg text-primary hover:text-on-surface transition-all tracking-[0.15em] uppercase text-[12px] whitespace-nowrap" to="/servicos">
                 VER TODOS OS SERVIÇOS
               </router-link>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 flex-1">
-              <router-link v-for="servico in servicos" :key="servico.name" class="bg-surface-container-lowest/50 p-12 border border-primary/5 hover:border-primary/20 transition-all group rounded-sm backdrop-blur-sm block" :to="servico.path">
-                <span class="material-symbols-outlined text-4xl mb-10 group-hover:-translate-y-1 transition-transform text-tropical-lagoon">{{ servico.icon }}</span>
-                <h4 class="font-headline-sm text-headline-sm text-on-surface mb-6 font-serif-light">{{ servico.title }}</h4>
-                <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">{{ servico.description }}</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 flex-1 min-h-0">
+              <router-link v-for="servico in servicos" :key="servico.name" class="bg-surface-container-lowest/50 p-6 md:p-12 border border-primary/5 hover:border-primary/20 transition-all group rounded-sm backdrop-blur-sm block h-full max-h-[30vh] md:max-h-[40vh]" :to="servico.path">
+                <div class="h-full flex flex-col justify-center">
+                  <span class="material-symbols-outlined text-3xl md:text-4xl mb-6 md:mb-10 group-hover:-translate-y-1 transition-transform text-tropical-lagoon">{{ servico.icon }}</span>
+                  <h4 class="font-headline-sm text-headline-sm text-on-surface mb-4 md:mb-6 font-serif-light">{{ servico.title }}</h4>
+                  <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed flex-1">{{ servico.description }}</p>
+                </div>
               </router-link>
             </div>
           </div>
@@ -149,42 +161,42 @@
           id="oportunidades"
         >
           <div class="bg-tropical-lagoon absolute inset-0"></div>
-          <div class="max-w-[1280px] mx-auto h-full px-margin-desktop flex flex-col">
-            <div class="mb-16 pt-10">
+          <div class="max-w-[1280px] mx-auto h-full px-margin-desktop flex flex-col overflow-hidden">
+            <div class="mb-8 md:mb-16 pt-4 md:pt-10 flex-shrink-0">
               <h2 class="font-headline-xl text-headline-xl font-serif-light text-white">Oportunidades Únicas</h2>
               <p class="font-body-lg text-body-lg font-light mt-4 text-white/90">Momentos efémeros de luxo que não voltam a repetir-se.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-8 flex-1">
+            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-8 flex-1 min-h-0">
               <div class="md:col-span-2 md:row-span-2 relative overflow-hidden group border border-primary/5 rounded-sm">
                 <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 sepia-[0.1]" :src="oportunidades[0].image" :alt="oportunidades[0].alt" />
                 <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/80 via-transparent to-transparent"></div>
-                <div class="absolute bottom-12 left-12 text-white max-w-sm">
-                  <div class="text-primary bg-background/90 px-4 py-1.5 text-[10px] font-bold tracking-[0.25em] uppercase mb-6 inline-block rounded-full">ÚLTIMAS VAGAS</div>
-                  <h3 class="font-headline-lg text-headline-lg mb-6 font-serif-light leading-tight">{{ oportunidades[0].title }}</h3>
-                  <router-link class="inline-block bg-white text-deep-onyx px-8 py-3 font-label-lg text-label-lg rounded-sm hover:bg-primary hover:text-white transition-colors tracking-widest uppercase text-[11px]" :to="oportunidades[0].path">Reservar Agora</router-link>
+                <div class="absolute bottom-4 md:bottom-12 left-4 md:left-12 text-white max-w-xs md:max-w-sm">
+                  <div class="text-primary bg-background/90 px-3 md:px-4 py-1.5 text-[10px] font-bold tracking-[0.25em] uppercase mb-4 md:mb-6 inline-block rounded-full">ÚLTIMAS VAGAS</div>
+                  <h3 class="font-headline-lg text-headline-lg mb-4 md:mb-6 font-serif-light leading-tight">{{ oportunidades[0].title }}</h3>
+                  <router-link class="inline-block bg-white text-deep-onyx px-6 md:px-8 py-2 md:py-3 font-label-lg text-label-lg rounded-sm hover:bg-primary hover:text-white transition-colors tracking-widest uppercase text-[11px]" :to="oportunidades[0].path">Reservar Agora</router-link>
                 </div>
               </div>
               <div class="md:col-span-2 relative overflow-hidden group border border-primary/5 rounded-sm">
                 <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" :src="oportunidades[1].image" :alt="oportunidades[1].alt" />
                 <div class="absolute inset-0 bg-deep-onyx/40"></div>
-                <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-8 text-center backdrop-blur-[2px]">
-                  <h4 class="font-headline-sm text-headline-sm mb-3 font-serif-light">{{ oportunidades[1].title }}</h4>
-                  <p class="font-body-md text-body-md opacity-80 mb-6 font-light">{{ oportunidades[1].description }}</p>
+                <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4 md:p-8 text-center backdrop-blur-[2px]">
+                  <h4 class="font-headline-sm text-headline-sm mb-2 md:mb-3 font-serif-light">{{ oportunidades[1].title }}</h4>
+                  <p class="font-body-md text-body-md opacity-80 mb-4 md:mb-6 font-light">{{ oportunidades[1].description }}</p>
                   <router-link class="text-white border-b border-white/40 pb-1 font-label-lg text-label-lg tracking-[0.2em] uppercase text-[11px] hover:border-white transition-colors" :to="oportunidades[1].path">SABER MAIS</router-link>
                 </div>
               </div>
-              <div class="md:col-span-1 relative overflow-hidden group border border-primary/5 flex items-center justify-center p-12 text-center rounded-sm bg-surface-container-lowest/90">
+              <div class="md:col-span-1 relative overflow-hidden group border border-primary/5 flex items-center justify-center p-6 md:p-12 text-center rounded-sm bg-surface-container-lowest/90">
                 <div>
-                  <h4 class="font-headline-sm text-headline-sm text-on-surface mb-4 font-serif-light">Newsletter Exclusive</h4>
-                  <p class="font-body-md text-body-md text-on-surface-variant mb-8 font-light">Receba ofertas secretas todas as semanas.</p>
-                  <input v-model="newsletterEmail" class="w-full bg-transparent border-b border-primary/30 pb-2 mb-6 focus:outline-none focus:border-primary transition-colors text-center font-light placeholder:text-primary/40" placeholder="O seu e-mail" type="email" />
+                  <h4 class="font-headline-sm text-headline-sm text-on-surface mb-3 md:mb-4 font-serif-light">Newsletter Exclusive</h4>
+                  <p class="font-body-md text-body-md text-on-surface-variant mb-6 md:mb-8 font-light">Receba ofertas secretas todas as semanas.</p>
+                  <input v-model="newsletterEmail" class="w-full bg-transparent border-b border-primary/30 pb-2 mb-4 md:mb-6 focus:outline-none focus:border-primary transition-colors text-center font-light placeholder:text-primary/40" placeholder="O seu e-mail" type="email" />
                   <button class="text-primary font-label-lg text-label-lg uppercase tracking-widest text-[11px] border-b border-primary/20 hover:border-primary transition-all" @click="subscribeNewsletter">Subscrever</button>
                 </div>
               </div>
               <router-link class="md:col-span-1 relative overflow-hidden group border border-primary/5 rounded-sm block" :to="oportunidades[2].path">
                 <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" :src="oportunidades[2].image" :alt="oportunidades[2].alt" />
                 <div class="absolute inset-0 bg-deep-onyx/30"></div>
-                <div class="absolute bottom-8 left-8 text-white">
+                <div class="absolute bottom-4 md:bottom-8 left-4 md:left-8 text-white">
                   <p class="font-label-sm text-label-sm uppercase tracking-[0.2em] mb-1 font-light opacity-80">Wellness</p>
                   <h4 class="font-headline-sm text-headline-sm font-serif-light">{{ oportunidades[2].title }}</h4>
                 </div>
@@ -201,17 +213,17 @@
         >
           <div class="bg-background absolute inset-0"></div>
           <div class="absolute inset-0 arabic-ornament pointer-events-none opacity-5"></div>
-          <div class="max-w-[1280px] mx-auto text-center relative z-10 h-full px-margin-desktop flex flex-col justify-center">
-            <span class="material-symbols-outlined text-primary/40 text-6xl mb-10">format_quote</span>
-            <div class="max-w-4xl mx-auto italic font-headline-sm text-headline-sm text-on-surface leading-relaxed mb-16 font-serif-light font-light px-4">
-              "A Carla e a sua equipa transformaram o nosso 20º aniversário de casamento numa aventura que superou todos os sonhos. A atenção aos detalhes e o acesso exclusivo que nos proporcionaram foram simplesmenete inigualáveis."
+          <div class="max-w-[1280px] mx-auto text-center relative z-10 h-full px-margin-desktop flex flex-col justify-center items-center overflow-hidden">
+            <span class="material-symbols-outlined text-primary/40 text-4xl md:text-6xl mb-6 md:mb-10 flex-shrink-0">format_quote</span>
+            <div class="max-w-4xl mx-auto italic font-headline-sm text-headline-sm text-on-surface leading-relaxed mb-10 md:mb-16 font-serif-light font-light px-4 flex-shrink-0">
+              "A Carla e a sua equipa transformaram o nosso 20º aniversário de casamento numa aventura que superou todos os sonhos. A atenção aos detalhes e o acesso exclusivo que nos proporcionaram foram simplesmente inigualáveis."
             </div>
-            <div class="flex flex-col items-center">
-              <div class="w-20 h-20 rounded-full overflow-hidden mb-6 border border-primary/20 p-1.5 bg-background">
+            <div class="flex flex-col items-center flex-shrink-0">
+              <div class="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-4 md:mb-6 border border-primary/20 p-1.5 bg-background">
                 <img class="w-full h-full object-cover rounded-full filter grayscale-[0.3]" :src="testimonialImage" alt="Portrait of a sophisticated couple" />
               </div>
-              <h5 class="font-label-lg text-label-lg text-on-surface tracking-widest uppercase text-[12px] mb-1">Ana & Ricardo Ferreira</h5>
-              <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.25em] font-light text-[10px]">Viajantes Frequentes</p>
+              <h5 class="font-label-lg text-label-lg text-on-surface tracking-widest uppercase text-[10px] md:text-[12px] mb-1">Ana & Ricardo Ferreira</h5>
+              <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.25em] font-light text-[8px] md:text-[10px]">Viajantes Frequentes</p>
             </div>
           </div>
         </section>
@@ -326,16 +338,6 @@ const testimonialImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDA
 
 const newsletterEmail = ref('')
 
-// Section background colors definition
-const sectionBackgrounds = [
-  'bg-deep-onyx',
-  'bg-background',
-  'bg-surface-container-low',
-  'bg-background',
-  'bg-tropical-lagoon',
-  'bg-background'
-]
-
 // Calculate style for each section based on scroll position
 function getSectionStyle(index) {
   const distance = Math.abs(index - activeSection.value)
@@ -344,15 +346,13 @@ function getSectionStyle(index) {
   // Z-index: active section gets highest
   const zIndex = 100 - (distance * 10)
   
-  // Position: each section stays at its own position in the track
-  // The track height is 6 * 100vh, so each section is at top: index * 100vh
+  // Position: each section at its own position
   const top = `${index * wh}px`
   
-  // Scale and opacity based on distance from active section
+  // Scale and opacity
   const scale = 1 - (distance * 0.05)
   const opacity = 1 - (distance * 0.15)
   
-  // Transform: active section stays normal, others scale slightly
   const transform = distance === 0 ? 'none' : `scale(${scale})`
   
   return {
@@ -382,7 +382,7 @@ function handleContainerScroll(e) {
   const scrollTop = container.scrollTop
   const wh = window.innerHeight || 1000
   
-  // Calculate which section is active
+  // Calculate which section is active based on scroll position
   const newActiveSection = Math.min(5, Math.round(scrollTop / wh))
   
   if (newActiveSection !== activeSection.value) {
@@ -452,11 +452,5 @@ onUnmounted(() => {
 .scroll-stack-container {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-/* Ensure content respects height */
-.scroll-stack-section > div:not(.absolute) {
-  max-height: 100%;
-  overflow-y: auto;
 }
 </style>
