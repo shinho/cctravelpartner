@@ -1,17 +1,17 @@
 <template>
-  <div class="stacking-scroll-wrapper relative h-screen overflow-hidden">
+  <div class="scroll-stack-wrapper h-screen overflow-hidden perspective-1000px">
     <div 
-      class="stacking-scroll-container absolute inset-0 overflow-y-auto scroll-smooth"
-      @scroll="handleScroll"
+      class="scroll-stack-container h-full overflow-y-auto scroll-smooth"
+      @scroll="handleContainerScroll"
     >
-      <div class="stacking-scroll-track relative">
+      <div class="scroll-stack-track relative">
         <!-- Section 1: Hero Carousel -->
         <section 
-          class="stacking-section relative w-full h-screen overflow-hidden"
-          :class="{ 'active': activeSection === 0, 'prev': activeSection > 0 }"
+          class="scroll-stack-section absolute top-0 left-0 w-full h-screen overflow-hidden"
           :style="getSectionStyle(0)"
-          id="hero"
+          data-index="0"
         >
+          <div class="bg-deep-onyx absolute inset-0"></div>
           <div class="flex h-full carousel-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
             <div v-for="(slide, index) in slides" :key="index" class="min-w-full h-full relative">
               <div class="absolute inset-0 bg-deep-onyx/30 z-10"></div>
@@ -49,11 +49,12 @@
 
         <!-- Section 2: Sobre Nós -->
         <section 
-          class="stacking-section relative w-full h-screen overflow-hidden bg-background"
-          :class="{ 'active': activeSection === 1, 'next': activeSection === 0, 'prev': activeSection > 1 }"
+          class="scroll-stack-section absolute top-0 left-0 w-full h-screen overflow-hidden"
           :style="getSectionStyle(1)"
+          data-index="1"
           id="sobre-nos"
         >
+          <div class="bg-background absolute inset-0"></div>
           <div class="absolute inset-0 arabic-ornament pointer-events-none"></div>
           <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center gap-20 relative z-10 h-full px-margin-desktop">
             <div class="w-full md:w-1/2">
@@ -83,19 +84,20 @@
           </div>
         </section>
 
-        <!-- Section 3: Destinos (Grid) -->
+        <!-- Section 3: Destinos -->
         <section 
-          class="stacking-section relative w-full h-screen bg-surface-container-low"
-          :class="{ 'active': activeSection === 2, 'next': activeSection === 1, 'prev': activeSection > 2 }"
+          class="scroll-stack-section absolute top-0 left-0 w-full h-screen"
           :style="getSectionStyle(2)"
+          data-index="2"
           id="destinos"
         >
+          <div class="bg-surface-container-low absolute inset-0"></div>
           <div class="max-w-[1280px] mx-auto h-full px-margin-desktop flex flex-col justify-center">
             <div class="text-center mb-20">
               <h2 class="font-headline-xl text-headline-xl text-on-surface mb-6 font-serif-light">Destinos com Alma</h2>
               <div class="h-px w-24 bg-primary/30 mx-auto"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 flex-1">
               <router-link v-for="destino in destinos" :key="destino.name" class="group cursor-pointer block" :to="destino.path">
                 <div class="relative aspect-[3/4] overflow-hidden rounded-sm mb-6 border border-primary/5">
                   <img class="w-full h-full object-cover sepia-[0.2] group-hover:sepia-0 transition-all duration-1000 group-hover:scale-105" :src="destino.image" :alt="destino.alt" />
@@ -112,11 +114,12 @@
 
         <!-- Section 4: Serviços Exclusivos -->
         <section 
-          class="stacking-section relative w-full h-screen overflow-hidden bg-background"
-          :class="{ 'active': activeSection === 3, 'next': activeSection === 2, 'prev': activeSection > 3 }"
+          class="scroll-stack-section absolute top-0 left-0 w-full h-screen overflow-hidden"
           :style="getSectionStyle(3)"
+          data-index="3"
           id="servicos"
         >
+          <div class="bg-background absolute inset-0"></div>
           <div class="absolute inset-0 arabic-ornament pointer-events-none opacity-5"></div>
           <div class="max-w-[1280px] mx-auto relative z-10 h-full px-margin-desktop flex flex-col justify-center">
             <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
@@ -128,7 +131,7 @@
                 VER TODOS OS SERVIÇOS
               </router-link>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 flex-1">
               <router-link v-for="servico in servicos" :key="servico.name" class="bg-surface-container-lowest/50 p-12 border border-primary/5 hover:border-primary/20 transition-all group rounded-sm backdrop-blur-sm block" :to="servico.path">
                 <span class="material-symbols-outlined text-4xl mb-10 group-hover:-translate-y-1 transition-transform text-tropical-lagoon">{{ servico.icon }}</span>
                 <h4 class="font-headline-sm text-headline-sm text-on-surface mb-6 font-serif-light">{{ servico.title }}</h4>
@@ -140,17 +143,18 @@
 
         <!-- Section 5: Oportunidades -->
         <section 
-          class="stacking-section relative w-full h-screen bg-tropical-lagoon"
-          :class="{ 'active': activeSection === 4, 'next': activeSection === 3, 'prev': activeSection > 4 }"
+          class="scroll-stack-section absolute top-0 left-0 w-full h-screen"
           :style="getSectionStyle(4)"
+          data-index="4"
           id="oportunidades"
         >
-          <div class="max-w-[1280px] mx-auto h-full px-margin-desktop flex flex-col justify-center">
-            <div class="mb-16">
+          <div class="bg-tropical-lagoon absolute inset-0"></div>
+          <div class="max-w-[1280px] mx-auto h-full px-margin-desktop flex flex-col">
+            <div class="mb-16 pt-10">
               <h2 class="font-headline-xl text-headline-xl font-serif-light text-white">Oportunidades Únicas</h2>
               <p class="font-body-lg text-body-lg font-light mt-4 text-white/90">Momentos efémeros de luxo que não voltam a repetir-se.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-8 h-full">
+            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-8 flex-1">
               <div class="md:col-span-2 md:row-span-2 relative overflow-hidden group border border-primary/5 rounded-sm">
                 <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 sepia-[0.1]" :src="oportunidades[0].image" :alt="oportunidades[0].alt" />
                 <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/80 via-transparent to-transparent"></div>
@@ -191,15 +195,16 @@
 
         <!-- Section 6: Testemunhos -->
         <section 
-          class="stacking-section relative w-full h-screen overflow-hidden bg-background"
-          :class="{ 'active': activeSection === 5, 'next': activeSection === 4 }"
+          class="scroll-stack-section absolute top-0 left-0 w-full h-screen overflow-hidden"
           :style="getSectionStyle(5)"
+          data-index="5"
         >
+          <div class="bg-background absolute inset-0"></div>
           <div class="absolute inset-0 arabic-ornament pointer-events-none opacity-5"></div>
           <div class="max-w-[1280px] mx-auto text-center relative z-10 h-full px-margin-desktop flex flex-col justify-center">
             <span class="material-symbols-outlined text-primary/40 text-6xl mb-10">format_quote</span>
             <div class="max-w-4xl mx-auto italic font-headline-sm text-headline-sm text-on-surface leading-relaxed mb-16 font-serif-light font-light px-4">
-              "A Carla e a sua equipa transformaram o nosso 20º aniversário de casamento numa aventura que superou todos os sonhos. A atenção aos detalhes e o acesso exclusivo que nos proporcionaram foram semplicemente inigualáveis."
+              "A Carla e a sua equipa transformaram o nosso 20º aniversário de casamento numa aventura que superou todos os sonhos. A atenção aos detalhes e o acesso exclusivo que nos proporcionaram foram simplesmenete inigualáveis."
             </div>
             <div class="flex flex-col items-center">
               <div class="w-20 h-20 rounded-full overflow-hidden mb-6 border border-primary/20 p-1.5 bg-background">
@@ -212,13 +217,6 @@
         </section>
       </div>
     </div>
-    
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-50" v-if="activeSection < 5">
-      <span class="w-2 h-2 bg-white/40 rounded-full"></span>
-      <span class="w-2 h-2 bg-white/60 rounded-full"></span>
-      <span class="w-2 h-2 bg-white animated-bounce rounded-full"></span>
-    </div>
   </div>
 </template>
 
@@ -227,9 +225,9 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const currentSlide = ref(0)
 let carouselInterval = null
+const scrollContainer = ref(null)
 const activeSection = ref(0)
 const windowHeight = ref(0)
-const scrollContainer = ref(null)
 
 const slides = [
   {
@@ -328,32 +326,41 @@ const testimonialImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDA
 
 const newsletterEmail = ref('')
 
+// Section background colors definition
+const sectionBackgrounds = [
+  'bg-deep-onyx',
+  'bg-background',
+  'bg-surface-container-low',
+  'bg-background',
+  'bg-tropical-lagoon',
+  'bg-background'
+]
+
 // Calculate style for each section based on scroll position
 function getSectionStyle(index) {
   const distance = Math.abs(index - activeSection.value)
+  const wh = window.innerHeight || 1000
   
-  // Z-index: active section gets highest, then based on distance
+  // Z-index: active section gets highest
   const zIndex = 100 - (distance * 10)
   
-  // Position: sections stack based on their index relative to active section
-  // Active section stays at position 0
-  // Previous sections move down, next sections move up
-  const positionOffset = (index - activeSection.value) * 50
+  // Position: each section stays at its own position in the track
+  // The track height is 6 * 100vh, so each section is at top: index * 100vh
+  const top = `${index * wh}px`
   
-  // Scale: active section is at 1, others scale down based on distance
-  const scale = 1 - (distance * 0.08)
+  // Scale and opacity based on distance from active section
+  const scale = 1 - (distance * 0.05)
+  const opacity = 1 - (distance * 0.15)
   
-  // Opacity: active section is at 1, others fade based on distance
-  const opacity = 1 - (distance * 0.2)
-  
-  // Transform: combine position and scale
-  const transform = `translateY(${positionOffset}px) scale(${scale})`
+  // Transform: active section stays normal, others scale slightly
+  const transform = distance === 0 ? 'none' : `scale(${scale})`
   
   return {
     zIndex: zIndex,
+    top: top,
     transform: transform,
-    opacity: Math.max(0.3, opacity),
-    transition: 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease-out, z-index 0.1s ease-out'
+    opacity: Math.max(0.5, opacity),
+    transition: 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s ease-out'
   }
 }
 
@@ -368,48 +375,34 @@ function subscribeNewsletter() {
   }
 }
 
-function handleScroll(e) {
+function handleContainerScroll(e) {
   if (!scrollContainer.value) return
   
-  const container = scrollContainer.value
+  const container = e.target
   const scrollTop = container.scrollTop
   const wh = window.innerHeight || 1000
   
   // Calculate which section is active
-  const newActiveSection = Math.min(5, Math.floor(scrollTop / wh))
+  const newActiveSection = Math.min(5, Math.round(scrollTop / wh))
   
   if (newActiveSection !== activeSection.value) {
     activeSection.value = newActiveSection
   }
 }
 
-function scrollToSection(index) {
-  if (!scrollContainer.value) return
-  
-  const container = scrollContainer.value
-  const wh = window.innerHeight || 1000
-  const targetScroll = index * wh
-  
-  container.scrollTo({
-    top: targetScroll,
-    behavior: 'smooth'
-  })
-}
-
 onMounted(() => {
   // Initialize window height
   windowHeight.value = window.innerHeight || 1000
   
-  // Get scroll container reference
-  const container = document.querySelector('.stacking-scroll-container')
+  // Set container height
+  const container = document.querySelector('.scroll-stack-container')
   if (container) {
     scrollContainer.value = container
-    
-    // Set track height
-    const track = container.querySelector('.stacking-scroll-track')
+    const track = container.querySelector('.scroll-stack-track')
     if (track) {
       track.style.height = `${windowHeight.value * 6}px`
     }
+    container.style.height = `${windowHeight.value}px`
   }
   
   // Start carousel
@@ -429,21 +422,21 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.stacking-scroll-wrapper {
+.scroll-stack-wrapper {
   perspective: 1000px;
   transform-style: preserve-3d;
 }
 
-.stacking-scroll-container {
+.scroll-stack-container {
   height: 100vh;
   scroll-snap-type: y mandatory;
 }
 
-.stacking-scroll-track {
-  scroll-snap-align: start;
+.scroll-stack-track {
+  position: relative;
 }
 
-.stacking-section {
+.scroll-stack-section {
   will-change: transform, opacity, z-index;
   backface-visibility: hidden;
   transform-style: preserve-3d;
@@ -451,30 +444,19 @@ onUnmounted(() => {
 }
 
 /* Hide scrollbar but keep functionality */
-.stacking-scroll-container::-webkit-scrollbar {
+.scroll-stack-container::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
 
-.stacking-scroll-container {
+.scroll-stack-container {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-/* Animation for scroll indicator */
-.animated-bounce {
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
+/* Ensure content respects height */
+.scroll-stack-section > div:not(.absolute) {
+  max-height: 100%;
+  overflow-y: auto;
 }
 </style>
