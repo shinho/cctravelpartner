@@ -1,0 +1,25 @@
+window.__codropsPlacementConfig = (function () {
+  const config = {
+    placements: [
+      { id: 'in-demo-placement', weight: 1 },
+      { id: 'in-demo-placement-2', weight: 1 },
+    ],
+  };
+
+  function pick() {
+    const total = config.placements.reduce((sum, p) => sum + p.weight, 0);
+    let r = Math.random() * total;
+
+    for (let i = 0; i < config.placements.length; i++) {
+      const p = config.placements[i];
+      if (r < p.weight) return p.id;
+      r -= p.weight;
+    }
+
+    return config.placements[0].id;
+  }
+
+  return {
+    pick: pick,
+  };
+})();

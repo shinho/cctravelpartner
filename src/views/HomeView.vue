@@ -1,7 +1,16 @@
 <template>
   <main class="sticky-sections-demo">
     <!-- Header Section -->
-    <header class="frame frame--header" :style="{ backgroundImage: `url(${slides[0].image})` }">
+    <header class="frame frame--header">
+      <div class="frame__bg" aria-hidden="true">
+        <div
+          v-for="(slide, index) in slides"
+          :key="'bg-' + index"
+          class="frame__bg-layer"
+          :class="{ 'frame__bg-layer--active': currentSlide === index }"
+          :style="{ backgroundImage: `url(${slide.image})` }"
+        ></div>
+      </div>
       <div class="frame__overlay"></div>
       <div class="frame__heading">
         <h1 class="frame__title">Carla Coelho Viagens de Luxo</h1>
@@ -27,9 +36,14 @@
     </header>
 
     <!-- Intro section -->
-    <div class="content content--highlight content--intro">
-      <p class="text-large">Na Carla Coelho Viagens de Luxo, não vendemos apenas destinos; desenhamos memórias.</p>
-    </div>
+    <section class="content content--highlight content--intro">
+      <div class="highlight__inner">
+        <span class="highlight__eyebrow">O Nosso Propósito</span>
+        <h2 class="highlight__statement"><i>Não vendemos apenas destinos;</i> desenhamos memórias.</h2>
+        <span class="highlight__divider"></span>
+        <p class="highlight__text">Cada viagem é uma obra-prima única, meticulosamente planeada para refletir os seus desejos mais profundos e superar as suas expectativas mais elevadas.</p>
+      </div>
+    </section>
 
     <!-- Wrap - contains all sticky sections -->
     <div class="wrap">
@@ -165,9 +179,15 @@
     </div>
 
     <!-- Outro section -->
-    <div class="content content--highlight content--outro">
-      <p class="text-large">Pronto para começar a sua próxima aventura? Entre em contacto e deixe-nos criar a sua experiência de viagem perfeita.</p>
-    </div>
+    <section class="content content--highlight content--outro">
+      <div class="highlight__inner">
+        <span class="highlight__eyebrow">Vamos Planear</span>
+        <h2 class="highlight__statement"><i>Pronto para começar</i> a sua próxima aventura?</h2>
+        <span class="highlight__divider"></span>
+        <p class="highlight__text">Entre em contacto e deixe-nos criar a sua experiência de viagem perfeita.</p>
+        <router-link class="btn btn--outline" to="/orcamento">Solicitar Orçamento</router-link>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="frame frame--footer">
@@ -182,12 +202,21 @@ import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 const currentSlide = ref(0)
 let carouselInterval = null
 let lenis = null
+let scrollMedia = null
 const newsletterEmail = ref('')
 
 const slides = [
   {
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVyqs8O_4IaIjqV92njWRIvjqnAuL3TcC4i5LDVWkZkZRiCdapTGywRf6Bc4mNYzU2z5AnASRJUp7OnXwmvguYMm_cSZN8VBfv-oVR3AoaSKGSUtNXd0Wh6ts3wkJtt1ScSgHAu9qgauP_aX-EQKpLRGhkq9jVaY835sQIT6ZrHq1gPleqjK7K8S3cc0kun5MemH8N9DT7Gfx1cCj2FUAxa1wa7T7tkAdPCG3lGKia88ZA14uFaGtV1eVSvTqUJrEObNMjMcJDpzE',
     alt: 'A breathtaking aerial view of a private tropical island resort in the Maldives'
+  },
+  {
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAkXpXrNx2_7oYVj7yPG9waxwGBmj2jhY3XOSmjdpajgTw3U_0vHEF7lcF8NDA5JIY5WIE9drocrnT5V3KsyBjH4RtabcHMQmswffegkYZVLd681FZrCmvw_gnzgDmqSAdd3H2xcL1JjBuZli8Emk6Q8Ea1c9UJZqhyxkOO64an1v-u5-oyxSBEf8DGy9esA0X2uS-NbWZ4PYwtJpmNGIex-lW0xM_gTZnHSPM889nbeJshCrs1KjHmLs-uN8S5WiFxcGnO0EbI5VQ',
+    alt: 'A romantic sunset dinner setting in the middle of a vast desert landscape'
+  },
+  {
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDOecJILLeSh2Ozxe3HKyBtTLkHz-bniYWfZtIR1A6IAyjdaFlOfXgIU6whwUuyzkOLTvdXw20mnAMMIe5kT592zpqfD-aGHo3oX2TK_4cDjYK6fsqA4cu6Uz4p_JB6rar1gzVENphQQBbOfiO1DaRfKAxaIo4Agn3NvLnxDTdJj1pael2QthoAwKtEOE8mTjs_YT9nwtQTTI-9yH7xt7KkQ0R2FS4YyqXTBJANPVUfecgvWgWgj76DjTEtokGJ5FORqgjZwEZNvHg',
+    alt: 'A historic cobblestone street in Florence, Italy, during the soft morning light'
   }
 ]
 
@@ -288,42 +317,45 @@ function initScrollAnimations() {
     
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger)
-    
-    // Get all sticky sections
-    const contentElements = document.querySelectorAll('.content--sticky')
-    const totalContentElements = contentElements.length
-    
-    // Set default styles
-    contentElements.forEach((el) => {
-      gsap.set(el, {
-        filter: 'brightness(50%)',
-        scale: 0.95,
-        borderRadius: 0
+
+    // Only the pinned/stacked layout uses fixed-height sections, so the
+    // scroll animation is scoped to the same breakpoint as the sticky CSS.
+    scrollMedia = gsap.matchMedia()
+
+    scrollMedia.add('(min-width: 1025px)', () => {
+      const contentElements = gsap.utils.toArray('.content--sticky')
+      const totalContentElements = contentElements.length
+
+      // Consistent starting state for every sticky section
+      contentElements.forEach((el) => {
+        gsap.set(el, {
+          filter: 'brightness(100%)',
+          scale: 1,
+          borderRadius: 0
+        })
+      })
+
+      // As each section gets covered by the next one, dim, shrink and round it
+      contentElements.forEach((el, position) => {
+        const isLast = position === totalContentElements - 1
+
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: el,
+            start: 'top top',
+            end: '+=100%',
+            scrub: true
+          }
+        })
+        .to(el, {
+          ease: 'none',
+          filter: isLast ? 'none' : 'brightness(50%)',
+          scale: 0.95,
+          borderRadius: 40
+        }, 0)
       })
     })
-    
-    // Animate each section on scroll
-    contentElements.forEach((el, position) => {
-      const isLast = position === totalContentElements - 1
-      
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: el,
-          start: 'top top',
-          end: '+=100%',
-          scrub: true,
-          invalidateOnRefresh: true
-        }
-      })
-      .to(el, {
-        ease: 'none',
-        filter: isLast ? 'none' : 'brightness(100%)',
-        scale: 1,
-        borderRadius: isLast ? 0 : 40,
-        opacity: 1
-      }, 0)
-    })
-    
+
     // Refresh ScrollTrigger after images load
     const images = document.querySelectorAll('.content__img')
     let loadedImages = 0
@@ -392,9 +424,15 @@ onUnmounted(() => {
   // Clean up Lenis
   if (lenis) {
     lenis.destroy()
+    lenis = null
   }
   
-  // Clean up ScrollTrigger
+  // Clean up ScrollTrigger / matchMedia
+  if (scrollMedia) {
+    scrollMedia.revert()
+    scrollMedia = null
+  }
+  
   if (typeof ScrollTrigger !== 'undefined') {
     ScrollTrigger.getAll().forEach(trigger => trigger.kill())
   }
@@ -442,6 +480,26 @@ main {
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 1;
+}
+
+.frame__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.frame__bg-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.frame__bg-layer--active {
+  opacity: 1;
 }
 
 .frame__overlay {
@@ -572,6 +630,20 @@ main {
   background: rgba(255, 255, 255, 0.9);
 }
 
+.btn--outline {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  margin-top: 1.5rem;
+  backdrop-filter: none;
+}
+
+.btn--outline:hover {
+  background: var(--color-primary);
+  color: var(--color-surface-container-lowest);
+  border-color: var(--color-primary);
+}
+
 .frame--footer {
   padding: 2rem;
   background: var(--color-background);
@@ -623,6 +695,59 @@ main {
   color: var(--color-on-surface);
 }
 
+.content--intro {
+  background-image: radial-gradient(rgba(140, 120, 81, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.highlight__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.highlight__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.highlight__statement {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0;
+  color: var(--color-on-surface);
+}
+
+.highlight__statement i {
+  font-style: italic;
+}
+
+.highlight__divider {
+  width: 64px;
+  height: 1px;
+  background: var(--color-primary);
+  opacity: 0.35;
+  margin: 0.5rem 0;
+}
+
+.highlight__text {
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0;
+  color: var(--color-on-surface-variant);
+  font-weight: 300;
+}
+
 .wrap {
   position: relative;
 }
@@ -630,13 +755,38 @@ main {
 .content--sticky {
   position: relative;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
-  will-change: filter, transform, border-radius;
+  will-change: filter, border-radius;
+}
+
+/* On larger screens the sections pin and stack over each other (Demo 2) */
+@media (min-width: 1025px) {
+  .content--sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .content__img-wrap {
+    height: 100%;
+  }
+
+  .content__img {
+    height: 100%;
+    max-height: 100%;
+  }
 }
 
 .content--grid {
   display: grid;
+  align-items: stretch;
+  justify-items: stretch;
 }
 
 .content__inner {
@@ -646,11 +796,18 @@ main {
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .content__img-wrap {
   flex: 0 0 40%;
   max-width: 40%;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .content__img {
@@ -658,7 +815,7 @@ main {
   height: auto;
   border-radius: 8px;
   object-fit: cover;
-  max-height: 80vh;
+  max-height: 100%;
 }
 
 .content__img--large {
@@ -675,6 +832,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .content__title {

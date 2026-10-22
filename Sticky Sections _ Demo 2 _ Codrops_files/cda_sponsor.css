@@ -1,0 +1,24 @@
+.tympa-highlight-wrapper,
+.tympa-target,
+#in-demo-placement-box {
+  display: contents;
+}
+
+#cdawrap {
+  grid-area: sponsor;
+  justify-self: end;
+  max-width: 300px;
+}
+
+body #cdawrap .cda-sponsor-link {
+  white-space: normal !important;
+}
+
+body .frame #cdawrap a:not(.frame__title-back):not(.demos__item)::before {
+  display: none;
+}
+
+body .tympa-highlight-wrapper,
+body .tympa-target {
+  display: contents;
+}
