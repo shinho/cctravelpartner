@@ -70,6 +70,8 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useHomeStore } from '../stores/home'
 import HomeAboutSection from '../components/home/HomeAboutSection.vue'
 import HomeHighlightSection from '../components/home/HomeHighlightSection.vue'
 import HomeDestinationsSection from '../components/home/HomeDestinationsSection.vue'
@@ -83,20 +85,7 @@ let carouselInterval = null
 let lenis = null
 let scrollMedia = null
 
-const slides = [
-  {
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVyqs8O_4IaIjqV92njWRIvjqnAuL3TcC4i5LDVWkZkZRiCdapTGywRf6Bc4mNYzU2z5AnASRJUp7OnXwmvguYMm_cSZN8VBfv-oVR3AoaSKGSUtNXd0Wh6ts3wkJtt1ScSgHAu9qgauP_aX-EQKpLRGhkq9jVaY835sQIT6ZrHq1gPleqjK7K8S3cc0kun5MemH8N9DT7Gfx1cCj2FUAxa1wa7T7tkAdPCG3lGKia88ZA14uFaGtV1eVSvTqUJrEObNMjMcJDpzE',
-    alt: 'A breathtaking aerial view of a private tropical island resort in the Maldives'
-  },
-  {
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAkXpXrNx2_7oYVj7yPG9waxwGBmj2jhY3XOSmjdpajgTw3U_0vHEF7lcF8NDA5JIY5WIE9drocrnT5V3KsyBjH4RtabcHMQmswffegkYZVLd681FZrCmvw_gnzgDmqSAdd3H2xcL1JjBuZli8Emk6Q8Ea1c9UJZqhyxkOO64an1v-u5-oyxSBEf8DGy9esA0X2uS-NbWZ4PYwtJpmNGIex-lW0xM_gTZnHSPM889nbeJshCrs1KjHmLs-uN8S5WiFxcGnO0EbI5VQ',
-    alt: 'A romantic sunset dinner setting in the middle of a vast desert landscape'
-  },
-  {
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDOecJILLeSh2Ozxe3HKyBtTLkHz-bniYWfZtIR1A6IAyjdaFlOfXgIU6whwUuyzkOLTvdXw20mnAMMIe5kT592zpqfD-aGHo3oX2TK_4cDjYK6fsqA4cu6Uz4p_JB6rar1gzVENphQQBbOfiO1DaRfKAxaIo4Agn3NvLnxDTdJj1pael2QthoAwKtEOE8mTjs_YT9nwtQTTI-9yH7xt7KkQ0R2FS4YyqXTBJANPVUfecgvWgWgj76DjTEtokGJ5FORqgjZwEZNvHg',
-    alt: 'A historic cobblestone street in Florence, Italy, during the soft morning light'
-  }
-]
+const { slides } = storeToRefs(useHomeStore())
 
 function moveCarousel(index) {
   currentSlide.value = index
@@ -209,7 +198,7 @@ onMounted(() => {
   
   // Start carousel
   carouselInterval = setInterval(() => {
-    currentSlide.value = (currentSlide.value + 1) % slides.length
+    currentSlide.value = (currentSlide.value + 1) % slides.value.length
   }, 7000)
 })
 

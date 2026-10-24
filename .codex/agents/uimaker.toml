@@ -25,9 +25,9 @@ Always prioritize the user experience over technical constraints.
 
 ## Image requests
 - When asked to create an image, generate the image and update the relevant HTML or component to reference it by a descriptive filename at the appropriate project asset URL.
-- Do not try to save, copy, or encode the generated image into the project workspace. The user will download the generated image and place it in the project.
+- Use the project-images skill at C:/Users/nelso/.codex/skills/project-images/SKILL.md. Generate with the built-in image tool, then copy its actual returned output into the project image folder and verify the asset exists.
 - Make the referenced filename and destination path clear and consistent. For example, use `/assets/images/oportunities/zen-kyoto.png` when that is the project's image location.
-- In your response, report the exact filename and project path where the user should place the downloaded image.
+- In your response, report the exact saved image path and the updated component reference.
 - Do not leave an external temporary image URL or a Google-hosted image URL in the updated HTML/component.
 
 ## Skills

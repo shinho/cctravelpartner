@@ -11,7 +11,7 @@
                   </div>
                 </div>
                 <div class="opportunity-card opportunity-card--medium">
-                  <img :src="oportunidades[1].image" alt="Private Jet" />
+                  <img :src="oportunidades[1].image" :alt="oportunidades[1].alt" />
                   <div class="opportunity-card__content">
                     <h4>{{ oportunidades[1].title }}</h4>
                     <p>{{ oportunidades[1].description }}</p>
@@ -52,7 +52,8 @@ const oportunidades = [
     title: 'Private Jet Experience',
     description: 'Voo exclusivo para o Mónaco com estadia VIP.',
     path: '/oportunidades/private-jet',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDnKsArknnfG0fKiCi8ksPkC0MfLSz8Ebeg0d-XqCmKJhUo0utt6QRFy8h3QfNZJuxGfWs_dk6cemxVaoWvU-8m5ftfdeQwYkuJK8dXotGwp0z0Xq3UwlLVKZizv-CYKAr6td4VLtnNvh1IXa6SdyOmmXBfWWSgbtNdup118NVqyOpM8zbrOfszTXfxQa3x9oZkRMd7q9xrK6FtRBrpzEubP5oZFiGfGndW1YS82tsf_h23vGq6GWB8d9cg84EEPkJfKPcjig_26UI'
+    image: '/assets/images/oportunities/private-jet-monaco.png',
+    alt: 'Interior de um jato privado com vista para a costa mediterrânica junto ao Mónaco'
   },
   {
     title: 'Zen Kyoto',

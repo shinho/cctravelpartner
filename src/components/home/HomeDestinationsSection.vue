@@ -1,5 +1,5 @@
 <template>
-  <SectionHome :image-path="destinos[0].image" image-alt="Praias Tropicais" title-lead="Destinos" title=" com Alma" section-index="1" background="bg-2">
+  <SectionHome data-TestId="HomeDestinationsSection" :image-path="destinos[0].image" image-alt="Praias Tropicais" title-lead="Destinos" title=" com Alma" section-index="1" background="bg-2">
           <p class="content__text content__text--left text-meta">Experiências únicas em locais extraordinários. Cada destino é cuidadosamente seleccionado para oferecer o melhor do luxo e autenticidade.</p>
           <div class="content__grid">
             <router-link v-for="destino in destinos" :key="destino.name" class="content__card" :to="destino.path">
@@ -22,21 +22,24 @@ const destinos = [
     title: 'Praias Tropicais',
     subtitle: 'Refúgios Paradisíacos',
     path: '/destinos/praias-tropicais',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVyqs8O_4IaIjqV92njWRIvjqnAuL3TcC4i5LDVWkZkZRiCdapTGywRf6Bc4mNYzU2z5AnASRJUp7OnXwmvguYMm_cSZN8VBfv-oVR3AoaSKGSUtNXd0Wh6ts3wkJtt1ScSgHAu9qgauP_aX-EQKpLRGhkq9jVaY835sQIT6ZrHq1gPleqjK7K8S3cc0kun5MemH8N9DT7Gfx1cCj2FUAxa1wa7T7tkAdPCG3lGKia88ZA14uFaGtV1eVSvTqUJrEObNMjMcJDpzE'
+    image: '/assets/images/destinos/praias-tropicais.png',
+    alt: 'Praia de areia branca com palmeiras e águas turquesa nas Maldivas'
   },
   {
     name: 'desertos',
     title: 'Desertos Exóticos',
     subtitle: 'Mistérios do Oriente',
     path: '/destinos/desertos-exoticos',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAkXpXrNx2_7oYVj7yPG9waxwGBmj2jhY3XOSmjdpajgTw3U_0vHEF7lcF8NDA5JIY5WIE9drocrnT5V3KsyBjH4RtabcHMQmswffegkYZVLd681FZrCmvw_gnzgDmqSAdd3H2xcL1JjBuZli8Emk6Q8Ea1c9UJZqhyxkOO64an1v-u5-oyxSBEf8DGy9esA0X2uS-NbWZ4PYwtJpmNGIex-lW0xM_gTZnHSPM889nbeJshCrs1KjHmLs-uN8S5WiFxcGnO0EbI5VQ'
+    image: '/assets/images/destinos/desertos-exoticos.png',
+    alt: 'Dunas douradas do deserto árabe ao pôr do sol'
   },
   {
     name: 'cidades',
     title: 'Cidades Históricas',
     subtitle: 'Cultura e Tradição',
     path: '/destinos/cidades-historicas',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDOecJILLeSh2Ozxe3HKyBtTLkHz-bniYWfZtIR1A6IAyjdaFlOfXgIU6whwUuyzkOLTvdXw20mnAMMIe5kT592zpqfD-aGHo3oX2TK_4cDjYK6fsqA4cu6Uz4p_JB6rar1gzVENphQQBbOfiO1DaRfKAxaIo4Agn3NvLnxDTdJj1pael2QthoAwKtEOE8mTjs_YT9nwtQTTI-9yH7xt7KkQ0R2FS4YyqXTBJANPVUfecgvWgWgj76DjTEtokGJ5FORqgjZwEZNvHg'
+    image: '/assets/images/destinos/cidades-historicas.png',
+    alt: 'Rua histórica de Florença com vista para a cúpula de Santa Maria del Fiore'
   }
 ]
 </script>

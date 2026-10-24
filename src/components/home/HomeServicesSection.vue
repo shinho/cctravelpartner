@@ -1,5 +1,5 @@
 <template>
-  <SectionHome image-path="https://lh3.googleusercontent.com/aida-public/AB6AXuCsCbmN_DzWeuZ6cB6y2KU0RNKDH4_Z_QmD02lGi69tIsHJiM5d3-g9oHN0aYCCAdpmVgkX2jAZ4FUOt9cvnm6n4L4ErRbbZXF3qflZehwCu6yS1s_qEedT0ohGkhcMpec6BRZUAVy2NeGfJ9TkE9Mj5vxTQfN3W0i6qIRl8d4eods0nvALIswO4Mbfi3dp-z-JEH7SIha-CDvD5_hy0XjYJ9m3pHje6Qt-HmHVH4eRkdJlFF243IsWS8E15O-WY6SPNRx_-HDC9KM" image-alt="Boutique hotel lobby" title-lead="Onde a Distinção" title=" se Encontra com a Conveniência" section-index="2" background="bg-3">
+  <SectionHome image-path="/assets/images/services/travel-planning.png" image-alt="Mapa, roteiro e documentos numa mesa de planeamento de viagens personalizadas" title-lead="Onde a Distinção" title=" se Encontra com a Conveniência" section-index="2" background="bg-3">
           <p class="content__text content__text--left text-meta">Elevamos a sua viagem a um nível superior com serviços premium desenhados para a sua total tranquilidade.</p>
           <div class="content__services">
             <router-link v-for="servico in servicos" :key="servico.name" class="service-card" :to="servico.path">
