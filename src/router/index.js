@@ -102,7 +102,7 @@ const router = createRouter({
     } else if (to.hash) {
       return { el: to.hash, top: 0, behavior: 'instant' }
     } else {
-      return { top: 0 }
+      return { top: 0, behavior: 'instant' }
     }
   }
 })

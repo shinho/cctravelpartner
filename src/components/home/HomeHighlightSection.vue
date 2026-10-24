@@ -1,5 +1,5 @@
 <template>
-  <section class="content content--highlight" :class="variantClass">
+  <section  data-testId="home-highlight-section" class="content content--highlight" :class="variantClass">
     <div class="highlight__inner">
       <span v-if="eyebrow" class="highlight__eyebrow">{{ eyebrow }}</span>
       <h2 class="highlight__statement">

@@ -3,9 +3,9 @@
   <Transition name="backdrop-fade">
     <div v-if="isMenuOpen" class="md:hidden fixed inset-0 top-20 bg-deep-onyx/40 z-40" @click="closeMenu"></div>
   </Transition>
-  <header class="docked full-width top-0 sticky z-50 bg-background/95 backdrop-blur-md border-b border-heritage-gold/10">
+  <header data-testId="site-header" class="docked full-width top-0 sticky z-50 bg-background/95 backdrop-blur-md border-b border-heritage-gold/10">
     <nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-20 max-w-[1280px] mx-auto">
-      <router-link class="flex items-center gap-4" to="/">
+      <router-link class="flex items-center gap-4" to="/" @click="onNavClick">
         <img alt="Carla Coelho" class="h-14 w-auto object-contain brightness-75" src="/assets/logo_img.png" />
         <div class="flex flex-col">
           <span class="font-inknut text-headline-sm text-primary tracking-tight">Carla Coelho</span>          
@@ -14,7 +14,7 @@
       </router-link>
       <!-- Desktop Nav: horizontal on tablet/desktop -->
       <div class="hidden lg:flex items-center gap-10">
-        <router-link v-for="item in navItems" :key="item.to" class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors" :to="item.to">{{ $t(item.labelKey) }}</router-link>
+        <router-link v-for="item in navItems" :key="item.to" class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors" :to="item.to" @click="onNavClick">{{ $t(item.labelKey) }}</router-link>
       </div>
       <!-- Right Group: Language Switcher + Hamburger -->
       <div class="flex items-center gap-3 lg:gap-4">
@@ -41,7 +41,7 @@
             :key="item.to"
             class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors py-4 border-b border-heritage-gold/10 last:border-b-0"
             :to="item.to"
-            @click="closeMenu"
+            @click="onNavClick"
           >
             {{ $t(item.labelKey) }}
           </router-link>
@@ -69,6 +69,11 @@ const navItems = [
 
 function closeMenu() {
   isMenuOpen.value = false
+}
+
+function onNavClick() {
+  closeMenu()
+  window.scrollTo({ top: 0, behavior: 'instant' })
 }
 
 // Close the menu on navigation (link tap, back/forward, etc.)

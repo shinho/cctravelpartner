@@ -70,7 +70,7 @@ export default {
       description: 'Desde pores do sol em terraços mediterrânicos a santuários tropicais nas falésias — cada sugestão é fruto de critérios exigentes de bem-estar e sofisticação.',
       cards: {
         coastal: {
-          imageAlt: 'Villa privada com piscina infinita sobre o oceano ao pôr do sol',
+          alt: 'Villa privada com piscina infinita sobre o oceano ao pôr do sol',
           kicker: 'Refúgio Costeiro',
           title: 'Vilas Privadas & Piscinas Infinitas',
           description: 'Privacidade garantida, horizontes sem fim e serviços de mordomo exclusivos.',
@@ -78,7 +78,7 @@ export default {
           curation: 'Curadoria Completa'
         },
         mediterranean: {
-          imageAlt: 'Terraço mediterrânico iluminado por velas com vista para a costa ao anoitecer',
+          alt: 'Terraço mediterrânico iluminado por velas com vista para a costa ao anoitecer',
           kicker: 'Noites Inesquecíveis',
           title: 'Terraços Íntimos ao Entardecer',
           description: 'Jantares privados com vista para o mar e passeios de iate reservados à sua medida.',

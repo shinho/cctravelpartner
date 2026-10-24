@@ -1,5 +1,5 @@
 <template>
-    <section class="w-full bg-surface-container-low py-20 lg:py-28">
+    <section data-testId="grupo-narrative-section" class="w-full bg-surface-container-low py-20 lg:py-28">
       <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
         <!-- Lead Quote -->
         <div class="max-w-4xl mx-auto text-center mb-16 space-y-6">

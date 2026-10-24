@@ -1,5 +1,6 @@
 <template>
   <PagePlaceholder
+    data-testId="roteiros-view"
     eyebrow="EXPERIÊNCIAS ÚNICAS"
     title="Roteiros Privados"
     description="Acesso a experiências fora do circuito comercial, com guias especializados e total privacidade."

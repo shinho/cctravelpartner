@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div data-testId="app" class="min-h-screen flex flex-col">
     <SiteHeader v-if="!isContinentDetail" />
     <main class="flex-grow">
       <router-view />

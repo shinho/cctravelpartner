@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full bg-surface py-20 lg:py-28">
+  <section data-testId="oportunidade-requisitos-section" class="w-full bg-surface py-20 lg:py-28">
     <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
       <!-- Section Header -->
       <div class="max-w-2xl mb-14 space-y-3">

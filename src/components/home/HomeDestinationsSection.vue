@@ -1,5 +1,5 @@
 <template>
-  <SectionHome data-TestId="HomeDestinationsSection" :image-path="destinos[0].image" image-alt="Praias Tropicais" title-lead="Destinos" title=" com Alma" section-index="1" background="bg-2">
+  <SectionHome data-testId="home-destinations-section" :image-path="destinos[0].image" image-alt="Praias Tropicais" title-lead="Destinos" title=" com Alma" section-index="1" background="bg-2">
           <p class="content__text content__text--left text-meta">Experiências únicas em locais extraordinários. Cada destino é cuidadosamente seleccionado para oferecer o melhor do luxo e autenticidade.</p>
           <div class="content__grid">
             <router-link v-for="destino in destinos" :key="destino.name" class="content__card" :to="destino.path">

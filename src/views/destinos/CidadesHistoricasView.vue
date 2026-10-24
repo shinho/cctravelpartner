@@ -1,5 +1,6 @@
 <template>
   <PagePlaceholder
+    data-testId="cidades-historicas-view"
     eyebrow="CULTURA E TRADIÇÃO"
     title="Cidades Históricas"
     description="Mergulhe na história e cultura das cidades mais fascinantes da Europa, com visitas guiadas privadas e experiências autênticas."

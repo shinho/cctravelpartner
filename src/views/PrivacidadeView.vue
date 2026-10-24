@@ -1,5 +1,6 @@
 <template>
   <PagePlaceholder
+    data-testId="privacidade-view"
     eyebrow="POLÍTICA DE PRIVACIDADE"
     title="Privacidade"
     description="A nossa política de privacidade explica como recolhemos, utilizamos e protegemos os seus dados pessoais."

@@ -1,6 +1,6 @@
 <template>
   <div class="testimonial__author">
-    <img :src="image" :alt="imageAlt" width="128" height="128" />
+    <img :src="image" alt="testimonialAlt" width="128" height="128" />
     <div>
       <h4>{{ name }}</h4>
       <p>{{ label }}</p>

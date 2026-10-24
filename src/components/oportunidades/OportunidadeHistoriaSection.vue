@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full bg-surface-container-low py-20 lg:py-28" id="historia">
+  <section id="historia" data-testId="oportunidade-historia-section" class="w-full bg-surface-container-low py-20 lg:py-28">
     <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <!-- Left: Narrative -->
@@ -27,8 +27,12 @@
               “Hoje quero partilhar essa oportunidade com outras pessoas que procuram algo mais.”
             </p>
             <div class="relative z-10 pt-4 border-t border-surface-variant">
-              <h4 class="font-inknut text-headline-sm text-primary leading-none">Carla Coelho</h4>
-              <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Travel Designer &amp; Fundadora</p>
+              <h4 class="font-inknut tracking-tight text-headline-sm text-primary leading-none">
+                Carla Coelho
+              </h4>
+              <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">
+                Travel Designer &amp; Fundadora
+              </p>
             </div>
           </div>
         </div>

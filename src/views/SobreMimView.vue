@@ -1,30 +1,40 @@
+<script setup>
+import ScaleIn from '../components/ui/display/common/ScaleIn.vue'
+import WhiteQuoteCard from '../components/WhiteQuoteCard.vue'
+</script>
+
 <template>
-  <div class="flex flex-col w-full">
+  <div data-testId="sobre-mim-view" class="flex flex-col w-full">
     <!-- Top Ambient Banner & Overline -->
     <section class="relative w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop pt-8 pb-12">
-
       <!-- Editorial Hero Portrait & Intro Section -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         <!-- Left: Portrait Frame with Asymmetric Geometry -->
         <div class="lg:col-span-5 relative">
           <div class="relative mx-auto max-w-md lg:max-w-none">
             <!-- Decorative Background Backdrop -->
-            <div class="absolute -top-4 -left-4 w-full h-full bg-secondary-container/40 rounded-xl transform -rotate-1 pointer-events-none"></div>
-            <div class="absolute -bottom-4 -right-4 w-full h-full bg-surface-container-high rounded-xl transform rotate-2 pointer-events-none"></div>
+            <div class="absolute -top-4 -left-4 w-full h-full bg-secondary-container/40 rounded-xl transform -rotate-1 pointer-events-none" />
+            <div class="absolute -bottom-4 -right-4 w-full h-full bg-surface-container-high rounded-xl transform rotate-2 pointer-events-none" />
             <!-- Main Portrait Card -->
             <div class="relative bg-surface-container-lowest p-3 rounded-xl shadow-xl overflow-hidden">
               <div class="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
-                <img alt="Carla Coelho — Fundadora e Travel Partner" class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9drmHZ2KTBWZHKc5_FBpx3coW-VzZ9IpBNYTgW1EcfXiXiefgzncpXhWxjEXUIDbkCt5OnYd4nU_so0VGTRYA0nzMQhOWXHMZSFA3bbuBRGY-5gJEMYKopqXrbTqkxY6Q7e1ASIuMkqbdWnQo3rTjZH_IrJXciyf45yFAFN53IFSo354QPVSkErluJsP5QwiPCrwsBLZusx0gf4CN4BhG-DWcZk7uyY5wID-yconZaIv968ACGQGg"/>
-                <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/70 via-transparent to-transparent"></div>
+                <img alt="Carla Coelho — Fundadora e Travel Partner" class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9drmHZ2KTBWZHKc5_FBpx3coW-VzZ9IpBNYTgW1EcfXiXiefgzncpXhWxjEXUIDbkCt5OnYd4nU_so0VGTRYA0nzMQhOWXHMZSFA3bbuBRGY-5gJEMYKopqXrbTqkxY6Q7e1ASIuMkqbdWnQo3rTjZH_IrJXciyf45yFAFN53IFSo354QPVSkErluJsP5QwiPCrwsBLZusx0gf4CN4BhG-DWcZk7uyY5wID-yconZaIv968ACGQGg">
+                <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/70 via-transparent to-transparent" />
                 <div class="absolute bottom-4 left-4 right-4 text-on-primary">
                   <span class="font-label-sm text-label-sm tracking-wider uppercase opacity-90 block text-secondary-fixed">Perfil &amp; Filosofia</span>
-                  <p class="font-inknut text-headline-sm text-paper-cream">Carla Coelho</p>
+                  <p class="font-inknut tracking-tight text-headline-sm text-paper-cream">
+                    Carla Coelho
+                  </p>
                 </div>
               </div>
               <div class="p-4 flex items-center justify-between text-on-surface-variant">
                 <div>
-                  <p class="font-inknut text-label-lg font-semibold text-primary">Carla Coelho</p>
-                  <p class="font-label-sm text-label-sm text-outline">Fundadora &amp; Travel Partner</p>
+                  <p class="font-inknut tracking-tight text-label-lg font-semibold text-primary">
+                    Carla Coelho
+                  </p>
+                  <p class="font-label-sm text-label-sm text-outline">
+                    Fundadora &amp; Travel Partner
+                  </p>
                 </div>
                 <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shadow-sm">
                   <span class="material-symbols-outlined text-xl">verified</span>
@@ -37,20 +47,25 @@
         <div class="lg:col-span-7 flex flex-col justify-center space-y-6 lg:pl-6 pt-6 lg:pt-0">
           <div class="space-y-3">
             <span class="font-label-lg text-label-lg tracking-widest text-terracotta uppercase">Boas-vindas</span>
-            <h1 class="font-headline-xl text-headline-xl text-primary tracking-tight">
-              Olá! Sou a <span class="font-inknut">Carla Coelho</span>.
+            <h1 class="font-headline-xl text-headline-xl text-primary">
+              Olá! Sou a <span class="font-inknut tracking-tight">Carla Coelho</span>.
             </h1>
           </div>
           <!-- First Narrative Block -->
-          <div class="bg-surface-container-lowest p-6 sm:p-8 rounded-xl shadow-sm space-y-4">
-            <p class="font-headline-sm text-headline-sm text-on-surface leading-snug">
-              “Para mim, viajar não é apenas visitar novos sítios. É criar memórias, viver momentos únicos e voltar a casa com a mala cheia de histórias.”
-            </p>
-            <div class="h-0.5 w-16 bg-heritage-gold/50"></div>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">
-              Acredito profundamente que o verdadeiro luxo reside na autenticidade dos encontros, no conforto dos lugares escolhidos a dedo e na serenidade de não ter de gerir imprevistos nem dúvidas ao longo do caminho.
-            </p>
-          </div>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+            Sou uma apaixonada por viagens e experiências únicas, com uma visão de curadoria que combina autenticidade, conforto e momentos memoráveis. Acredito que cada viagem deve ser uma história a ser contada, e é isso que me motiva a criar itinerários personalizados para cada cliente.
+          </p>
+          <ScaleIn>
+            <div class="bg-surface-container-lowest p-6 sm:p-8 rounded-xl shadow-sm space-y-4">
+              <p class="font-headline-sm text-headline-sm text-on-surface leading-snug">
+                “Para mim, viajar não é apenas visitar novos sítios. É criar memórias, viver momentos únicos e voltar a casa com a mala cheia de histórias.”
+              </p>
+              <div class="h-0.5 w-16 bg-heritage-gold/50" />
+              <p class="font-body-lg text-body-lg text-on-surface-variant">
+                Acredito profundamente que o verdadeiro luxo reside na autenticidade dos encontros, no conforto dos lugares escolhidos a dedo e na serenidade de não ter de gerir imprevistos nem dúvidas ao longo do caminho.
+              </p>
+            </div>
+          </ScaleIn>
           <!-- Narrative Contrast: Challenge vs Solution -->
           <div class="space-y-4 text-on-surface">
             <p class="font-headline-sm text-headline-sm text-terracotta font-semibold">
@@ -79,35 +94,33 @@
     </section>
     <!-- Editorial Quotation Callout Banner -->
     <section class="w-full bg-surface-container py-16 my-8">
-      <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
-        <div class="relative bg-surface-container-lowest rounded-xl p-8 sm:p-14 shadow-md overflow-hidden text-center max-w-4xl mx-auto">
-          <div class="absolute -top-10 -left-10 text-heritage-gold/15 pointer-events-none select-none">
-            <span class="material-symbols-outlined text-9xl">format_quote</span>
-          </div>
-          <span class="font-label-lg text-label-lg text-terracotta uppercase tracking-widest block mb-4">A Promessa aos Clientes</span>
-          <blockquote class="font-headline-xl text-headline-xl text-deep-onyx mb-6 leading-tight">
-            “Deixem o trabalho comigo e aproveitem o melhor da viagem!”
-          </blockquote>
+      <ScaleIn>
+        <WhiteQuoteCard
+          title="A Promessa aos Clientes"
+          quote="“Deixem o trabalho comigo e aproveitem o melhor da viagem!”"
+        >
           <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-8">
             Os meus clientes só têm de fazer uma coisa: preparar as malas e partir à descoberta.
           </p>
           <!-- Signature mark -->
           <div class="inline-flex flex-col items-center justify-center pt-4">
             <div class="font-headline-sm text-headline-sm text-primary tracking-wide italic">
-              <span class="font-inknut">Carla Coelho</span>
+              <span class="font-inknut tracking-tight">Carla Coelho</span>
             </div>
-            <div class="w-24 h-0.5 bg-heritage-gold mt-1 mb-2"></div>
+            <div class="w-24 h-0.5 bg-heritage-gold mt-1 mb-2" />
             <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Fundadora • Travel Partner Exclusivo</span>
           </div>
-        </div>
-      </div>
+        </WhiteQuoteCard>
+      </ScaleIn>
     </section>
 
     <!-- Side-by-Side Storytelling: O Desafio vs A Experiência -->
     <section class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-12">
       <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
         <span class="font-label-lg text-label-lg text-primary uppercase tracking-wider">Diferenciação</span>
-        <h2 class="font-headline-lg text-headline-lg text-on-surface">Como transformamos o seu descanso</h2>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface">
+          Como transformamos o seu descanso
+        </h2>
         <p class="font-body-md text-body-md text-on-surface-variant">
           A diferença substancial entre planeamento solitário exaustivo e uma jornada sob a mentoria de uma curadora dedicada.
         </p>
@@ -122,7 +135,9 @@
               </span>
               <div>
                 <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block">O Cenário Tradicional</span>
-                <h3 class="font-headline-sm text-headline-sm text-on-surface">O Desafio do Planeamento</h3>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface">
+                  O Desafio do Planeamento
+                </h3>
               </div>
             </div>
             <p class="font-body-md text-body-md text-on-surface-variant">
@@ -151,15 +166,16 @@
         </div>
         <!-- Column 2: A Experiência Carla Coelho -->
         <div class="bg-surface-container-lowest p-8 rounded-xl shadow-md flex flex-col justify-between relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-secondary-fixed/30 rounded-bl-full pointer-events-none"></div>
           <div class="space-y-6 relative">
             <div class="flex items-center gap-3">
               <span class="p-2.5 rounded-lg bg-tropical-lagoon/20 text-tertiary shrink-0">
                 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
               </span>
               <div>
-                <span class="font-label-sm text-label-sm uppercase tracking-wider text-terracotta font-semibold block">Com <span class="font-inknut">Carla Coelho</span></span>
-                <h3 class="font-headline-sm text-headline-sm text-deep-onyx">A Experiência Sem Preocupações</h3>
+                <span class="font-label-sm text-label-sm uppercase tracking-wider text-terracotta font-semibold block">Com <span class="font-inknut tracking-tight">Carla Coelho</span></span>
+                <h3 class="font-headline-sm text-headline-sm text-deep-onyx">
+                  A Experiência Sem Preocupações
+                </h3>
               </div>
             </div>
             <p class="font-body-md text-body-md text-on-surface-variant">
@@ -194,69 +210,83 @@
     <section class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-12">
       <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
         <span class="font-label-lg text-label-lg text-terracotta uppercase tracking-wider">Metodologia</span>
-        <h2 class="font-headline-lg text-headline-lg text-on-surface">Os Três Pilares do Meu Trabalho</h2>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface">
+          Os Três Pilares do Meu Trabalho
+        </h2>
         <p class="font-body-md text-body-md text-on-surface-variant">
           Como cada itinerário é construído para superar expectativas e proporcionar momentos perenes.
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
         <!-- Pillar 1 -->
-        <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between group">
-          <div class="space-y-5">
-            <div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
-              <span class="material-symbols-outlined text-3xl">travel_explore</span>
+        <ScaleIn>
+          <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between group">
+            <div class="space-y-5">
+              <div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+                <span class="material-symbols-outlined text-3xl">travel_explore</span>
+              </div>
+              <span class="font-label-sm text-label-sm text-terracotta uppercase tracking-wider block font-semibold">Pilar 01</span>
+              <h3 class="font-headline-sm text-headline-sm text-deep-onyx">
+                Pesquisa &amp; Curadoria Sob Medida
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                Seleção minuciosa de hotéis, recantos secretos e experiências exclusivas desenhadas estritamente de acordo com o seu perfil, ritmo e expetativas.
+              </p>
             </div>
-            <span class="font-label-sm text-label-sm text-terracotta uppercase tracking-wider block font-semibold">Pilar 01</span>
-            <h3 class="font-headline-sm text-headline-sm text-deep-onyx">Pesquisa &amp; Curadoria Sob Medida</h3>
-            <p class="font-body-md text-body-md text-on-surface-variant">
-              Seleção minuciosa de hotéis, recantos secretos e experiências exclusivas desenhadas estritamente de acordo com o seu perfil, ritmo e expetativas.
-            </p>
+            <div class="pt-6 mt-6">
+              <span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+                <span>Personalização absoluta</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </span>
+            </div>
           </div>
-          <div class="pt-6 mt-6">
-            <span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
-              <span>Personalização absoluta</span>
-              <span class="material-symbols-outlined text-sm">arrow_forward</span>
-            </span>
-          </div>
-        </div>
+        </ScaleIn>
         <!-- Pillar 2 -->
-        <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between group">
-          <div class="space-y-5">
-            <div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
-              <span class="material-symbols-outlined text-3xl">connecting_airports</span>
+        <ScaleIn>
+          <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between group">
+            <div class="space-y-5">
+              <div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+                <span class="material-symbols-outlined text-3xl">connecting_airports</span>
+              </div>
+              <span class="font-label-sm text-label-sm text-terracotta uppercase tracking-wider block font-semibold">Pilar 02</span>
+              <h3 class="font-headline-sm text-headline-sm text-deep-onyx">
+                Organização &amp; Logística Impecável
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                Voos, transfers privativos, horários articulados ao pormenor e reservas antecipadas sem atritos, permitindo que cada transição seja natural e serena.
+              </p>
             </div>
-            <span class="font-label-sm text-label-sm text-terracotta uppercase tracking-wider block font-semibold">Pilar 02</span>
-            <h3 class="font-headline-sm text-headline-sm text-deep-onyx">Organização &amp; Logística Impecável</h3>
-            <p class="font-body-md text-body-md text-on-surface-variant">
-              Voos, transfers privativos, horários articulados ao pormenor e reservas antecipadas sem atritos, permitindo que cada transição seja natural e serena.
-            </p>
+            <div class="pt-6 mt-6">
+              <span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+                <span>Fluidez operacional</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </span>
+            </div>
           </div>
-          <div class="pt-6 mt-6">
-            <span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
-              <span>Fluidez operacional</span>
-              <span class="material-symbols-outlined text-sm">arrow_forward</span>
-            </span>
-          </div>
-        </div>
+        </ScaleIn>
         <!-- Pillar 3 -->
-        <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between group">
-          <div class="space-y-5">
-            <div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
-              <span class="material-symbols-outlined text-3xl">support_agent</span>
+        <ScaleIn>
+          <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between group">
+            <div class="space-y-5">
+              <div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+                <span class="material-symbols-outlined text-3xl">support_agent</span>
+              </div>
+              <span class="font-label-sm text-label-sm text-terracotta uppercase tracking-wider block font-semibold">Pilar 03</span>
+              <h3 class="font-headline-sm text-headline-sm text-deep-onyx">
+                Acompanhamento Próximo e Dedicado
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                Cuidado personalizado de cada detalhe antes, durante e no regresso. Uma presença atenta para assegurar que nada perturba o seu deleite.
+              </p>
             </div>
-            <span class="font-label-sm text-label-sm text-terracotta uppercase tracking-wider block font-semibold">Pilar 03</span>
-            <h3 class="font-headline-sm text-headline-sm text-deep-onyx">Acompanhamento Próximo e Dedicado</h3>
-            <p class="font-body-md text-body-md text-on-surface-variant">
-              Cuidado personalizado de cada detalhe antes, durante e no regresso. Uma presença atenta para assegurar que nada perturba o seu deleite.
-            </p>
+            <div class="pt-6 mt-6">
+              <span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+                <span>Apoio contínuo VIP</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </span>
+            </div>
           </div>
-          <div class="pt-6 mt-6">
-            <span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
-              <span>Apoio contínuo VIP</span>
-              <span class="material-symbols-outlined text-sm">arrow_forward</span>
-            </span>
-          </div>
-        </div>
+        </ScaleIn>
       </div>
     </section>
 
@@ -266,7 +296,9 @@
         <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-10">
           <div>
             <span class="font-label-lg text-label-lg text-primary uppercase tracking-wider">{{ $t('about.inspiration.eyebrow') }}</span>
-            <h2 class="font-headline-lg text-headline-lg text-deep-onyx text-balance">{{ $t('about.inspiration.title') }}</h2>
+            <h2 class="font-headline-lg text-headline-lg text-deep-onyx text-balance">
+              {{ $t('about.inspiration.title') }}
+            </h2>
           </div>
           <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
             {{ $t('about.inspiration.description') }}
@@ -276,11 +308,13 @@
           <!-- Visual Card 1: Sunset Deck Villa -->
           <article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-md group">
             <div class="w-full h-80 relative overflow-hidden">
-              <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03] outline outline-1 outline-black/10" src="/assets/images/aboutus/tropical-villa-sunset.png" :alt="$t('about.inspiration.cards.coastal.imageAlt')" loading="lazy" />
-              <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/80 via-deep-onyx/20 to-transparent"></div>
+              <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03] outline outline-1 outline-black/10" src="/assets/images/aboutus/tropical-villa-sunset.png" :alt="$t('about.inspiration.cards.coastal.alt')" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/80 via-deep-onyx/20 to-transparent" />
               <div class="absolute bottom-6 left-6 right-6 text-on-primary">
                 <span class="font-label-sm text-label-sm text-secondary-fixed tracking-wider uppercase">{{ $t('about.inspiration.cards.coastal.kicker') }}</span>
-                <h3 class="font-headline-sm text-headline-sm text-paper-cream text-balance">{{ $t('about.inspiration.cards.coastal.title') }}</h3>
+                <h3 class="font-headline-sm text-headline-sm text-paper-cream text-balance">
+                  {{ $t('about.inspiration.cards.coastal.title') }}
+                </h3>
                 <p class="font-body-md text-body-md text-on-tertiary-container/90 mt-1 line-clamp-2">
                   {{ $t('about.inspiration.cards.coastal.description') }}
                 </p>
@@ -297,11 +331,13 @@
           <!-- Visual Card 2: Balcony in the Mediterranean -->
           <article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-md group">
             <div class="w-full h-80 relative overflow-hidden">
-              <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03] outline outline-1 outline-black/10" src="/assets/images/aboutus/amalfi-terrace-dusk.png" :alt="$t('about.inspiration.cards.mediterranean.imageAlt')" loading="lazy" />
-              <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/80 via-deep-onyx/20 to-transparent"></div>
+              <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03] outline outline-1 outline-black/10" src="/assets/images/aboutus/amalfi-terrace-dusk.png" :alt="$t('about.inspiration.cards.mediterranean.alt')" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/80 via-deep-onyx/20 to-transparent" />
               <div class="absolute bottom-6 left-6 right-6 text-on-primary">
                 <span class="font-label-sm text-label-sm text-secondary-fixed tracking-wider uppercase">{{ $t('about.inspiration.cards.mediterranean.kicker') }}</span>
-                <h3 class="font-headline-sm text-headline-sm text-paper-cream text-balance">{{ $t('about.inspiration.cards.mediterranean.title') }}</h3>
+                <h3 class="font-headline-sm text-headline-sm text-paper-cream text-balance">
+                  {{ $t('about.inspiration.cards.mediterranean.title') }}
+                </h3>
                 <p class="font-body-md text-body-md text-on-tertiary-container/90 mt-1 line-clamp-2">
                   {{ $t('about.inspiration.cards.mediterranean.description') }}
                 </p>
@@ -324,23 +360,39 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
         <div class="bg-surface-container p-6 rounded-xl shadow-sm space-y-2">
           <span class="material-symbols-outlined text-primary text-3xl">handshake</span>
-          <p class="font-headline-sm text-headline-sm text-deep-onyx font-bold">1:1</p>
-          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Apoio Individual</p>
+          <p class="font-headline-sm text-headline-sm text-deep-onyx font-bold">
+            1:1
+          </p>
+          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+            Apoio Individual
+          </p>
         </div>
         <div class="bg-surface-container p-6 rounded-xl shadow-sm space-y-2">
           <span class="material-symbols-outlined text-primary text-3xl">sentiment_very_satisfied</span>
-          <p class="font-headline-sm text-headline-sm text-deep-onyx font-bold">100%</p>
-          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tranquilidade</p>
+          <p class="font-headline-sm text-headline-sm text-deep-onyx font-bold">
+            100%
+          </p>
+          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+            Tranquilidade
+          </p>
         </div>
         <div class="bg-surface-container p-6 rounded-xl shadow-sm space-y-2">
           <span class="material-symbols-outlined text-primary text-3xl">hotel</span>
-          <p class="font-headline-sm text-headline-sm text-deep-onyx font-bold">5 Estrelas</p>
-          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Padrão de Qualidade</p>
+          <p class="font-headline-sm text-headline-sm text-deep-onyx font-bold">
+            5 Estrelas
+          </p>
+          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+            Padrão de Qualidade
+          </p>
         </div>
         <div class="bg-surface-container p-6 rounded-xl shadow-sm space-y-2">
           <span class="material-symbols-outlined text-primary text-3xl">lock</span>
-          <p class="font-headline-sm text-headline-sm text-deep-onyx font-bold">Zero</p>
-          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Preocupações</p>
+          <p class="font-headline-sm text-headline-sm text-deep-onyx font-bold">
+            Zero
+          </p>
+          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+            Preocupações
+          </p>
         </div>
       </div>
     </section>
@@ -377,6 +429,3 @@
     </section>
   </div>
 </template>
-
-<script setup>
-</script>

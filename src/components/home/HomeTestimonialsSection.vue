@@ -1,5 +1,5 @@
 <template>
-  <SectionHome title-lead="Testemunhos" title="" section-index="4" background="bg-5">
+  <SectionHome  data-testId="home-testimonials-section"  title-lead="Testemunhos" title="" section-index="4" background="bg-5">
     <template #visual>
       <TestimonialAuthor
         :image="testimonialImage"

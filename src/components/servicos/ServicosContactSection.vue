@@ -1,5 +1,5 @@
 <template>
-<section class="w-full bg-surface-container-low py-20 lg:py-28" id="contacto">
+<section data-testId="servicos-contacto-section" class="w-full bg-surface-container-low py-20 lg:py-28" id="contacto">
       <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
         <div class="bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden p-8 sm:p-12 lg:p-16 relative">
           <!-- Subtle background gradient glow -->

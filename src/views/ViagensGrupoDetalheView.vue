@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed inset-0 z-[100] flex flex-col bg-surface overflow-y-auto">
+  <div data-testId="viagens-grupo-detalhe-view" class="fixed inset-0 z-[100] flex flex-col bg-surface overflow-y-auto">
     <!-- Full-screen continent detail: 40% hero image | 60% countries -->
     <section class="relative w-full flex-grow bg-surface">
       <div class="w-full min-h-screen">

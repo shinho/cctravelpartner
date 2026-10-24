@@ -1,27 +1,169 @@
+<script setup>
+import { storeToRefs } from 'pinia'
+import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import HomeAboutSection from '../components/home/HomeAboutSection.vue'
+import HomeCarouselNav from '../components/home/HomeCarouselNav.vue'
+import HomeDestinationsSection from '../components/home/HomeDestinationsSection.vue'
+import HomeHighlightSection from '../components/home/HomeHighlightSection.vue'
+import HomeOpportunitiesSection from '../components/home/HomeOpportunitiesSection.vue'
+import HomeServicesSection from '../components/home/HomeServicesSection.vue'
+import HomeTestimonialsSection from '../components/home/HomeTestimonialsSection.vue'
+import { useHomeStore } from '../stores/home'
+
+const currentSlide = ref(0)
+const { tm } = useI18n()
+const hero = computed(() => tm('home.hero'))
+const introHighlight = computed(() => tm('home.highlights.intro'))
+const outroHighlight = computed(() => tm('home.highlights.outro'))
+let carouselInterval = null
+let scrollMedia = null
+
+const { slides } = storeToRefs(useHomeStore())
+
+function moveCarousel(index) {
+  currentSlide.value = index
+}
+
+// Initialize GSAP ScrollTrigger animations
+function initScrollAnimations() {
+  nextTick(() => {
+    // Check if GSAP is loaded
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      console.warn(
+        'GSAP or ScrollTrigger not loaded. Falling back to basic animations.',
+      )
+      return
+    }
+
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger)
+
+    // Only the pinned/stacked layout uses fixed-height sections, so the
+    // scroll animation is scoped to the same breakpoint as the sticky CSS.
+    scrollMedia = gsap.matchMedia()
+
+    scrollMedia.add('(min-width: 1025px)', () => {
+      const contentElements = gsap.utils.toArray('.content--sticky')
+      const totalContentElements = contentElements.length
+
+      // Consistent starting state for every sticky section
+      contentElements.forEach((el) => {
+        gsap.set(el, {
+          filter: 'brightness(100%)',
+          scale: 1,
+          borderRadius: 0,
+        })
+      })
+
+      // As each section gets covered by the next one, dim, shrink and round it
+      contentElements.forEach((el, position) => {
+        const isLast = position === totalContentElements - 1
+
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: el,
+              start: 'top top',
+              end: '+=100%',
+              scrub: true,
+            },
+          })
+          .to(
+            el,
+            {
+              ease: 'none',
+              filter: isLast ? 'none' : 'brightness(50%)',
+              scale: 0.95,
+              borderRadius: 40,
+            },
+            0,
+          )
+      })
+    })
+
+    // Refresh ScrollTrigger after images load
+    const images = document.querySelectorAll('.content__img')
+    let loadedImages = 0
+
+    images.forEach((img) => {
+      if (img.complete) {
+        incrementLoaded()
+      }
+      else {
+        img.addEventListener('load', incrementLoaded)
+        img.addEventListener('error', incrementLoaded)
+      }
+    })
+
+    function incrementLoaded() {
+      loadedImages++
+      if (loadedImages === images.length) {
+        ScrollTrigger.refresh()
+      }
+    }
+  })
+}
+
+onMounted(() => {
+  // Initialize scroll animations
+  initScrollAnimations()
+
+  // Start carousel
+  carouselInterval = setInterval(() => {
+    currentSlide.value = (currentSlide.value + 1) % slides.value.length
+  }, 7000)
+})
+
+onUnmounted(() => {
+  if (carouselInterval) {
+    clearInterval(carouselInterval)
+  }
+
+  // Clean up ScrollTrigger / matchMedia
+  if (scrollMedia) {
+    scrollMedia.revert()
+    scrollMedia = null
+  }
+
+  if (typeof ScrollTrigger !== 'undefined') {
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+  }
+})
+</script>
+
 <template>
-  <main class="sticky-sections-demo">
+  <main data-testId="home-view" class="sticky-sections-demo">
     <!-- Header Section -->
     <header class="frame frame--header">
       <div class="frame__bg" aria-hidden="true">
         <div
           v-for="(slide, index) in slides"
-          :key="'bg-' + index"
+          :key="`bg-${index}`"
           class="frame__bg-layer"
           :class="{ 'frame__bg-layer--active': currentSlide === index }"
           :style="{ backgroundImage: `url(${slide.image})` }"
-        ></div>
+        />
       </div>
       <div class="frame__copy">
         <div class="frame__heading">
-          <h1 class="frame__title tracking-tight">{{ hero.title }}</h1>
-          <p class="frame__eyebrow">{{ hero.eyebrow }}</p>
+          <h1 class="frame__title tracking-tight">
+            {{ hero.title }}
+          </h1>
+          <p class="frame__eyebrow">
+            {{ hero.eyebrow }}
+          </p>
         </div>
         <div class="frame__content">
-          <p class="text-large">{{ hero.description }}</p>
+          <p class="text-large">
+            {{ hero.description }}
+          </p>
           <div class="frame__buttons">
-            <router-link class="btn btn--primary" to="/destinos">{{
-              hero.destinationsLabel
-            }}</router-link>
+            <router-link class="btn btn--primary" to="/destinos">
+              {{
+                hero.destinationsLabel
+              }}
+            </router-link>
             <a class="btn btn--secondary" href="mailto:contact@carlacoelho.com">{{
               hero.quoteLabel
             }}</a>
@@ -66,9 +208,7 @@
       variant="outro"
     >
       <template #action>
-        <a class="btn btn--outline" href="mailto:contact@carlacoelho.com"
-          >Solicitar Orçamento</a
-        >
+        <a class="btn btn--outline" href="mailto:contact@carlacoelho.com">Solicitar Orçamento</a>
       </template>
     </HomeHighlightSection>
 
@@ -76,148 +216,11 @@
     <footer class="frame frame--footer">
       <p class="frame__author">
         <span>Carla Coelho Viagens de Luxo</span>
-        <span
-          ><a href="mailto:contact@carlacoelho.com"
-            >contact@carlacoelho.com</a
-          ></span
-        >
+        <span><a href="mailto:contact@carlacoelho.com">contact@carlacoelho.com</a></span>
       </p>
     </footer>
   </main>
 </template>
-
-<script setup>
-import { ref, onMounted, onUnmounted, nextTick, computed } from "vue";
-import { useI18n } from "vue-i18n";
-import { storeToRefs } from "pinia";
-import { useHomeStore } from "../stores/home";
-import HomeAboutSection from "../components/home/HomeAboutSection.vue";
-import HomeHighlightSection from "../components/home/HomeHighlightSection.vue";
-import HomeDestinationsSection from "../components/home/HomeDestinationsSection.vue";
-import HomeServicesSection from "../components/home/HomeServicesSection.vue";
-import HomeOpportunitiesSection from "../components/home/HomeOpportunitiesSection.vue";
-import HomeTestimonialsSection from "../components/home/HomeTestimonialsSection.vue";
-import HomeCarouselNav from "../components/home/HomeCarouselNav.vue";
-
-const currentSlide = ref(0);
-const { tm } = useI18n();
-const hero = computed(() => tm("home.hero"));
-const introHighlight = computed(() => tm("home.highlights.intro"));
-const outroHighlight = computed(() => tm("home.highlights.outro"));
-let carouselInterval = null;
-let scrollMedia = null;
-
-const { slides } = storeToRefs(useHomeStore());
-
-function moveCarousel(index) {
-  currentSlide.value = index;
-}
-
-// Initialize GSAP ScrollTrigger animations
-function initScrollAnimations() {
-  nextTick(() => {
-    // Check if GSAP is loaded
-    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
-      console.warn(
-        "GSAP or ScrollTrigger not loaded. Falling back to basic animations.",
-      );
-      return;
-    }
-
-    // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Only the pinned/stacked layout uses fixed-height sections, so the
-    // scroll animation is scoped to the same breakpoint as the sticky CSS.
-    scrollMedia = gsap.matchMedia();
-
-    scrollMedia.add("(min-width: 1025px)", () => {
-      const contentElements = gsap.utils.toArray(".content--sticky");
-      const totalContentElements = contentElements.length;
-
-      // Consistent starting state for every sticky section
-      contentElements.forEach((el) => {
-        gsap.set(el, {
-          filter: "brightness(100%)",
-          scale: 1,
-          borderRadius: 0,
-        });
-      });
-
-      // As each section gets covered by the next one, dim, shrink and round it
-      contentElements.forEach((el, position) => {
-        const isLast = position === totalContentElements - 1;
-
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: el,
-              start: "top top",
-              end: "+=100%",
-              scrub: true,
-            },
-          })
-          .to(
-            el,
-            {
-              ease: "none",
-              filter: isLast ? "none" : "brightness(50%)",
-              scale: 0.95,
-              borderRadius: 40,
-            },
-            0,
-          );
-      });
-    });
-
-    // Refresh ScrollTrigger after images load
-    const images = document.querySelectorAll(".content__img");
-    let loadedImages = 0;
-
-    images.forEach((img) => {
-      if (img.complete) {
-        incrementLoaded();
-      } else {
-        img.addEventListener("load", incrementLoaded);
-        img.addEventListener("error", incrementLoaded);
-      }
-    });
-
-    function incrementLoaded() {
-      loadedImages++;
-      if (loadedImages === images.length) {
-        ScrollTrigger.refresh();
-      }
-    }
-  });
-}
-
-onMounted(() => {
-  // Initialize scroll animations
-  initScrollAnimations();
-
-  // Start carousel
-  carouselInterval = setInterval(() => {
-    currentSlide.value = (currentSlide.value + 1) % slides.value.length;
-  }, 7000);
-});
-
-onUnmounted(() => {
-  if (carouselInterval) {
-    clearInterval(carouselInterval);
-  }
-
-  // Clean up ScrollTrigger / matchMedia
-  if (scrollMedia) {
-    scrollMedia.revert();
-    scrollMedia = null;
-  }
-
-  if (typeof ScrollTrigger !== "undefined") {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  }
-});
-</script>
 
 <style scoped>
 /* Load GSAP and other libraries from CDN */

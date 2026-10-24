@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .tracking-tight {
+    letter-spacing: -0.075em;
+  }
+}
+
 :root {
   --color-background: #f5f0e1;
   --color-on-surface: #2d2a24;

@@ -1,5 +1,6 @@
 <template>
   <section
+    data-testId="section-home"
     class="content content--sticky content--grid"
     :class="backgroundClass"
     :data-content-index="sectionIndex"
@@ -7,7 +8,7 @@
     <div class="content__inner">
       <div v-if="imagePath || $slots.visual" class="content__img-wrap">
         <slot name="visual">
-          <img class="content__img content__img--large content__img--left" :src="imagePath" :alt="imageAlt">
+          <img class="content__img content__img--large content__img--left" :src="imagePath" alt="section">
         </slot>
       </div>
       <div class="content__text-wrap">

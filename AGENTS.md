@@ -31,6 +31,11 @@ This setup has been verified with a successful production build. If a build repo
 - `@tailwindcss/container-queries` — `^0.1.1`
 - Custom design tokens in `tailwind.config.js` (colors, spacing, borderRadius, fontFamily, fontSize)
 
+## Linting
+- The project uses `@antfu/eslint-config` through ESLint flat config in `eslint.config.js`.
+- Follow the configured ESLint rules when writing or editing code, and let ESLint auto-fix formatting on save in VS Code.
+- Run `npm run lint` to check `src` and `vite.config.js`; use `npm run lint:fix` to apply ESLint fixes.
+
 **Fonts**
 - Cormorant Garamond (headlines/display)
 - Hanken Grotesk (body/label)

@@ -1,5 +1,5 @@
 <template>
-  <article class="service-card relative isolate flex select-none flex-col justify-between overflow-hidden rounded bg-surface-container-lowest shadow-sm">
+  <article data-testId="service-card" class="service-card relative isolate flex select-none flex-col justify-between overflow-hidden rounded bg-surface-container-lowest shadow-sm">
     <div class="service-card__image absolute inset-x-0 top-0 -z-20 h-44 overflow-hidden">
       <img :src="service.image" :alt="service.imageAlt || service.title" class="service-card__photo h-full w-full object-cover" loading="lazy" decoding="async" />
     </div>

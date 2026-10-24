@@ -1,5 +1,5 @@
 <template>
-    <section class="w-full bg-surface-container-low py-20 lg:py-28" id="como-funcionam">
+    <section data-testId="grupo-como-funcionam-section" class="w-full bg-surface-container-low py-20 lg:py-28" id="como-funcionam">
       <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
         <!-- Section Header -->
         <div class="max-w-3xl mb-12 space-y-3">

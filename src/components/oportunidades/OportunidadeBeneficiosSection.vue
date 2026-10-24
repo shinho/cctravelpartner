@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full bg-surface-container-low py-20 lg:py-28" id="oportunidade">
+  <section data-testId="oportunidade-beneficios-section" class="w-full bg-surface-container-low py-20 lg:py-28" id="oportunidade">
     <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
       <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">

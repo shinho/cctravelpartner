@@ -1,5 +1,5 @@
 <template>
-  <section class="relative py-section-gap px-margin-desktop overflow-hidden bg-background">
+  <section data-testId="page-placeholder-section" class="relative py-section-gap px-margin-desktop overflow-hidden bg-background">
     <div class="absolute inset-0 arabic-ornament pointer-events-none"></div>
     <div class="max-w-[1280px] mx-auto text-center relative z-10">
       <div class="inline-block tracking-[0.2em] text-primary font-label-lg text-[11px] mb-8 uppercase">

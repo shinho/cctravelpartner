@@ -1,5 +1,5 @@
 <template>
-  <SectionHome :image-path="oportunidades[0].image" image-alt="Alpes" title-lead="Oportunidades" title=" Únicas" section-index="3" background="bg-4">
+  <SectionHome  data-testId="home-opportunities-section" :image-path="oportunidades[0].image" image-alt="Alpes" title-lead="Oportunidades" title=" Únicas" section-index="3" background="bg-4">
           <p class="content__text content__text--left text-meta">Momentos efémeros de luxo que não voltam a repetir-se.</p>
           <div class="content__opportunities">
                 <div class="opportunity-card opportunity-card--large">

@@ -1,5 +1,5 @@
 <template>
-<section class="w-full bg-surface py-12">
+<section data-testId="servicos-quick-inquiry-section" class="w-full bg-surface py-12">
       <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
         <div class="bg-surface-container p-6 lg:p-8 rounded flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="space-y-1">

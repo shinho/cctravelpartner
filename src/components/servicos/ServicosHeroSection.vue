@@ -1,5 +1,5 @@
 <template>
-<section class="relative isolate w-full overflow-hidden bg-surface py-12 lg:py-20">
+<section data-testId="servicos-hero-section" class="relative isolate w-full overflow-hidden bg-surface py-12 lg:py-20">
       <img src="/assets/images/services/hero-coast-background.png" alt="" aria-hidden="true" fetchpriority="high" class="absolute inset-0 -z-20 h-full w-full object-cover" />
       <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
         <div class="grid grid-cols-1 items-center">

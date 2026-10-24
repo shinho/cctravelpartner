@@ -1,5 +1,6 @@
 <template>
   <PagePlaceholder
+    data-testId="termos-view"
     eyebrow="TERMOS DE UTILIZAÇÃO"
     title="Termos"
     description="Os nossos termos e condições de utilização do site e dos serviços prestados pela Carla Coelho - Travel Planner."

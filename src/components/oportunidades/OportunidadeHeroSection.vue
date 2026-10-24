@@ -1,5 +1,5 @@
 <template>
-  <section class="relative isolate flex min-h-[720px] w-full items-center overflow-hidden py-12 lg:py-20">
+  <section data-testId="oportunidade-hero-section" class="relative isolate flex min-h-[720px] w-full items-center overflow-hidden py-12 lg:py-20">
     <img
       src="/assets/images/oportunidades/hero-oportunidade.png"
       alt=""

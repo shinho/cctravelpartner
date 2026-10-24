@@ -1,5 +1,6 @@
 <template>
   <div
+    data-testId="language-switcher"
     class="inline-flex items-center gap-1 rounded-full border border-outline/40 bg-surface-container-low p-1"
     role="group"
     :aria-label="$t('common.language')"

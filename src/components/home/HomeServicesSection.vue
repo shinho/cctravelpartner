@@ -1,5 +1,5 @@
 <template>
-  <SectionHome image-path="/assets/images/services/travel-planning.png" image-alt="Mapa, roteiro e documentos numa mesa de planeamento de viagens personalizadas" title-lead="Onde a Distinção" title=" se Encontra com a Conveniência" section-index="2" background="bg-3">
+  <SectionHome  data-testId="home-services-section" image-path="/assets/images/services/travel-planning.png" image-alt="Mapa, roteiro e documentos numa mesa de planeamento de viagens personalizadas" title-lead="Onde a Distinção" title=" se Encontra com a Conveniência" section-index="2" background="bg-3">
           <p class="content__text content__text--left text-meta">Elevamos a sua viagem a um nível superior com serviços premium desenhados para a sua total tranquilidade.</p>
           <div class="content__services">
             <router-link v-for="servico in servicos" :key="servico.name" class="service-card" :to="servico.path">

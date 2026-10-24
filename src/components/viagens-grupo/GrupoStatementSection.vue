@@ -1,5 +1,5 @@
 <template>
-    <section class="w-full bg-tertiary-fixed py-14 lg:py-16">
+    <section data-testId="grupo-statement-section" class="w-full bg-tertiary-fixed py-14 lg:py-16">
       <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
         <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 text-center lg:text-left">
           <!-- Side Labels -->

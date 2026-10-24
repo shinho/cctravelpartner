@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-full">
+  <div data-testId="servicos-view" class="flex flex-col w-full">
     <ServicosHeroSection />
     <ServicosStatementSection />
     <ServicosCatalogSection />

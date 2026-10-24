@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-full">
+  <div data-testId="viagens-grupo-view" class="flex flex-col w-full">
     <GrupoHeroSection />
     <GrupoNarrativeSection />
     <GrupoExpectationsSection :expectations="expectations" />

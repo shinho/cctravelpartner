@@ -1,5 +1,6 @@
 <template>
   <SectionHome
+    data-testId="home-about-section"
     :image-path="aboutSection.image"
     :image-alt="aboutSection.imageAlt"
     :eyebrow="aboutSection.eyebrow"

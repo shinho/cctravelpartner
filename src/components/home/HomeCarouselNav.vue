@@ -1,5 +1,5 @@
 <template>
-  <div class="frame__nav">
+  <div class="frame__nav" data-testId="home-carousel-nav">
     <button
       v-for="(slide, index) in slides"
       :key="`dot-${index}`"

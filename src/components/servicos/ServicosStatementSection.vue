@@ -1,5 +1,5 @@
 <template>
-<section class="w-full bg-surface-container-low py-10">
+<section data-testId="servicos-statement-section" class="w-full bg-surface-container-low py-10">
       <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-4">
           <span class="material-symbols-outlined text-primary text-3xl shrink-0">flight_takeoff</span>

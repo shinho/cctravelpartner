@@ -70,7 +70,7 @@ export default {
       description: 'From sunset terraces on the Mediterranean to tropical sanctuaries above the sea, each idea is chosen for comfort, privacy and understated luxury.',
       cards: {
         coastal: {
-          imageAlt: 'Private villa with an infinity pool overlooking the ocean at sunset',
+          alt: 'Private villa with an infinity pool overlooking the ocean at sunset',
           kicker: 'Coastal Retreat',
           title: 'Private Villas & Infinity Pools',
           description: 'Guaranteed privacy, endless horizons and dedicated butler service.',
@@ -78,7 +78,7 @@ export default {
           curation: 'Fully Curated'
         },
         mediterranean: {
-          imageAlt: 'Candlelit Mediterranean terrace overlooking the coast at dusk',
+          alt: 'Candlelit Mediterranean terrace overlooking the coast at dusk',
           kicker: 'Unforgettable Evenings',
           title: 'Intimate Terraces at Dusk',
           description: 'Private dining overlooking the sea and yacht excursions tailored to you.',
