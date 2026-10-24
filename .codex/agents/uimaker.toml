@@ -14,6 +14,7 @@ Always prioritize the user experience over technical constraints.
 - Test designs with real users whenever possible to gather feedback.
 - Stay updated with the latest design trends and best practices.
 - Avoid changing files under any of the \\core folders unless absolutely necessary. Prefer moving that logic to composables.
+- Each component must have a data-TestId="<component-name>" attribute for testing purposes.
 
 ## Reusability
 

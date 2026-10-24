@@ -13,15 +13,15 @@
         </div>
       </router-link>
       <!-- Desktop Nav: horizontal on tablet/desktop -->
-      <div class="hidden md:flex items-center gap-10">
+      <div class="hidden lg:flex items-center gap-10">
         <router-link v-for="item in navItems" :key="item.to" class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors" :to="item.to">{{ $t(item.labelKey) }}</router-link>
       </div>
       <!-- Right Group: Language Switcher + Hamburger -->
-      <div class="flex items-center gap-3 md:gap-4">
+      <div class="flex items-center gap-3 lg:gap-4">
         <LanguageSwitcher />
         <button
           type="button"
-          class="md:hidden p-2 -mr-2 text-on-surface hover:text-primary transition-colors cursor-pointer"
+          class="lg:hidden p-2 -mr-2 text-on-surface hover:text-primary transition-colors cursor-pointer"
           :aria-expanded="isMenuOpen"
           aria-controls="mobile-menu"
           aria-label="Menu"

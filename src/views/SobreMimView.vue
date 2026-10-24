@@ -2,21 +2,6 @@
   <div class="flex flex-col w-full">
     <!-- Top Ambient Banner & Overline -->
     <section class="relative w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop pt-8 pb-12">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full text-primary font-label-sm text-label-sm tracking-widest uppercase mb-4 shadow-sm">
-            <span class="inline-block w-1.5 h-1.5 rounded-full bg-terracotta"></span>
-            Travel Partner &amp; Curadora de Viagens
-          </div>
-          <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
-            A arte de viajar sem atritos: consultoria dedicada, curadoria de luxo e a tranquilidade de quem tem cada detalhe nas mãos certas.
-          </p>
-        </div>
-        <div class="flex items-center gap-3 text-secondary font-label-lg text-label-lg">
-          <span class="material-symbols-outlined text-terracotta" style="font-variation-settings: 'FILL' 1;">hotel_class</span>
-          <span>Atendimento Sob Medida • Portugal &amp; Destinos Globais</span>
-        </div>
-      </div>
 
       <!-- Editorial Hero Portrait & Intro Section -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -44,16 +29,6 @@
                 <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shadow-sm">
                   <span class="material-symbols-outlined text-xl">verified</span>
                 </div>
-              </div>
-            </div>
-            <!-- Micro Badge Floating -->
-            <div class="absolute -bottom-6 -left-2 sm:-left-6 bg-surface-container-lowest px-4 py-3 rounded-lg shadow-lg flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-tropical-lagoon/20 flex items-center justify-center text-tertiary">
-                <span class="material-symbols-outlined text-xl">flight_takeoff</span>
-              </div>
-              <div>
-                <p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Compromisso</p>
-                <p class="font-label-lg text-label-lg text-deep-onyx font-semibold">100% Personalizado</p>
               </div>
             </div>
           </div>
