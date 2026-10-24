@@ -28,6 +28,11 @@ const routes = [
     component: () => import('../views/ViagensGrupoView.vue')
   },
   {
+    path: '/viagens-grupo/:continent',
+    name: 'viagens-grupo-detalhe',
+    component: () => import('../views/ViagensGrupoDetalheView.vue')
+  },
+  {
     path: '/oportunidades',
     name: 'oportunidades',
     component: () => import('../views/OportunidadesView.vue')

@@ -37,3 +37,97 @@
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
 }
+
+/* CSS View Transitions — full-screen morph between continent list and detail page */
+::view-transition-image-old(continent-hero) {
+  animation: vt-hero-out 0.32s cubic-bezier(0.4, 0, 1, 1) both;
+  animation-delay: 0s;
+}
+::view-transition-image-new(continent-hero) {
+  animation: vt-hero-in 0.52s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes vt-hero-in {
+  from {
+    opacity: 1;
+    transform: translateX(-8vw) scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+@keyframes vt-hero-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+}
+::view-transition {
+  animation-duration: 0.55s;
+}
+::view-transition-old(continent-overlay) {
+  animation: continent-overlay-out 300ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+::view-transition-new(continent-overlay) {
+  animation: continent-overlay-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+::view-transition-old(continent-panel),
+::view-transition-new(continent-panel) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+::view-transition-old(continent-panel) {
+  animation-name: continent-panel-out;
+  animation-duration: 300ms;
+}
+::view-transition-new(continent-panel) {
+  animation-name: continent-panel-in;
+}
+@keyframes continent-overlay-out {
+  to { opacity: 0; }
+}
+@keyframes continent-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes continent-panel-out {
+  to { opacity: 0; transform: translateX(-1.5vw) scale(0.99); }
+}
+@keyframes continent-panel-in {
+  from { opacity: 0.82; transform: translateX(2vw) scale(1.015); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+.continent-content > * {
+  animation: content-arrive 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.continent-content > *:nth-child(2) { animation-delay: 70ms; }
+.continent-content > *:nth-child(3) { animation-delay: 110ms; }
+.country-card {
+  animation: country-arrive 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(120ms + var(--card-index) * 55ms);
+}
+@keyframes content-arrive {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes country-arrive {
+  from { opacity: 0; transform: translateY(22px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-image-old(continent-hero),
+  ::view-transition-image-new(continent-hero),
+    ::view-transition,
+    ::view-transition-old(continent-overlay),
+    ::view-transition-new(continent-overlay),
+    ::view-transition-old(continent-panel),
+    ::view-transition-new(continent-panel),
+    .continent-content > *,
+    .country-card {
+    animation: none !important;
+  }
+}

@@ -3,5 +3,5 @@
         "src/i18n",
         "src/i18n/locales"
     ],
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
 }
