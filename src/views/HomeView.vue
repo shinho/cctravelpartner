@@ -11,27 +11,36 @@
           :style="{ backgroundImage: `url(${slide.image})` }"
         ></div>
       </div>
-      <div class="frame__overlay" aria-hidden="true"></div>
-      <div class="frame__heading">
-        <h1 class="frame__title">Carla Coelho Viagens de Luxo</h1>
-        <p class="frame__eyebrow">Exploração de Alto Nível: O Mundo à Sua Medida</p>
-      </div>
-      <div class="frame__content">
-        <p class="text-large">Experiências de viagem exclusivas com curadoria especializada para quem procura o extraordinário.</p>
-        <div class="frame__buttons">
-          <router-link class="btn btn--primary" to="/destinos">Explorar Destinos</router-link>
-          <router-link class="btn btn--secondary" to="/orcamento">Solicitar Orçamento</router-link>
+      <div class="frame__copy">
+        <div class="frame__heading">
+          <h1 class="frame__title tracking-tight">{{ hero.title }}</h1>
+          <p class="frame__eyebrow">{{ hero.eyebrow }}</p>
+        </div>
+        <div class="frame__content">
+          <p class="text-large">{{ hero.description }}</p>
+          <div class="frame__buttons">
+            <router-link class="btn btn--primary" to="/destinos">{{
+              hero.destinationsLabel
+            }}</router-link>
+            <router-link class="btn btn--secondary" to="/orcamento">{{
+              hero.quoteLabel
+            }}</router-link>
+          </div>
         </div>
       </div>
-      <HomeCarouselNav :slides="slides" :current-slide="currentSlide" @select="moveCarousel" />
+      <HomeCarouselNav
+        :slides="slides"
+        :current-slide="currentSlide"
+        @select="moveCarousel"
+      />
     </header>
 
     <!-- Intro section -->
     <HomeHighlightSection
-      eyebrow="O Nosso Propósito"
-      title-lead="Não vendemos apenas destinos;"
-      title=" desenhamos memórias."
-      description="Cada viagem é uma obra-prima única, meticulosamente planeada para refletir os seus desejos mais profundos e superar as suas expectativas mais elevadas."
+      :eyebrow="introHighlight.eyebrow"
+      :title-lead="introHighlight.titleLead"
+      :title="introHighlight.title"
+      :description="introHighlight.description"
     />
 
     <!-- Wrap - contains all sticky sections -->
@@ -50,190 +59,216 @@
 
     <!-- Outro section -->
     <HomeHighlightSection
-      eyebrow="Vamos Planear"
-      title-lead="Pronto para começar"
-      title=" a sua próxima aventura?"
-      description="Entre em contacto e deixe-nos criar a sua experiência de viagem perfeita."
+      :eyebrow="outroHighlight.eyebrow"
+      :title-lead="outroHighlight.titleLead"
+      :title="outroHighlight.title"
+      :description="outroHighlight.description"
       variant="outro"
     >
       <template #action>
-        <router-link class="btn btn--outline" to="/orcamento">Solicitar Orçamento</router-link>
+        <router-link class="btn btn--outline" to="/orcamento"
+          >Solicitar Orçamento</router-link
+        >
       </template>
     </HomeHighlightSection>
 
     <!-- Footer -->
     <footer class="frame frame--footer">
-      <p class="frame__author"><span>Carla Coelho Viagens de Luxo</span> <span><a href="mailto:contact@carlacoelho.com">contact@carlacoelho.com</a></span></p>
+      <p class="frame__author">
+        <span>Carla Coelho Viagens de Luxo</span>
+        <span
+          ><a href="mailto:contact@carlacoelho.com"
+            >contact@carlacoelho.com</a
+          ></span
+        >
+      </p>
     </footer>
   </main>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useHomeStore } from '../stores/home'
-import HomeAboutSection from '../components/home/HomeAboutSection.vue'
-import HomeHighlightSection from '../components/home/HomeHighlightSection.vue'
-import HomeDestinationsSection from '../components/home/HomeDestinationsSection.vue'
-import HomeServicesSection from '../components/home/HomeServicesSection.vue'
-import HomeOpportunitiesSection from '../components/home/HomeOpportunitiesSection.vue'
-import HomeTestimonialsSection from '../components/home/HomeTestimonialsSection.vue'
-import HomeCarouselNav from '../components/home/HomeCarouselNav.vue'
+import { ref, onMounted, onUnmounted, nextTick, computed } from "vue";
+import { useI18n } from "vue-i18n";
+import { storeToRefs } from "pinia";
+import { useHomeStore } from "../stores/home";
+import HomeAboutSection from "../components/home/HomeAboutSection.vue";
+import HomeHighlightSection from "../components/home/HomeHighlightSection.vue";
+import HomeDestinationsSection from "../components/home/HomeDestinationsSection.vue";
+import HomeServicesSection from "../components/home/HomeServicesSection.vue";
+import HomeOpportunitiesSection from "../components/home/HomeOpportunitiesSection.vue";
+import HomeTestimonialsSection from "../components/home/HomeTestimonialsSection.vue";
+import HomeCarouselNav from "../components/home/HomeCarouselNav.vue";
 
-const currentSlide = ref(0)
-let carouselInterval = null
-let lenis = null
-let scrollMedia = null
+const currentSlide = ref(0);
+const { tm } = useI18n();
+const hero = computed(() => tm("home.hero"));
+const introHighlight = computed(() => tm("home.highlights.intro"));
+const outroHighlight = computed(() => tm("home.highlights.outro"));
+let carouselInterval = null;
+let lenis = null;
+let scrollMedia = null;
 
-const { slides } = storeToRefs(useHomeStore())
+const { slides } = storeToRefs(useHomeStore());
 
 function moveCarousel(index) {
-  currentSlide.value = index
+  currentSlide.value = index;
 }
-
 
 // Initialize GSAP ScrollTrigger animations
 function initScrollAnimations() {
   nextTick(() => {
     // Check if GSAP is loaded
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-      console.warn('GSAP or ScrollTrigger not loaded. Falling back to basic animations.')
-      return
+    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+      console.warn(
+        "GSAP or ScrollTrigger not loaded. Falling back to basic animations.",
+      );
+      return;
     }
-    
+
     // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
 
     // Only the pinned/stacked layout uses fixed-height sections, so the
     // scroll animation is scoped to the same breakpoint as the sticky CSS.
-    scrollMedia = gsap.matchMedia()
+    scrollMedia = gsap.matchMedia();
 
-    scrollMedia.add('(min-width: 1025px)', () => {
-      const contentElements = gsap.utils.toArray('.content--sticky')
-      const totalContentElements = contentElements.length
+    scrollMedia.add("(min-width: 1025px)", () => {
+      const contentElements = gsap.utils.toArray(".content--sticky");
+      const totalContentElements = contentElements.length;
 
       // Consistent starting state for every sticky section
       contentElements.forEach((el) => {
         gsap.set(el, {
-          filter: 'brightness(100%)',
+          filter: "brightness(100%)",
           scale: 1,
-          borderRadius: 0
-        })
-      })
+          borderRadius: 0,
+        });
+      });
 
       // As each section gets covered by the next one, dim, shrink and round it
       contentElements.forEach((el, position) => {
-        const isLast = position === totalContentElements - 1
+        const isLast = position === totalContentElements - 1;
 
-        gsap.timeline({
-          scrollTrigger: {
-            trigger: el,
-            start: 'top top',
-            end: '+=100%',
-            scrub: true
-          }
-        })
-        .to(el, {
-          ease: 'none',
-          filter: isLast ? 'none' : 'brightness(50%)',
-          scale: 0.95,
-          borderRadius: 40
-        }, 0)
-      })
-    })
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: el,
+              start: "top top",
+              end: "+=100%",
+              scrub: true,
+            },
+          })
+          .to(
+            el,
+            {
+              ease: "none",
+              filter: isLast ? "none" : "brightness(50%)",
+              scale: 0.95,
+              borderRadius: 40,
+            },
+            0,
+          );
+      });
+    });
 
     // Refresh ScrollTrigger after images load
-    const images = document.querySelectorAll('.content__img')
-    let loadedImages = 0
-    
-    images.forEach(img => {
+    const images = document.querySelectorAll(".content__img");
+    let loadedImages = 0;
+
+    images.forEach((img) => {
       if (img.complete) {
-        incrementLoaded()
+        incrementLoaded();
       } else {
-        img.addEventListener('load', incrementLoaded)
-        img.addEventListener('error', incrementLoaded)
+        img.addEventListener("load", incrementLoaded);
+        img.addEventListener("error", incrementLoaded);
       }
-    })
-    
+    });
+
     function incrementLoaded() {
-      loadedImages++
+      loadedImages++;
       if (loadedImages === images.length) {
-        ScrollTrigger.refresh()
+        ScrollTrigger.refresh();
       }
     }
-  })
+  });
 }
 
 // Initialize Lenis smooth scrolling
 function initSmoothScrolling() {
   nextTick(() => {
     // Check if Lenis is loaded
-    if (typeof Lenis === 'undefined') {
-      console.warn('Lenis not loaded. Using native scrolling.')
-      return
+    if (typeof Lenis === "undefined") {
+      console.warn("Lenis not loaded. Using native scrolling.");
+      return;
     }
-    
+
     lenis = new Lenis({
       lerp: 0.2,
-      smoothWheel: true
-    })
-    
-    lenis.on('scroll', () => ScrollTrigger.update())
-    
+      smoothWheel: true,
+    });
+
+    lenis.on("scroll", () => ScrollTrigger.update());
+
     const scrollFn = (time) => {
-      lenis.raf(time)
-      requestAnimationFrame(scrollFn)
-    }
-    
-    requestAnimationFrame(scrollFn)
-  })
+      lenis.raf(time);
+      requestAnimationFrame(scrollFn);
+    };
+
+    requestAnimationFrame(scrollFn);
+  });
 }
 
 onMounted(() => {
   // Initialize smooth scrolling
-  initSmoothScrolling()
-  
+  initSmoothScrolling();
+
   // Initialize scroll animations
-  initScrollAnimations()
-  
+  initScrollAnimations();
+
   // Start carousel
   carouselInterval = setInterval(() => {
-    currentSlide.value = (currentSlide.value + 1) % slides.value.length
-  }, 7000)
-})
+    currentSlide.value = (currentSlide.value + 1) % slides.value.length;
+  }, 7000);
+});
 
 onUnmounted(() => {
   if (carouselInterval) {
-    clearInterval(carouselInterval)
+    clearInterval(carouselInterval);
   }
-  
+
   // Clean up Lenis
   if (lenis) {
-    lenis.destroy()
-    lenis = null
+    lenis.destroy();
+    lenis = null;
   }
-  
+
   // Clean up ScrollTrigger / matchMedia
   if (scrollMedia) {
-    scrollMedia.revert()
-    scrollMedia = null
+    scrollMedia.revert();
+    scrollMedia = null;
   }
-  
-  if (typeof ScrollTrigger !== 'undefined') {
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+
+  if (typeof ScrollTrigger !== "undefined") {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   }
-})
+});
 </script>
 
 <style scoped>
 /* Load GSAP and other libraries from CDN */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap");
 
 /* Base styles */
 main {
   min-height: 100vh;
   position: relative;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
 }
 
 /* Frame styles */
@@ -260,14 +295,6 @@ main {
   position: relative;
 }
 
-.frame--header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
 .frame__bg {
   position: absolute;
   inset: 0;
@@ -288,26 +315,32 @@ main {
   opacity: 1;
 }
 
-.frame__overlay {
+.frame__copy {
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1;
+  inset: auto 0 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 38vh;
+  padding: clamp(1.25rem, 3vw, 2rem) 1rem 9%;
+  color: var(--color-on-surface, #24221e);
 }
 
 .frame__heading {
   position: relative;
   z-index: 2;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .frame__title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 400;
-  line-height: 1.2;
+  font-family: "Inknut", serif;
+  font-size: clamp(1.5rem, 6vw, 24rem);
+  font-weight: 900;
+  line-height: 1.5;
   margin: 0;
-  color: #fff;
+  color: white;
 }
 
 .frame__title i {
@@ -316,41 +349,41 @@ main {
 
 .text-meta {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-on-surface-variant, #514d45);
   margin: 0.5rem 0 0;
   font-weight: 300;
 }
 
 .text-large {
-  font-size: clamp(1.2rem, 3vw, 2rem);
-  line-height: 1.6;
-  max-width: 800px;
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  line-height: 1.5;
+  max-width: 620px;
   margin: 0 auto;
-  color: rgba(255, 255, 255, 0.9);
+  color: white;
+  opacity: 0.75;
 }
 
 .frame__content {
   position: relative;
-  z-index: 2;
-  margin-top: 2rem;
+  margin-top: 0.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.875rem;
 }
 
 .frame__buttons {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   z-index: 2;
 }
 
 :deep(.btn) {
   display: inline-block;
-  padding: 0.875rem 1.75rem;
+  padding: 0.625rem 1.1rem;
   border-radius: 4px;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -376,6 +409,17 @@ main {
 :deep(.btn--primary:hover) {
   background: rgba(255, 255, 255, 0.9);
   color: var(--color-deep-onyx);
+}
+
+:deep(.btn--secondary) {
+  color: var(--color-on-surface, #24221e);
+  border-color: rgba(36, 34, 30, 0.35);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+:deep(.btn--secondary:hover) {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(36, 34, 30, 0.6);
 }
 
 :deep(.btn--small) {
@@ -421,6 +465,12 @@ main {
   font-size: 0.875rem;
 }
 
+.frame__eyebrow {
+  color: white;
+  font-family: "Inknut", serif;
+  font-size: clamp(0.75rem, 1.5vw, 3rem);
+}
+
 .frame__author a {
   color: var(--color-primary);
   text-decoration: none;
@@ -435,9 +485,20 @@ main {
 }
 
 @media (max-width: 640px) {
-  .frame--header { padding: 1rem; }
-  .frame__buttons { flex-direction: column; gap: 0.5rem; }
-  :deep(.btn) { width: 100%; max-width: 300px; }
+  .frame--header {
+    padding: 1rem;
+  }
+  .frame__copy {
+    min-height: 45vh;
+    padding: 1.25rem 1rem 4.5rem;
+  }
+  .frame__buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  :deep(.btn) {
+    width: 100%;
+    max-width: 300px;
+  }
 }
-
 </style>

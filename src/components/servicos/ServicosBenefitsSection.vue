@@ -34,7 +34,7 @@
               </p>
               <div class="flex items-center gap-4 relative z-10 pt-4 border-t border-surface-variant">
                 <div>
-                  <h4 class="font-headline-sm text-headline-sm text-primary leading-none">Carla Coelho</h4>
+                  <h4 class="font-inknut text-headline-sm text-primary leading-none">Carla Coelho</h4>
                   <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Travel Designer &amp; Fundadora</p>
                 </div>
               </div>

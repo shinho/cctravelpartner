@@ -26,7 +26,7 @@
               </a>
               <a class="w-full sm:w-auto inline-flex items-center justify-center bg-surface-container text-on-surface hover:bg-surface-container-high px-8 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-colors" href="tel:+351210998765">
                 <span class="material-symbols-outlined mr-2 text-xl text-primary">call</span>
-                Falar com a Carla Coelho
+                Falar com a <span class="font-inknut">Carla Coelho</span>
               </a>
             </div>
             <div class="pt-6 border-t border-surface-container flex flex-wrap items-center justify-center gap-6 text-on-surface-variant font-label-sm text-label-sm">

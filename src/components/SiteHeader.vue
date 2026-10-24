@@ -8,7 +8,7 @@
       <router-link class="flex items-center gap-4" to="/">
         <img alt="Carla Coelho" class="h-14 w-auto object-contain brightness-75" src="/assets/logo_img.png" />
         <div class="flex flex-col">
-          <span class="text-headline-sm font-headline-sm text-primary tracking-wide">Carla Coelho</span>          
+          <span class="font-inknut text-headline-sm text-primary tracking-tight">Carla Coelho</span>          
           <span class="text-label-sm font-label-sm text-on-surface-variant tracking-wide">Travel Partner</span>
         </div>
       </router-link>

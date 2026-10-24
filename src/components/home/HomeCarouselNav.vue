@@ -38,6 +38,8 @@ defineEmits(['select'])
   display: flex;
   gap: 0.75rem;
   z-index: 2;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
 }
 
 .nav-dot {
@@ -56,8 +58,7 @@ defineEmits(['select'])
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+  background: rgba(255, 255, 255, 0.55);
   content: '';
   transition: width 180ms ease, border-radius 180ms ease, background-color 180ms ease;
 }
@@ -65,11 +66,11 @@ defineEmits(['select'])
 .nav-dot--active::before {
   width: 24px;
   border-radius: 4px;
-  background: #fff;
+  background: white;
 }
 
 .nav-dot:focus-visible {
-  outline: 2px solid #fff;
+  outline: 2px solid white;
   outline-offset: 2px;
 }
 

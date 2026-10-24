@@ -18,12 +18,12 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/70 via-transparent to-transparent"></div>
                 <div class="absolute bottom-4 left-4 right-4 text-on-primary">
                   <span class="font-label-sm text-label-sm tracking-wider uppercase opacity-90 block text-secondary-fixed">Perfil &amp; Filosofia</span>
-                  <p class="font-headline-sm text-headline-sm text-paper-cream">Carla Coelho</p>
+                  <p class="font-inknut text-headline-sm text-paper-cream">Carla Coelho</p>
                 </div>
               </div>
               <div class="p-4 flex items-center justify-between text-on-surface-variant">
                 <div>
-                  <p class="font-label-lg text-label-lg font-semibold text-primary">Carla Coelho</p>
+                  <p class="font-inknut text-label-lg font-semibold text-primary">Carla Coelho</p>
                   <p class="font-label-sm text-label-sm text-outline">Fundadora &amp; Travel Partner</p>
                 </div>
                 <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shadow-sm">
@@ -38,7 +38,7 @@
           <div class="space-y-3">
             <span class="font-label-lg text-label-lg tracking-widest text-terracotta uppercase">Boas-vindas</span>
             <h1 class="font-headline-xl text-headline-xl text-primary tracking-tight">
-              Olá! Sou a Carla Coelho.
+              Olá! Sou a <span class="font-inknut">Carla Coelho</span>.
             </h1>
           </div>
           <!-- First Narrative Block -->
@@ -94,7 +94,7 @@
           <!-- Signature mark -->
           <div class="inline-flex flex-col items-center justify-center pt-4">
             <div class="font-headline-sm text-headline-sm text-primary tracking-wide italic">
-              Carla Coelho
+              <span class="font-inknut">Carla Coelho</span>
             </div>
             <div class="w-24 h-0.5 bg-heritage-gold mt-1 mb-2"></div>
             <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Fundadora • Travel Partner Exclusivo</span>
@@ -158,7 +158,7 @@
                 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
               </span>
               <div>
-                <span class="font-label-sm text-label-sm uppercase tracking-wider text-terracotta font-semibold block">Com Carla Coelho</span>
+                <span class="font-label-sm text-label-sm uppercase tracking-wider text-terracotta font-semibold block">Com <span class="font-inknut">Carla Coelho</span></span>
                 <h3 class="font-headline-sm text-headline-sm text-deep-onyx">A Experiência Sem Preocupações</h3>
               </div>
             </div>
@@ -265,54 +265,56 @@
       <div class="bg-surface-container-low rounded-2xl p-8 sm:p-12 shadow-sm">
         <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-10">
           <div>
-            <span class="font-label-lg text-label-lg text-primary uppercase tracking-wider">Inspiração &amp; Cenários</span>
-            <h2 class="font-headline-lg text-headline-lg text-deep-onyx">Momentos que Ficam na Memória</h2>
+            <span class="font-label-lg text-label-lg text-primary uppercase tracking-wider">{{ $t('about.inspiration.eyebrow') }}</span>
+            <h2 class="font-headline-lg text-headline-lg text-deep-onyx text-balance">{{ $t('about.inspiration.title') }}</h2>
           </div>
           <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
-            Desde pores do sol em terraços mediterrânicos a santuários tropicais nas falésias — cada sugestão é fruto de critérios exigentes de bem-estar e sofisticação.
+            {{ $t('about.inspiration.description') }}
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <!-- Visual Card 1: Sunset Deck Villa -->
-          <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-md group">
-            <div class="bg-cover bg-center w-full h-80 relative overflow-hidden transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDWpzgRbRXMyUgxhd0JNaKqVQHoK6safCRYF1yGvA7s8z22g1gnzlbtU9zJskHf3TIWNNBxlewLVL3yknTLUMLnGoHMwqaWX3nb3gaDyfqQ7SDtyjdSTOWyeAqp3PtvLUIr4C7DkvNKiaZ3ER8f5QTxWjQPMoZKS1dqkUFpCvXGbr37TPHlbatd6XK1Xfq_-GW7MKATt6iKsR5mGk8Dr2ExNW9Wzgty0Tl6nzbDjdFs_gzNB7EoYbt')">
+          <article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-md group">
+            <div class="w-full h-80 relative overflow-hidden">
+              <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03] outline outline-1 outline-black/10" src="/assets/images/aboutus/tropical-villa-sunset.png" :alt="$t('about.inspiration.cards.coastal.imageAlt')" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/80 via-deep-onyx/20 to-transparent"></div>
               <div class="absolute bottom-6 left-6 right-6 text-on-primary">
-                <span class="font-label-sm text-label-sm text-secondary-fixed tracking-wider uppercase">Refúgio Costeiro</span>
-                <h4 class="font-headline-sm text-headline-sm text-paper-cream">Vilas Privadas &amp; Piscinas Infinitas</h4>
+                <span class="font-label-sm text-label-sm text-secondary-fixed tracking-wider uppercase">{{ $t('about.inspiration.cards.coastal.kicker') }}</span>
+                <h3 class="font-headline-sm text-headline-sm text-paper-cream text-balance">{{ $t('about.inspiration.cards.coastal.title') }}</h3>
                 <p class="font-body-md text-body-md text-on-tertiary-container/90 mt-1 line-clamp-2">
-                  Privacidade garantida, horizontes sem fim e serviços de mordomo exclusivos.
+                  {{ $t('about.inspiration.cards.coastal.description') }}
                 </p>
               </div>
             </div>
-            <div class="p-6 flex items-center justify-between text-on-surface">
+            <div class="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-on-surface">
               <span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
                 <span class="material-symbols-outlined text-base text-terracotta">wb_sunny</span>
-                Destinos Tropicais de Luxo
+                {{ $t('about.inspiration.cards.coastal.category') }}
               </span>
-              <span class="font-label-lg text-label-lg font-semibold text-primary">Curadoria Completa</span>
+              <span class="font-label-lg text-label-lg font-semibold text-primary sm:text-right">{{ $t('about.inspiration.cards.coastal.curation') }}</span>
             </div>
-          </div>
+          </article>
           <!-- Visual Card 2: Balcony in the Mediterranean -->
-          <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-md group">
-            <div class="bg-cover bg-center w-full h-80 relative overflow-hidden transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBumCf9_OE1XrUy8Oasawe0FQ2i_uy1BxFzcZao1JdWQJFuEsVAsWso7vsW5yIEvmUu7FEkC9WNnV_JqA7gNRYhLZ27NqFP2lD9Qw0hWIHkEShKYRlsURVaEyuBlLSVLjhzQHeEj0eD2U-qSU8guXIKKQgjyFdDSeZu33wj0ALymh9eqkm3jl9Eeb0pN-0fkw8gqLSGcdGgZbHNpriQcowHnAOsK6A8lzctv-rLB0M9AsLEZgXp_cLB')">
+          <article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-md group">
+            <div class="w-full h-80 relative overflow-hidden">
+              <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03] outline outline-1 outline-black/10" src="/assets/images/aboutus/amalfi-terrace-dusk.png" :alt="$t('about.inspiration.cards.mediterranean.imageAlt')" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-deep-onyx/80 via-deep-onyx/20 to-transparent"></div>
               <div class="absolute bottom-6 left-6 right-6 text-on-primary">
-                <span class="font-label-sm text-label-sm text-secondary-fixed tracking-wider uppercase">Noites Inesquecíveis</span>
-                <h4 class="font-headline-sm text-headline-sm text-paper-cream">Terraços Íntimos ao Entardecer</h4>
+                <span class="font-label-sm text-label-sm text-secondary-fixed tracking-wider uppercase">{{ $t('about.inspiration.cards.mediterranean.kicker') }}</span>
+                <h3 class="font-headline-sm text-headline-sm text-paper-cream text-balance">{{ $t('about.inspiration.cards.mediterranean.title') }}</h3>
                 <p class="font-body-md text-body-md text-on-tertiary-container/90 mt-1 line-clamp-2">
-                  Jantares privados com vista para o mar e passeios de iate reservados à sua medida.
+                  {{ $t('about.inspiration.cards.mediterranean.description') }}
                 </p>
               </div>
             </div>
-            <div class="p-6 flex items-center justify-between text-on-surface">
+            <div class="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-on-surface">
               <span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
                 <span class="material-symbols-outlined text-base text-terracotta">wine_bar</span>
-                Europa &amp; Ilhas Exclusivas
+                {{ $t('about.inspiration.cards.mediterranean.category') }}
               </span>
-              <span class="font-label-lg text-label-lg font-semibold text-primary">Experiências Gastronómicas</span>
+              <span class="font-label-lg text-label-lg font-semibold text-primary sm:text-right">{{ $t('about.inspiration.cards.mediterranean.curation') }}</span>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>

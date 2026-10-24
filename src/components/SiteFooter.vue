@@ -5,7 +5,7 @@
         <div class="max-w-xs">
           <div class="flex items-center gap-4 mb-8">
             <img alt="Carla Coelho" class="h-8 w-auto object-contain brightness-75" src="/assets/logo.png" />
-            <span class="font-headline-sm text-headline-sm text-primary font-serif-light tracking-wide">Carla Coelho</span>
+            <span class="font-inknut text-headline-sm text-primary font-serif-light tracking-wide">Carla Coelho</span>
           </div>
           <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">{{ $t('app.description') }}</p>
         </div>

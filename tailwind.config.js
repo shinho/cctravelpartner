@@ -75,6 +75,7 @@ export default {
         "gutter": "24px"
       },
       fontFamily: {
+        "inknut": ["Inknut Antiqua", "serif"],
         "headline-sm": ["Cormorant Garamond"],
         "label-sm": ["Hanken Grotesk"],
         "headline-xl": ["Cormorant Garamond"],
