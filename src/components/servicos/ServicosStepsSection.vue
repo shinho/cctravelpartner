@@ -15,7 +15,7 @@
 <script setup>
 const steps = [
   { number: '01', title: 'Consulta Inicial', description: 'Partilha de ideias, datas pretendidas, perfil dos viajantes e ambição orçamental.' },
-  { number: '02', title: 'Proposta Curada', description: 'Apresentação de soluções sob medida com rotas, hotéis selecionados e estimativas claras.' },
+  { number: '02', title: 'Proposta', description: 'Apresentação de soluções sob medida com rotas, hotéis selecionados e estimativas claras.' },
   { number: '03', title: 'Ajuste & Reserva', description: 'Afinação ao pormenor, confirmação de reservas e emissão de documentação consolidada.' },
   { number: '04', title: 'Acompanhamento', description: 'Suporte e linha direta durante todo o percurso até ao regresso a casa.' }
 ]

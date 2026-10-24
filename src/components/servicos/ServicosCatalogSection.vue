@@ -19,35 +19,15 @@
         </div>
         <!-- 9 Services Grid (3x3 Editorial Layout) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div v-for="service in services" :key="service.number" class="bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group overflow-hidden">
-            <div>
-              <div class="overflow-hidden h-44 w-full relative">
-                <img :src="service.image" :alt="service.title" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div class="p-6 space-y-4">
-                <div class="flex items-center justify-between">
-                  <div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
-                    <span class="material-symbols-outlined text-xl">{{ service.icon }}</span>
-                  </div>
-                  <span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-semibold">{{ service.number }}</span>
-                </div>
-                <h3 class="font-headline-sm text-headline-sm text-on-surface">{{ service.title }}</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  {{ service.description }}
-                </p>
-              </div>
-            </div>
-            <div class="px-6 pb-6 pt-4 border-t border-surface-container flex items-center justify-between text-on-surface-variant group-hover:text-primary transition-colors">
-              <span class="font-label-sm text-label-sm uppercase tracking-wider">{{ service.tag }}</span>
-              <span class="material-symbols-outlined text-lg">north_east</span>
-            </div>
-          </div>
+          <ServiceCard v-for="service in services" :key="service.number" :service="service" />
         </div>
       </div>
     </section>
 </template>
 
 <script setup>
+import ServiceCard from './ServiceCard.vue'
+
 const services = [
   {
     number: '01',
@@ -71,7 +51,8 @@ const services = [
     icon: 'local_activity',
     tag: 'Acesso Privilegiado',
     description: 'Sugestões e reservas de experiências únicas para tornar a sua viagem ainda mais especial: visitas guiadas, excursões, experiências gastronómicas, atividades culturais, aventuras ao ar livre e muito mais.',
-    image: 'https://lh3.googleusercontent.com/aida/AEtjO1XwtFBGHiaNsrh5LZKe-U5fCT4fsi7RQLAkEYAX69C8DZcdjnUYve5sLod2DZBnXJUXr6cXH0Eg2pegcdpohFadezHyh1TTwkjKxux5yQ2nOnlwDu-g8wokFXGwww1jLp49sVMn94aHp_J3MyZ7oguuMc8zua6Kqu9JZl9Avieu6qUknOk4Hxa8msHrzZPp9eHY8-DyPO8WncMWSPe8bZqbJw3mmCTdUPCs-4djI0mqAdASpmSq1Hk-Ahg'
+    image: '/assets/images/services/experiences.png',
+    imageAlt: 'Passeio de caiaque entre falésias e águas turquesa'
   },
   {
     number: '04',
@@ -79,7 +60,8 @@ const services = [
     icon: 'airport_shuttle',
     tag: 'Pontualidade & Conforto',
     description: 'Organização de transfers privados ou partilhados entre aeroportos, hotéis, estações e outros pontos de interesse, garantindo maior conforto e comodidade durante toda a viagem.',
-    image: 'https://lh3.googleusercontent.com/aida/AEtjO1XKLxVolfyRbfpRwHblUxEI3N7ivNlomBnE-zovHBy-vajCkB3ymfVpmqjgh5RWtCvhjs5E1UoGR1OGpIbtrWTIfsCCOtdcjpuLwayqN9z1X7gjwcAHyot4iPCU0SOc7UuZXym9wWCF4KETUk7NOSljvYD6ISaSH6cMds0qMmy8dsMKKDDEXONBdbcGyupGb8LV1QSuIsk3L-hqjy3uXCN0-ZABf3lK-5VKL_cMYvQ3q9Fm6ShqooXmPzc'
+    image: '/assets/images/services/transfers.png',
+    imageAlt: 'Viatura de transfer privado à chegada ao aeroporto'
   },
   {
     number: '05',
@@ -87,7 +69,8 @@ const services = [
     icon: 'directions_car',
     tag: 'Mobilidade Sem Surpresas',
     description: 'Apoio na escolha e reserva do veículo ideal para explorar o destino ao seu ritmo, com soluções adaptadas às suas necessidades e ao tipo de viagem.',
-    image: 'https://lh3.googleusercontent.com/aida/AEtjO1VsZkpitdBv46Zw496yFmsmM7u_lPSGcyoj3lECGXUvu8SFVIdl4xPDRSzHbYyqauWVf5_ROiHBbVYyMM8HxkB-kUOjbqewrq_V7XbiGvkYSMe998l0oBG8jdpQn06v2hgzDVpPPaQpOECBaXuD1ROjhSar6ZAFeFLU3TjqGdthvpbu4FBCHI6aG9wyOA2g_4j8hHDUWyNm6_C_UOjNDIaDvWqWlrEbcVDVCnqhCalIjKyvcZoE_vTA-w'
+    image: '/assets/images/services/car-rental.png',
+    imageAlt: 'Automóvel de aluguer num miradouro junto ao Atlântico'
   },
   {
     number: '06',
@@ -95,7 +78,8 @@ const services = [
     icon: 'explore',
     tag: 'Rotas Cénicas & Segredos',
     description: 'Criação de roteiros detalhados para quem gosta da liberdade de descobrir vários locais numa única viagem. Itinerários cuidadosamente planeados com percursos, sugestões de paragens, alojamentos e experiências imperdíveis.',
-    image: 'https://lh3.googleusercontent.com/aida/AEtjO1WGx7FEky1owI1B7O-jLSl3VndIihLoWGfZIr0LB64hMQSBO57NuTm7FvZxRgTcmcHBYIUGmnzsiOHZnfIzSj5nEkibZW6Lxh4WIjslx6ayyJaDz3vVbw0n8VibAd8HpBQTbWIjxzuhq2lgWpA-BLnLc9HpwveVXBgmZg6wpTogphZ-GFo_HFTpNWcxElMundE-NKdC7cZ_IWraz_QDXRfZKjeDLvrjq2Abj4g7isBXq9S4Ai_ATHJBqJs'
+    image: '/assets/images/services/road-trips.png',
+    imageAlt: 'Estrada panorâmica ao longo da costa portuguesa'
   },
   {
     number: '07',
@@ -103,7 +87,8 @@ const services = [
     icon: 'public',
     tag: 'Logística Integrada',
     description: 'Quer visitar várias cidades ou países na mesma viagem? Eu trato de toda a logística, combinando transportes, alojamentos e experiências para que possa aproveitar ao máximo cada destino.',
-    image: 'https://lh3.googleusercontent.com/aida/AEtjO1VVcWF8aLlAIOwq01CA_rpBMQhCt7hTQ3g6zm8XZExNVroUVLsmNtucT6sgzzGhEpT76GfkeEVmbb1nj1H1u9eGjGLieMUI80VZLvx3daoxzLo9wnxoARLY-_CM-KvIuQvZdDlCY7MJgrInoJdKZUGFKfNkwvYqiSieWnO6aIkka3QgDe9G0zqNxs25AtCSgu9vAp0gdKNSU8gWnjTtD7N-EwDXDjUSLjvuBw3Pszo_svKUJrItMZWFyU4'
+    image: '/assets/images/services/multi-destination.png',
+    imageAlt: 'Viagem de comboio junto a um lago e montanhas alpinas'
   },
   {
     number: '08',
@@ -111,7 +96,8 @@ const services = [
     icon: 'design_services',
     tag: 'Alfaiataria de Viagens',
     description: 'Cada viajante é diferente e cada viagem deve refletir isso. Desenvolvo propostas e itinerários personalizados de acordo com os seus interesses, orçamento, objetivos e tempo disponível.',
-    image: 'https://lh3.googleusercontent.com/aida/AEtjO1XebZtqhnqZtOyo5hqRFXCkOJNmsodhcMjOxMr0R-jsBL39e-e1n1W10zv8VfW9O0MnOycs5KUKDHfNr8x7glzJaV8UknKaQsLyVq69avtXagvHRsybYjyNiVptYxq4qFz6Ma2MWWHglLY2zu61kGMdv_HHQpS9nx3NCkOmouKW7rVU0Ut5rLgFWNRuQPGt9D-KVxtVk_cJj6mZY3msIsH_sEUxSoIgonzC71fxsEhDLwPRqDOaeWgZBEE'
+    image: '/assets/images/services/travel-planning.png',
+    imageAlt: 'Mapa, caderno e bússola para planear uma viagem personalizada'
   },
   {
     number: '09',
@@ -119,7 +105,8 @@ const services = [
     icon: 'luggage',
     tag: 'Chave na Mão',
     description: 'Soluções completas para quem prefere ter tudo organizado num único serviço. Voos, alojamento, transfers, atividades e outros detalhes planeados para uma experiência sem preocupações.',
-    image: 'https://lh3.googleusercontent.com/aida/AEtjO1XzjK3ggi-eNcjuNiBc2Y-W9SkKNiLyWloOMYeZJyf-nrJYrZPo3XPd6yWVBCY8KgPo0HbhxeWhi2Cd9mH5inE40Aa_PY68Bn3LRoz3aMfaKgL9zeiFTpGW9cy-8USCKSYhtzCOQUqZrXMe7BFLpUqTON898xyjSlQ6ddbMM2AnLHAc9XTTDkyyWlH2cIzEbvPvkerX337Wden8tHSaktfiseQ5Rm3p9IXciR2DhJuThkMnpg1RVCskSyA'
+    image: '/assets/images/services/complete-packages.png',
+    imageAlt: 'Mala de viagem num terraço de resort com vista para o mar'
   }
 ]
 

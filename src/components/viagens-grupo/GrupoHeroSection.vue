@@ -1,5 +1,7 @@
 <template>
-    <section class="relative w-full overflow-hidden bg-surface py-12 lg:py-20">
+    <section class="relative isolate w-full overflow-hidden bg-surface py-12 lg:py-20">
+      <img src="/assets/images/groups/hero-group-vacation.png" alt="" aria-hidden="true" fetchpriority="high" class="absolute inset-0 -z-20 h-full w-full object-cover" />
+      <div aria-hidden="true" class="absolute inset-0 -z-10 bg-white/85"></div>
       <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <!-- Left Column: Positioning -->

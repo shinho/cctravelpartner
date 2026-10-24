@@ -1,6 +1,17 @@
 ## Notes
 Always answer in English.
 
+## Local Node.js / Volta Setup
+
+On this Windows machine, set `VOLTA_HOME` in the current PowerShell session before running Node.js or npm commands. Volta is installed at `C:\Users\nelso\AppData\Local\Volta`.
+
+```powershell
+$env:VOLTA_HOME = 'C:\Users\nelso\AppData\Local\Volta'
+npm run build
+```
+
+This setup has been verified with a successful production build. If a build reports `EPERM` while resolving project files (for example, `src/main.js`) in the restricted execution environment, retry with normal file access through the approved execution flow. Do not change application code or filesystem permissions to work around that environment restriction.
+
 ## Technology Stack
 
 **Core Framework & Build Tool**
@@ -50,3 +61,6 @@ Always answer in English.
 - Always prefer creating component for grouped elements and patterns to promote reusability and maintainability. (i.e., if you are creating a <section>, consider making it a reusable component)
 - Create a library of reusable components and patterns to streamline the design process and ensure consistency across the application.
 - Create a Pinia store for managing reusable state and shared data across components to enhance maintainability and consistency.
+
+Use @uimaker subagents for parallel development of tasks
+Use @i18n.agent for translate and remove hardcoded text
