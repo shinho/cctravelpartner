@@ -18,7 +18,6 @@ export default {
     servicos: 'Services',
     consultoria: 'Consulting',
     roteiros: 'Itineraries',
-    vipConcierge: 'VIP Concierge',
     agencia: 'Agency',
     oportunidades: 'Opportunities',
     contato: 'Contact',

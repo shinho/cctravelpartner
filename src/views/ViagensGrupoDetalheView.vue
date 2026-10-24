@@ -1,11 +1,11 @@
 <template>
-  <div class="fixed inset-0 z-[100] flex flex-col bg-surface overflow-y-auto" style="view-transition-name: continent-overlay">
+  <div class="fixed inset-0 z-[100] flex flex-col bg-surface overflow-y-auto">
     <!-- Full-screen continent detail: 40% hero image | 60% countries -->
     <section class="relative w-full flex-grow bg-surface">
       <div class="w-full min-h-screen">
         <div class="grid grid-cols-1 lg:grid-cols-[40vw_60vw] lg:gap-0 min-h-screen">
           <!-- Left 40%: continent hero image (full height) -->
-          <div class="relative overflow-hidden h-[42vh] min-h-[280px] lg:h-screen lg:min-h-0" style="view-transition-name: continent-panel">
+          <div class="relative overflow-hidden h-[42vh] min-h-[280px] lg:h-screen lg:min-h-0">
             <button
               @click="goBack"
               aria-label="Fechar destinos do continente"
@@ -20,7 +20,6 @@
                 class="w-full h-full object-cover object-center"
                 style="view-transition-name: continent-hero"
               />
-              <div class="absolute inset-0 bg-gradient-to-b from-deep-onyx/30 via-transparent to-deep-onyx/80"></div>
               <div class="absolute bottom-8 left-8 right-8 text-surface-container-lowest">
                 <span class="font-label-sm text-label-sm tracking-widest uppercase text-tertiary-fixed font-semibold block opacity-90">{{ continent.name }}</span>
                 <h3 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">{{ continent.subtitle }}</h3>
@@ -96,19 +95,18 @@ const continent = computed(() =>
 )
 
 function goBack() {
-  const update = () => router.push({ name: 'viagens-grupo', query: { from: 'continentes' } })
+  const update = () => router.push({
+    name: 'viagens-grupo',
+    query: { from: 'continentes' },
+    hash: '#continentes'
+  })
   if (document.startViewTransition) {
-    const transition = document.startViewTransition(async () => {
+    document.startViewTransition(async () => {
       await update()
       await nextTick()
     })
-    transition.finished.then(() => {
-      document.getElementById('continentes')?.scrollIntoView({ block: 'start', behavior: 'instant' })
-    })
   } else {
-    update().then(() => {
-      nextTick(() => document.getElementById('continentes')?.scrollIntoView({ block: 'start', behavior: 'instant' }))
-    })
+    update()
   }
 }
 </script>

@@ -1,0 +1,45 @@
+## JSDoc for Functions required
+- memory_name: function_jsdoc_required
+  memory_description: All functions should be documented with JSDoc.
+  memory_usage: When creating or modifying functions, include a JSDoc block for each function and keep existing JSDoc comments accurate and up to date.
+
+## Component naming convention
+- memory_name: component_naming_view_vs_screen
+  memory_description: Vue components mapped to routes use "View" suffix, not "Screen". Examples: ReportRecipientsView.vue (route-mapped), ReportsList.vue (subcomponent).
+  memory_usage: When naming or referencing route-mapped Vue components, use "View" suffix (e.g., ReportRecipientsView). Reserve "Screen" terminology in documentation where appropriate. Apply this consistently across the codebase and plan documents.
+
+## DTO/type/interface file placement
+- memory_name: dto_type_interface_separate_model_files
+  memory_description: DTOs, types, and interfaces should be defined in separate files under the appropriate model domain folder instead of inside stores/components.
+  memory_usage: When adding or updating DTOs, types, or interfaces, create/update dedicated files in the corresponding `UI/src/models/app/...` folder (for report recipients: `UI/src/models/app/reportRecipients`) and import them where needed.
+
+## Typed status/value constants over hardcoded strings
+- memory_name: typed_status_constants_preferred
+  memory_description: Prefer typed status/value structures (const object + derived union type) instead of hardcoded string unions in components or feature code.
+  memory_usage: When introducing mode/status/value options, follow the pattern used in `UI/src/models/app/reportRecipients/deliveryMethodStatus.ts` (e.g., `as const` object plus `typeof ...[keyof typeof ...]` type) and import/reuse the model type instead of inline string literals.
+- memory_name: distinct_names_for_const_objects_and_union_types
+  memory_description: Runtime `as const` objects and their derived union types must have different names; same-name const/type declarations are reported by ESLint as duplicate definitions.
+  memory_usage: Use plural names for runtime constants and singular names for their derived types (e.g., `BatchLoadSteps` / `BatchLoadStep`).
+
+## Screen/menu flags belong to screen store
+- memory_name: screen_store_flags_centralized
+  memory_description: When a screen/menu has a dedicated store, UI flags (mode, toggles, view state) should be centralized in that store instead of being passed down as props.
+  memory_usage: For screen-level features, keep mode/toggle flags in the screen store and have child components read/write through the store. Only use prop-passed flags when no dedicated screen/menu store exists.
+
+## Compound descriptions come from compound static data, not from the method
+- memory_name: compound_description_override_from_static_data
+  memory_description: Compound changes are synced as soon as they happen, but `MethodAnalyteData.CompoundDescription` (the method shadow copy) is only refreshed when the method itself changes, so it can be stale.
+  memory_usage: Never trust `MethodAnalyteData.CompoundDescription` for display or for deriving values (e.g. abbreviation fallback). Override it with the description from the loaded compound static data by `CompoundId` (see `usePreEntryResultsStore.loadMethodsAnalytes`) and apply the same rule in any new grid/read flow, including backend read contracts.
+
+## UI routing with unplugin-vue-router
+- UI routing uses `unplugin-vue-router` as the route source via `VueRouter()` in `UI/vite.config.mts`.
+- Page files under `UI/src/pages` define public path/name/meta with SFC `<route>` blocks.
+- `UI/src/router/routes.ts` is now only for runtime additions not expressed at build time; currently it adds the `/` -> `/pre-entry` redirect.
+- `UI/src/pages/HomePage.vue` is intentionally excluded from route generation in Vite config to avoid exposing a stray page route.
+
+## Patterns to follow (UI)
+- Always use Promises and not callbacks for async operations.
+- API calls: via dedicated composables in `src/composables/api/`. Use axios instance from `src/plugins/axios.ts`. Backend errors are intercepted and handled globally, and display error notifications automatically for ui/ux consistency.
+- State: via Pinia stores in `src/stores/`.
+- Common business logic: via composables in `src/composables/`.
+- Typescript types are inferred but any is not allowed.

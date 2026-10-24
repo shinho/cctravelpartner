@@ -15,7 +15,6 @@
             <ul class="flex flex-col gap-4 font-body-md text-body-md text-on-surface-variant/80 font-light">
               <li><router-link class="hover:text-primary transition-colors" to="/consultadoria">{{ $t('footer.consultoria') }}</router-link></li>
               <li><router-link class="hover:text-primary transition-colors" to="/roteiros">{{ $t('footer.roteiros') }}</router-link></li>
-              <li><router-link class="hover:text-primary transition-colors" to="/vip-concierge">{{ $t('footer.vipConcierge') }}</router-link></li>
             </ul>
           </div>
           <div>

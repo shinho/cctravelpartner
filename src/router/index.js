@@ -53,11 +53,6 @@ const routes = [
     component: () => import('../views/RoteirosView.vue')
   },
   {
-    path: '/vip-concierge',
-    name: 'vip-concierge',
-    component: () => import('../views/VipConciergeView.vue')
-  },
-  {
     path: '/orcamento',
     name: 'orcamento',
     component: () => import('../views/OrcamentoView.vue')
@@ -119,6 +114,8 @@ const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
+    } else if (to.hash) {
+      return { el: to.hash, top: 0, behavior: 'instant' }
     } else {
       return { top: 0 }
     }

@@ -3,7 +3,7 @@ export const continents = [
     name: 'África',
     slug: 'africa',
     subtitle: 'Safaris, desertos e culturas milenares',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAkXpXrNx2_7oYVj7yPG9waxwGBmj2jhY3XOSmjdpajgTw3U_0vHEF7lcF8NDA5JIY5WIE9drocrnT5V3KsyBjH4RtabcHMQmswffegkYZVLd681FZrCmvw_gnzgDmqSAdd3H2xcL1JjBuZli8Emk6Q8Ea1c9UJZqhyxkOO64an1v-u5-oyxSBEf8DGy9esA0X2uS-NbWZ4PYwtJpmNGIex-lW0xM_gTZnHSPM889nbeJshCrs1KjHmLs-uN8S5WiFxcGnO0EbI5VQ',
+    image: '/assets/images/continents/africa.png',
     alt: 'Dunas deslumbrantes ao pôr do sol com um acampamento de luxo',
     destinations: ['Marrocos', 'Egito', 'Quênia', 'Tanzânia', 'África do Sul', 'Namíbia'],
     countries: [
@@ -19,7 +19,7 @@ export const continents = [
     name: 'Ásia',
     slug: 'asia',
     subtitle: 'Tradições, sabores e paraísos tropicais',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVyqs8O_4IaIjqV92njWRIvjqnAuL3TcC4i5LDVWkZkZRiCdapTGywRf6Bc4mNYzU2z5AnASRJUp7OnXwmvguYMm_cSZN8VBfv-oVR3AoaSKGSUtNXd0Wh6ts3wkJtt1ScSgHAu9qgauP_aX-EQKpLRGhkq9jVaY835sQIT6ZrHq1gPleqjK7K8S3cc0kun5MemH8N9DT7Gfx1cCj2FUAxa1wa7T7tkAdPCG3lGKia88ZA14uFaGtV1eVSvTqUJrEObNMjMcJDpzE',
+    image: '/assets/images/continents/asia.png',
     alt: 'Vista aérea de um resort privado nas Maldivas',
     destinations: ['Japão', 'Maldivas', 'Indonésia', 'Vietname', 'Tailândia', 'Emirados Árabes'],
     countries: [
@@ -35,7 +35,7 @@ export const continents = [
     name: 'Europa',
     slug: 'europa',
     subtitle: 'História, arte e gastronomia',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDOecJILLeSh2Ozxe3HKyBtTLkHz-bniYWfZtIR1A6IAyjdaFlOfXgIU6whwUuyzkOLTvdXw20mnAMMIe5kT592zpqfD-aGHo3oX2TK_4cDjYK6fsqA4cu6Uz4p_JB6rar1gzVENphQQBbOfiO1DaRfKAxaIo4Agn3NvLnxDTdJj1pael2QthoAwKtEOE8mTjs_YT9nwtQTTI-9yH7xt7KkQ0R2FS4YyqXTBJANPVUfecgvWgWgj76DjTEtokGJ5FORqgjZwEZNvHg',
+    image: '/assets/images/continents/europe.png',
     alt: 'Rua histórica empedrada em Florença, Itália, sob a luz suave da manhã',
     destinations: ['Portugal', 'Itália', 'França', 'Grécia', 'Suíça', 'Espanha'],
     countries: [
@@ -51,7 +51,7 @@ export const continents = [
     name: 'Américas',
     slug: 'americas',
     subtitle: 'Natureza exuberante e cidades vibrantes',
-    image: 'https://lh3.googleusercontent.com/aida/AEtjO1USIDJxh0KgdIVXTYSw95_3C5YVkrOU4j-rhiF1FDax7IouqyG75nxuj1nTFCJgwusbuo4IzKp0GKhkD0qHoev4JaHit_BiJ9KMymh6JBQavtAEFso3ZA3TeabAwWRrniYW_RjZE52itTM6D59kkwCIcRARE6v5wl1xD95JXoPXopStsdvkwyGg9uTPPYsAiAwpb3sN7iBoH-TrCvtkZOg6mZQzBFlQlq7wJIaNyU9moRyfz5lYY6BVHAw',
+    image: '/assets/images/continents/americas.png',
     alt: 'Resort de luxo com piscina infinita sobre o oceano ao pôr do sol',
     destinations: ['Brasil', 'México', 'Peru', 'Estados Unidos', 'Costa Rica', 'Argentina'],
     countries: [

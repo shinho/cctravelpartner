@@ -1,0 +1,41 @@
+name: Build and Ftp Deploy
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build-only
+
+      - name: Copy .htaccess
+        run: cp public/.htaccess dist/
+
+      - name: Install FTP client
+        run: sudo apt-get update && sudo apt-get install --yes lftp
+
+      - name: Deploy to FTP
+        env:
+          FTP_HOST: ${{ secrets.FTP_NA_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_NA_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_NA_PASSWORD }}
+        run: |
+          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "$FTP_HOST" <<'EOF'
+          set ftp:ssl-allow no
+          mirror --reverse --delete --verbose dist/ /public/www/
+          bye
+          EOF

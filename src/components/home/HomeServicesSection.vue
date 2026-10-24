@@ -32,13 +32,6 @@ const servicos = [
     description: 'Acesso a experiências fora do circuito comercial, com guias especializados e total privacidade.',
     path: '/roteiros'
   },
-  {
-    name: 'vip',
-    icon: 'diamond',
-    title: 'Acesso VIP',
-    description: 'Priority check-in, lounges exclusivos e convites para eventos restritos.',
-    path: '/vip-concierge'
-  }
 ]
 </script>
 
