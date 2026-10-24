@@ -90,7 +90,7 @@ Any additional context that does not fit the sections above:
 
 """
 
-model = "Auto (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

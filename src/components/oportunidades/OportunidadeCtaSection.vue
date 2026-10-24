@@ -26,10 +26,10 @@
               <span class="material-symbols-outlined mr-2 text-xl">send</span>
               Tenho Interesse
             </a>
-            <router-link class="w-full sm:w-auto inline-flex items-center justify-center bg-surface-container text-on-surface hover:bg-surface-container-high px-8 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-colors" to="/contactos">
+            <a class="w-full sm:w-auto inline-flex items-center justify-center bg-surface-container text-on-surface hover:bg-surface-container-high px-8 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-colors" href="mailto:contact@carlacoelho.com">
               <span class="material-symbols-outlined mr-2 text-xl text-primary">call</span>
               Falar Comigo
-            </router-link>
+            </a>
           </div>
           <div class="pt-6 border-t border-surface-container flex flex-wrap items-center justify-center gap-6 text-on-surface-variant font-label-sm text-label-sm">
             <span class="flex items-center gap-1.5">

@@ -50,7 +50,7 @@ Use `LegalEntityEventDataProcessor` as the lead example for multi-event aggregat
 
 """
 
-model = "GPT-5.3-Codex (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

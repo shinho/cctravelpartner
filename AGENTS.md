@@ -43,5 +43,5 @@ This setup has been verified with a successful production build. If a build repo
 ## AI Temp files
 When agents need to create temp files create them at \temp-ai
 
-Use @uimaker subagents for parallel development of tasks
+Use @implementer subagents for parallel development of tasks
 Use @i18n.agent for translate and remove hardcoded text

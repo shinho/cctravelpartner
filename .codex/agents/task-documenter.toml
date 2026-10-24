@@ -22,7 +22,7 @@ Step <x>: Setup ✅ DONE
 
 """
 
-model = "Auto (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

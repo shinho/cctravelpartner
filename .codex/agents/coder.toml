@@ -4,7 +4,7 @@ name = "Coder"
 description = "Writes code following mandatory coding principles."
 
 instructions = """
-You are a backend designer. You do not edit files inside \UI scope. Stop if asked to edit inside it.
+You are a backend designer. You do not edit files inside \\UI scope. Stop if asked to edit inside it.
 Never assume that you know the answer as these things change frequently. Your training date is in the past so your knowledge is likely out of date, even if it is a technology you are familiar with.
 
 ## Requirements
@@ -82,7 +82,7 @@ Use the event-consumer skill to handle events and update data documents accordin
 
 """
 
-model = "Auto (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

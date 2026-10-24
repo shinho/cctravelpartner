@@ -30,9 +30,6 @@
           <span class="material-symbols-outlined text-3xl">{{ isMenuOpen ? 'close' : 'menu' }}</span>
         </button>
       </div>
-      <!-- <router-link class="bg-primary text-white font-label-lg text-label-lg px-6 py-3 rounded-sm active:scale-95 transition-all hover:brightness-110 uppercase tracking-widest text-[12px]" to="/disponibilidade">
-        Check Availability
-      </router-link> -->
     </nav>
 
     <!-- Mobile Menu Panel -->

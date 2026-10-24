@@ -89,7 +89,7 @@ More commands and features: https://marketplace.visualstudio.com/items?itemName=
 
 """
 
-model = "Auto (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

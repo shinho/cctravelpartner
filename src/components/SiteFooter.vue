@@ -22,7 +22,7 @@
             <ul class="flex flex-col gap-4 font-body-md text-body-md text-on-surface-variant/80 font-light">
               <li><router-link class="hover:text-primary transition-colors" to="/sobre-mim">{{ $t('nav.sobre') }}</router-link></li>
               <li><router-link class="hover:text-primary transition-colors" to="/oportunidades">{{ $t('footer.oportunidades') }}</router-link></li>
-              <li><router-link class="hover:text-primary transition-colors" to="/contactos">{{ $t('footer.contato') }}</router-link></li>
+              <li><a class="hover:text-primary transition-colors" href="mailto:contact@carlacoelho.com">{{ $t('footer.contato') }}</a></li>
             </ul>
           </div>
           <div class="col-span-2 md:col-span-1">
@@ -39,7 +39,7 @@
         <div class="flex gap-10">
           <a class="text-primary/60 hover:text-primary transition-colors" href="https://facebook.com" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[20px]">face_nod</span></a>
           <a class="text-primary/60 hover:text-primary transition-colors" href="https://instagram.com" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
-          <router-link class="text-primary/60 hover:text-primary transition-colors" to="/contactos"><span class="material-symbols-outlined text-[20px]">alternate_email</span></router-link>
+          <a class="text-primary/60 hover:text-primary transition-colors" href="mailto:contact@carlacoelho.com" aria-label="Email"><span class="material-symbols-outlined text-[20px]">alternate_email</span></a>
         </div>
       </div>
     </div>

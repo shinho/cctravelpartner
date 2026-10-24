@@ -22,7 +22,7 @@ Use non technical language.
     ``git --no-pager diff --no-prefix --unified=100000 --no-prefix --name-status dev...HEAD``
 2. **Search for usages and dependencies** — find callers, base classes, referenced types, and related modules.
 3. **Draft the documentation** following the template above, section by section.
-4. **Save the output** as a `.md` file using the story number. Replace the original request file if it exists. Should be under \Wiki
+4. **Save the output** as a `.md` file using the story number. Replace the original request file if it exists. Should be under \\Wiki
 
 Use the agent /FeatureDocumenter for generating the documentation.
 
@@ -36,7 +36,7 @@ Note: YOU DO NOT TOUCH CODE JUST DOCUMENTATION
 
 """
 
-model = "Auto (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

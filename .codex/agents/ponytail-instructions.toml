@@ -32,7 +32,7 @@ Never cut: validation at trust boundaries, error handling that prevents data los
 
 """
 
-model = "Auto (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

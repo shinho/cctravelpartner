@@ -22,9 +22,9 @@
             <router-link class="btn btn--primary" to="/destinos">{{
               hero.destinationsLabel
             }}</router-link>
-            <router-link class="btn btn--secondary" to="/orcamento">{{
+            <a class="btn btn--secondary" href="mailto:contact@carlacoelho.com">{{
               hero.quoteLabel
-            }}</router-link>
+            }}</a>
           </div>
         </div>
       </div>
@@ -66,8 +66,8 @@
       variant="outro"
     >
       <template #action>
-        <router-link class="btn btn--outline" to="/orcamento"
-          >Solicitar Orçamento</router-link
+        <a class="btn btn--outline" href="mailto:contact@carlacoelho.com"
+          >Solicitar Orçamento</a
         >
       </template>
     </HomeHighlightSection>
@@ -105,7 +105,6 @@ const hero = computed(() => tm("home.hero"));
 const introHighlight = computed(() => tm("home.highlights.intro"));
 const outroHighlight = computed(() => tm("home.highlights.outro"));
 let carouselInterval = null;
-let lenis = null;
 let scrollMedia = null;
 
 const { slides } = storeToRefs(useHomeStore());
@@ -193,35 +192,7 @@ function initScrollAnimations() {
   });
 }
 
-// Initialize Lenis smooth scrolling
-function initSmoothScrolling() {
-  nextTick(() => {
-    // Check if Lenis is loaded
-    if (typeof Lenis === "undefined") {
-      console.warn("Lenis not loaded. Using native scrolling.");
-      return;
-    }
-
-    lenis = new Lenis({
-      lerp: 0.2,
-      smoothWheel: true,
-    });
-
-    lenis.on("scroll", () => ScrollTrigger.update());
-
-    const scrollFn = (time) => {
-      lenis.raf(time);
-      requestAnimationFrame(scrollFn);
-    };
-
-    requestAnimationFrame(scrollFn);
-  });
-}
-
 onMounted(() => {
-  // Initialize smooth scrolling
-  initSmoothScrolling();
-
   // Initialize scroll animations
   initScrollAnimations();
 
@@ -234,12 +205,6 @@ onMounted(() => {
 onUnmounted(() => {
   if (carouselInterval) {
     clearInterval(carouselInterval);
-  }
-
-  // Clean up Lenis
-  if (lenis) {
-    lenis.destroy();
-    lenis = null;
   }
 
   // Clean up ScrollTrigger / matchMedia

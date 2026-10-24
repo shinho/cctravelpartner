@@ -146,7 +146,7 @@ Replace all \" with just ' in the dashboard configuration file.
 Overwrite the current file format with the transformations made. A new file cannot be hold in a single session.
 """
 
-model = "Claude Sonnet 5 (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

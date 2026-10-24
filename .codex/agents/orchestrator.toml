@@ -148,7 +148,7 @@ When delegating, describe WHAT needs to be done (the outcome), not HOW to do it.
 
 """
 
-model = "Claude Opus 4.6 (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

@@ -27,7 +27,7 @@ Note: YOU DO NOT TOUCH CODE JUST DOCUMENTATION
 
 """
 
-model = "Auto (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

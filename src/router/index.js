@@ -38,11 +38,6 @@ const routes = [
     component: () => import('../views/OportunidadesView.vue')
   },
   {
-    path: '/disponibilidade',
-    name: 'disponibilidade',
-    component: () => import('../views/DisponibilidadeView.vue')
-  },
-  {
     path: '/consultadoria',
     name: 'consultadoria',
     component: () => import('../views/ConsultadoriaView.vue')
@@ -51,16 +46,6 @@ const routes = [
     path: '/roteiros',
     name: 'roteiros',
     component: () => import('../views/RoteirosView.vue')
-  },
-  {
-    path: '/orcamento',
-    name: 'orcamento',
-    component: () => import('../views/OrcamentoView.vue')
-  },
-  {
-    path: '/contactos',
-    name: 'contactos',
-    component: () => import('../views/ContactosView.vue')
   },
   {
     path: '/privacidade',

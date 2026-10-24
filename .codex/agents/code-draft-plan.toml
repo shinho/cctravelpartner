@@ -18,7 +18,7 @@ Relentlessly ask questions to clarify requirements, design decisions, and potent
 
 """
 
-model = "Claude Sonnet 5.5 (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

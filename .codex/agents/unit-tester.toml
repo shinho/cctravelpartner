@@ -25,7 +25,7 @@ NOTE: YOU DO NOT CHANGE CODE
 
 """
 
-model = "Claude Haiku 5.5 (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

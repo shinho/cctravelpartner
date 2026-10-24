@@ -139,7 +139,7 @@ After completing all steps, provide:
 
 """
 
-model = "Claude Sonnet 4.6 (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

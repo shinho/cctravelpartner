@@ -101,7 +101,7 @@ For specific modules, include the following additional sections in the documenta
 
 """
 
-model = "Auto (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]

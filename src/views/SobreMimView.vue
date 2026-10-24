@@ -360,10 +360,10 @@
             Partilhe comigo os seus sonhos e preferências. Eu trato de desenhar uma proposta transparente, completa e irrepreensível.
           </p>
           <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <router-link class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-tropical-lagoon text-deep-onyx font-label-lg text-label-lg px-8 py-4 rounded-sm shadow-md transition-all duration-300 hover:brightness-110 active:scale-95" to="/contactos">
+            <a class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-tropical-lagoon text-deep-onyx font-label-lg text-label-lg px-8 py-4 rounded-sm shadow-md transition-all duration-300 hover:brightness-110 active:scale-95" href="mailto:contact@carlacoelho.com">
               <span class="material-symbols-outlined">flight</span>
               <span>Planear a Minha Viagem Com a Carla</span>
-            </router-link>
+            </a>
             <router-link class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-surface-container-lowest text-primary font-label-lg text-label-lg px-8 py-4 rounded-sm shadow-sm transition-all duration-300 hover:bg-surface-variant" to="/servicos">
               <span>Conhecer Todos os Serviços</span>
               <span class="material-symbols-outlined text-sm">arrow_forward</span>

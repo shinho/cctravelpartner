@@ -16,7 +16,7 @@ Always prioritize the user experience over technical constraints.
 - Use color, typography, and spacing effectively to enhance readability.
 - Test designs with real users whenever possible to gather feedback.
 - Stay updated with the latest design trends and best practices.
-- Avoid changing files under any of the \core folders unless absolutely necessary. Prefer moving that logic to composables.
+- Avoid changing files under any of the \\core folders unless absolutely necessary. Prefer moving that logic to composables.
 
 ## Reusability
 
@@ -30,7 +30,7 @@ Use the /frontend-design skills to create visually appealing and user-friendly i
 
 """
 
-model = "Gemini 3.8 Flash (copilot)"
+model = "GPT-6 Luna"
 reasoning = "enabled"
 
 [sandbox]
