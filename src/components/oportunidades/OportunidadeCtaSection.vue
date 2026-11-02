@@ -22,11 +22,11 @@
           </p>
           <!-- Action Container -->
           <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a class="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-on-primary hover:bg-primary-container px-10 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-all duration-300 shadow-md" href="mailto:concierge@carlacoelho.pt?subject=Tenho%20Interesse%20na%20Oportunidade%20Travel%20Partner">
+            <a class="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-on-primary hover:bg-primary-container px-10 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-all duration-300 shadow-md" href="/contacto?topic=Interesse%20na%20oportunidade%20Travel%20Partner">
               <span class="material-symbols-outlined mr-2 text-xl">send</span>
               Tenho Interesse
             </a>
-            <a class="w-full sm:w-auto inline-flex items-center justify-center bg-surface-container text-on-surface hover:bg-surface-container-high px-8 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-colors" href="mailto:contact@carlacoelho.com">
+            <a class="w-full sm:w-auto inline-flex items-center justify-center bg-surface-container text-on-surface hover:bg-surface-container-high px-8 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-colors" href="/contacto?topic=Contactar%20a%20equipa">
               <span class="material-symbols-outlined mr-2 text-xl text-primary">call</span>
               Falar Comigo
             </a>

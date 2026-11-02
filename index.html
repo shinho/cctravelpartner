@@ -13,6 +13,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-heritage-gold/20">
+  <form name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="inquiry" />
+    <input name="bot-field" />
+    <input name="name" />
+    <input name="email" />
+    <input name="phone" />
+    <input name="topic" />
+    <textarea name="message"></textarea>
+  </form>
   <div id="app"></div>
   <script type="module" src="/src/main.js"></script>
 </body>

@@ -3,7 +3,7 @@
       <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
         <!-- Lead Quote -->
         <div class="max-w-4xl mx-auto text-center mb-16 space-y-6">
-          <span class="material-symbols-outlined text-primary/40 text-6xl select-none block">format_quote</span>
+          <span class="block font-serif text-6xl leading-none text-primary/40" aria-hidden="true">“</span>
           <p class="font-headline-sm text-headline-sm md:text-headline-xl text-on-surface italic font-light leading-relaxed">
             "Viajar em grupo é descobrir novos destinos, criar ligações genuínas e partilhar momentos que se tornam recordações para toda a vida."
           </p>
@@ -26,4 +26,5 @@
       </div>
     </section>
 </template>
+
 

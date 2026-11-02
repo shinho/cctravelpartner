@@ -48,7 +48,7 @@
               <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
                 {{ currentContinent.destinations.length }} destinos em destaque
               </p>
-              <a class="inline-flex items-center gap-2 text-primary font-label-lg text-label-lg uppercase tracking-widest hover:gap-4 transition-all border-b border-primary/30 pb-1 cursor-pointer" href="mailto:concierge@carlacoelho.pt?subject=Informações%20sobre%20Viagens%20de%20Grupo">
+              <a class="inline-flex items-center gap-2 text-primary font-label-lg text-label-lg uppercase tracking-widest hover:gap-4 transition-all border-b border-primary/30 pb-1 cursor-pointer" href="/contacto?topic=Informa%C3%A7%C3%B5es%20sobre%20Viagens%20de%20Grupo">
                 Pedir Informações
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
               </a>

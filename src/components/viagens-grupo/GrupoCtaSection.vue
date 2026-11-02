@@ -22,11 +22,11 @@
             </p>
             <!-- Action Container -->
             <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a class="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-on-primary hover:bg-primary-container px-10 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-all duration-300 shadow-md" href="mailto:contact@carlacoelho.com">
+              <a class="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-on-primary hover:bg-primary-container px-10 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-all duration-300 shadow-md" href="/contacto?topic=Pedido%20de%20informa%C3%A7%C3%B5es%20sobre%20viagens%20de%20grupo">
                 <span class="material-symbols-outlined mr-2 text-xl">event_available</span>
                 Reservar o Meu Lugar
               </a>
-              <a class="w-full sm:w-auto inline-flex items-center justify-center bg-surface-container text-on-surface hover:bg-surface-container-high px-8 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-colors" href="mailto:concierge@carlacoelho.pt?subject=Informações%20sobre%20Viagens%20de%20Grupo">
+              <a class="w-full sm:w-auto inline-flex items-center justify-center bg-surface-container text-on-surface hover:bg-surface-container-high px-8 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-colors" href="/contacto?topic=Informa%C3%A7%C3%B5es%20sobre%20Viagens%20de%20Grupo">
                 <span class="material-symbols-outlined mr-2 text-xl text-primary">mail</span>
                 Pedir Informações
               </a>

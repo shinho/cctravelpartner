@@ -164,7 +164,7 @@ onUnmounted(() => {
                 hero.destinationsLabel
               }}
             </router-link>
-            <a class="btn btn--secondary" href="mailto:contact@carlacoelho.com">{{
+            <a class="btn btn--secondary" href="/contacto?topic=Pedido%20de%20or%C3%A7amento">{{
               hero.quoteLabel
             }}</a>
           </div>
@@ -208,7 +208,7 @@ onUnmounted(() => {
       variant="outro"
     >
       <template #action>
-        <a class="btn btn--outline" href="mailto:contact@carlacoelho.com">Solicitar Orçamento</a>
+        <a class="btn btn--outline" href="/contacto?topic=Pedido%20de%20or%C3%A7amento">Solicitar Orçamento</a>
       </template>
     </HomeHighlightSection>
 

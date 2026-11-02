@@ -1,11 +1,20 @@
+<script setup>
+defineProps({
+  service: {
+    type: Object,
+    required: true,
+  },
+})
+</script>
+
 <template>
   <article data-testId="service-card" class="service-card relative isolate flex select-none flex-col justify-between overflow-hidden rounded bg-surface-container-lowest shadow-sm">
     <div class="service-card__image absolute inset-x-0 top-0 -z-20 h-44 overflow-hidden">
-      <img :src="service.image" :alt="service.imageAlt || service.title" class="service-card__photo h-full w-full object-cover" loading="lazy" decoding="async" />
+      <img :src="service.image" :alt="service.imageAlt || service.title" class="service-card__photo h-full w-full object-cover" loading="lazy" decoding="async">
     </div>
-    <div class="service-card__overlay pointer-events-none absolute inset-0 -z-10 bg-white/65 opacity-0" aria-hidden="true"></div>
+    <div class="service-card__overlay pointer-events-none absolute inset-0 -z-10 bg-white/65 opacity-0" aria-hidden="true" />
     <div>
-      <div class="h-44" aria-hidden="true"></div>
+      <div class="h-44" aria-hidden="true" />
       <div class="space-y-4 p-6">
         <div class="flex items-center justify-between">
           <div class="service-card__icon flex h-10 w-10 items-center justify-center rounded bg-surface-container text-primary">
@@ -13,8 +22,12 @@
           </div>
           <span class="service-card__text font-label-sm text-label-sm font-semibold uppercase tracking-widest text-primary">{{ service.number }}</span>
         </div>
-        <h3 class="service-card__text font-headline-sm text-headline-sm text-on-surface">{{ service.title }}</h3>
-        <p class="service-card__text font-body-md text-body-md leading-relaxed text-on-surface-variant">{{ service.description }}</p>
+        <h3 class="service-card__text font-headline-sm text-headline-sm text-on-surface">
+          {{ service.title }}
+        </h3>
+        <p class="service-card__text font-body-md text-body-md leading-relaxed text-on-surface-variant">
+          {{ service.description }}
+        </p>
       </div>
     </div>
     <div class="service-card__footer service-card__text flex items-center justify-between border-t border-surface-container px-6 pb-6 pt-4 text-on-surface-variant">
@@ -23,15 +36,6 @@
     </div>
   </article>
 </template>
-
-<script setup>
-defineProps({
-  service: {
-    type: Object,
-    required: true
-  }
-})
-</script>
 
 <style scoped>
 .service-card {
@@ -51,10 +55,6 @@ defineProps({
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .service-card:hover {
-    @apply shadow-md;
-  }
-
   .service-card:hover .service-card__image {
     height: 100%;
   }

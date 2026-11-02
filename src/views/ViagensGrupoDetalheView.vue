@@ -69,7 +69,7 @@
 
             <a
               class="mt-10 lg:mt-14 inline-flex items-center justify-center lg:justify-start gap-2 text-primary font-label-lg text-label-lg uppercase tracking-widest hover:gap-4 transition-all border-b border-primary/30 pb-1 cursor-pointer"
-              :href="`mailto:concierge@carlacoelho.pt?subject=Informações%20sobre%20Viagens%20de%20Grupo%20-%20${encodeURIComponent(continent.name)}`"
+              :href="inquiryLink"
             >
               Pedir Informações sobre {{ continent.name }}
               <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -93,12 +93,17 @@ const router = useRouter()
 const continent = computed(() =>
   continents.find((c) => c.slug === route.params.continent)
 )
+const inquiryLink = computed(() => {
+  const topic = `Informações sobre Viagens de Grupo - ${continent.value.name}`
+  const context = `Tenho interesse em viagens de grupo para ${continent.value.name}.`
+  return `/contacto?topic=${encodeURIComponent(topic)}&context=${encodeURIComponent(context)}`
+})
 
 function goBack() {
   const update = () => router.push({
     name: 'viagens-grupo',
     query: { from: 'continentes' },
-    hash: '#continentes'
+    hash: '#destinos-grupo'
   })
   if (document.startViewTransition) {
     document.startViewTransition(async () => {

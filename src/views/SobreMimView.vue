@@ -412,7 +412,7 @@ import WhiteQuoteCard from '../components/WhiteQuoteCard.vue'
             Partilhe comigo os seus sonhos e preferências. Eu trato de desenhar uma proposta transparente, completa e irrepreensível.
           </p>
           <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-tropical-lagoon text-deep-onyx font-label-lg text-label-lg px-8 py-4 rounded-sm shadow-md transition-all duration-300 hover:brightness-110 active:scale-95" href="mailto:contact@carlacoelho.com">
+            <a class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-tropical-lagoon text-deep-onyx font-label-lg text-label-lg px-8 py-4 rounded-sm shadow-md transition-all duration-300 hover:brightness-110 active:scale-95" href="/contacto?topic=Pedido%20de%20planeamento%20de%20viagem">
               <span class="material-symbols-outlined">flight</span>
               <span>Planear a Minha Viagem Com a Carla</span>
             </a>

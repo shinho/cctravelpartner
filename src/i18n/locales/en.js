@@ -87,5 +87,17 @@ export default {
         }
       }
     }
+  },
+  inquiry: {
+    eyebrow: 'Let’s plan', title: 'Tell me about your trip', description: 'Share a few details and I’ll be in touch soon.',
+    name: 'Name', email: 'Email', phone: 'Phone (optional)', topic: 'Topic', message: 'Message',
+    submit: 'Send inquiry', sending: 'Sending…', success: 'Your inquiry was sent. Thank you for getting in touch!', error: 'We could not send your inquiry. Please try again.',
+    serviceTopics: ['Travel planning', 'Transfers', 'Car rental', 'Experiences', 'Multi-stop trips']
+  },
+  privacy: {
+    eyebrow: 'Privacy policy', title: 'Privacy',
+    intro: 'We process personal information shared through this website only to respond to inquiries and provide requested services.',
+    inquiriesTitle: 'Contact inquiries',
+    inquiries: 'When you submit an inquiry, the information you provide is processed and stored by Netlify Forms so we can respond to your message. Please include only information needed for your request. You may request access to or deletion of your information using the contact details on this website.'
   }
 }

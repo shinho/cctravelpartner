@@ -1,20 +1,59 @@
+<script setup>
+import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import LanguageSwitcher from './LanguageSwitcher.vue'
+
+const route = useRoute()
+const isMenuOpen = ref(false)
+
+const navItems = [
+  { to: '/sobre-mim', labelKey: 'nav.sobre' },
+  { to: '/destinos', labelKey: 'nav.destinos' },
+  { to: '/servicos', labelKey: 'nav.servicos' },
+  { to: '/viagens-grupo', labelKey: 'nav.viagensGrupo' },
+  { to: '/oportunidades', labelKey: 'nav.oportunidades' },
+]
+
+function closeMenu() {
+  isMenuOpen.value = false
+}
+
+function onNavClick() {
+  closeMenu()
+  window.scrollTo({ top: 0, behavior: 'instant' })
+}
+
+// Close the menu on navigation (link tap, back/forward, etc.)
+watch(() => route.fullPath, closeMenu)
+
+// Close the menu on Escape
+function onKeydown(event) {
+  if (event.key === 'Escape')
+    closeMenu()
+}
+onMounted(() => window.addEventListener('keydown', onKeydown))
+onUnmounted(() => window.removeEventListener('keydown', onKeydown))
+</script>
+
 <template>
   <!-- Mobile Backdrop: outside the header, which has backdrop-filter (creates a containing block for fixed descendants) -->
   <Transition name="backdrop-fade">
-    <div v-if="isMenuOpen" class="md:hidden fixed inset-0 top-20 bg-deep-onyx/40 z-40" @click="closeMenu"></div>
+    <div v-if="isMenuOpen" class="md:hidden fixed inset-0 top-20 bg-deep-onyx/40 z-40" @click="closeMenu" />
   </Transition>
   <header data-testId="site-header" class="docked full-width top-0 sticky z-50 bg-background/95 backdrop-blur-md border-b border-heritage-gold/10">
     <nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-20 max-w-[1280px] mx-auto">
       <router-link class="flex items-center gap-4" to="/" @click="onNavClick">
-        <img alt="Carla Coelho" class="h-14 w-auto object-contain brightness-75" src="/assets/logo_img.png" />
-        <div class="flex flex-col">
-          <span class="font-inknut text-headline-sm text-primary tracking-tight">Carla Coelho</span>          
+        <img alt="" class="logo object-contain" src="/assets/logo_travel_cc.png">
+        <!-- <div class="flex flex-col">
+          <span class="font-inknut text-headline-sm text-primary tracking-tight">Carla Coelho</span>
           <span class="text-label-sm font-label-sm text-on-surface-variant tracking-wide">Travel Partner</span>
-        </div>
+        </div> -->
       </router-link>
       <!-- Desktop Nav: horizontal on tablet/desktop -->
       <div class="hidden lg:flex items-center gap-10">
-        <router-link v-for="item in navItems" :key="item.to" class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors" :to="item.to" @click="onNavClick">{{ $t(item.labelKey) }}</router-link>
+        <router-link v-for="item in navItems" :key="item.to" class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors" :to="item.to" @click="onNavClick">
+          {{ $t(item.labelKey) }}
+        </router-link>
       </div>
       <!-- Right Group: Language Switcher + Hamburger -->
       <div class="flex items-center gap-3 lg:gap-4">
@@ -51,42 +90,6 @@
   </header>
 </template>
 
-<script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue'
-import { useRoute } from 'vue-router'
-import LanguageSwitcher from './LanguageSwitcher.vue'
-
-const route = useRoute()
-const isMenuOpen = ref(false)
-
-const navItems = [
-  { to: '/sobre-mim', labelKey: 'nav.sobre' },
-  { to: '/destinos', labelKey: 'nav.destinos' },
-  { to: '/servicos', labelKey: 'nav.servicos' },
-  { to: '/viagens-grupo', labelKey: 'nav.viagensGrupo' },
-  { to: '/oportunidades', labelKey: 'nav.oportunidades' }
-]
-
-function closeMenu() {
-  isMenuOpen.value = false
-}
-
-function onNavClick() {
-  closeMenu()
-  window.scrollTo({ top: 0, behavior: 'instant' })
-}
-
-// Close the menu on navigation (link tap, back/forward, etc.)
-watch(() => route.fullPath, closeMenu)
-
-// Close the menu on Escape
-function onKeydown(event) {
-  if (event.key === 'Escape') closeMenu()
-}
-onMounted(() => window.addEventListener('keydown', onKeydown))
-onUnmounted(() => window.removeEventListener('keydown', onKeydown))
-</script>
-
 <style scoped>
 .backdrop-fade-enter-active,
 .backdrop-fade-leave-active {
@@ -105,5 +108,10 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 .menu-fade-leave-to {
   opacity: 0;
   transform: translateY(-8px);
+}
+
+.logo {
+  height: 2.4rem;
+  width: auto;
 }
 </style>

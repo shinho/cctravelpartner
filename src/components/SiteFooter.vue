@@ -7,7 +7,7 @@
       <div class="flex flex-col md:flex-row justify-between items-start gap-20 mb-20">
         <div class="max-w-xs">
           <div class="flex items-center gap-4 mb-8">
-            <img alt="Carla Coelho" class="h-8 w-auto object-contain brightness-75" src="/assets/logo.png">
+            <img alt="" class="h-26 w-26 object-contain" src="/assets/logo_bold_cc.png">
             <span class="font-inknut text-headline-sm text-primary font-serif-light tracking-thight">Carla Coelho</span>
           </div>
           <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">

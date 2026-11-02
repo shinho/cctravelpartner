@@ -22,7 +22,7 @@
         <!-- Right: Pull Quote Card -->
         <div class="lg:col-span-5">
           <div class="relative bg-surface-container-lowest p-8 lg:p-10 rounded shadow-md overflow-hidden">
-            <span class="material-symbols-outlined text-primary/20 text-8xl absolute -top-4 -right-4 select-none">format_quote</span>
+            <span class="absolute -top-4 -right-4 select-none font-serif text-8xl leading-none text-primary/20" aria-hidden="true">“</span>
             <p class="font-headline-sm text-headline-sm text-on-surface italic relative z-10 leading-relaxed mb-6">
               “Hoje quero partilhar essa oportunidade com outras pessoas que procuram algo mais.”
             </p>
@@ -40,3 +40,4 @@
     </div>
   </section>
 </template>
+

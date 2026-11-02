@@ -20,7 +20,7 @@
             </p>
             <!-- Action Container -->
             <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a class="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-on-primary hover:bg-primary-container px-10 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-all duration-300 shadow-md" href="mailto:concierge@carlacoelho.pt?subject=Pedido%20de%20Proposta%20Personalizada">
+              <a class="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-on-primary hover:bg-primary-container px-10 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-all duration-300 shadow-md" href="/contacto?topic=Pedido%20de%20Proposta%20Personalizada">
                 <span class="material-symbols-outlined mr-2 text-xl">send</span>
                 Pedir Proposta Personalizada
               </a>

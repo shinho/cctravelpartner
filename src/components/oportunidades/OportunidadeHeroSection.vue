@@ -36,7 +36,7 @@
             Descobrir a Oportunidade
             <span class="material-symbols-outlined ml-2 text-lg">arrow_downward</span>
           </a>
-          <a class="w-full sm:w-auto inline-flex items-center justify-center bg-surface-container-high text-on-surface hover:bg-surface-container-highest px-8 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-colors" href="mailto:concierge@carlacoelho.pt?subject=Tenho%20Interesse%20na%20Oportunidade%20Travel%20Partner">
+          <a class="w-full sm:w-auto inline-flex items-center justify-center bg-surface-container-high text-on-surface hover:bg-surface-container-highest px-8 py-4 rounded font-label-lg text-label-lg uppercase tracking-wider transition-colors" href="/contacto?topic=Interesse%20na%20oportunidade%20Travel%20Partner">
             Tenho Interesse
           </a>
         </div>

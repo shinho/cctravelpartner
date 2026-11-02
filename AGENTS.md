@@ -5,12 +5,6 @@ Always answer in English.
 
 On this Windows machine, set `VOLTA_HOME` in the current PowerShell session before running Node.js or npm commands. Volta is installed at `C:\Users\nelso\AppData\Local\Volta`.
 
-```powershell
-$env:VOLTA_HOME = 'C:\Users\nelso\AppData\Local\Volta'
-npm run build
-```
-
-This setup has been verified with a successful production build. If a build reports `EPERM` while resolving project files (for example, `src/main.js`) in the restricted execution environment, retry with normal file access through the approved execution flow. Do not change application code or filesystem permissions to work around that environment restriction.
 
 ## Technology Stack
 
@@ -46,7 +40,7 @@ This setup has been verified with a successful production build. If a build repo
 - Lenis (smooth scrolling)
 
 ## AI Temp files
-When agents need to create temp files create them at \temp-ai
+When agents need to create temp files create them at root of project \temp-ai
 
 Use @implementer subagents for parallel development of tasks
 Use @i18n.agent for translate and remove hardcoded text

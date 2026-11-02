@@ -7,9 +7,9 @@
             <p class="font-body-md text-body-md text-on-surface-variant">Selecione uma modalidade para solicitar esclarecimentos rápidos com a nossa equipa.</p>
           </div>
           <div class="flex flex-wrap items-center gap-2">
-            <button v-for="chip in quickChips" :key="chip.label" class="px-4 py-2 rounded bg-surface-container-lowest hover:bg-primary hover:text-on-primary transition-colors font-label-sm text-label-sm uppercase tracking-wider text-on-surface cursor-pointer" type="button" @click="selectService(chip.service)">
-              {{ chip.label }}
-            </button>
+            <a v-for="chip in quickChips" :key="chip" class="px-4 py-2 rounded bg-surface-container-lowest hover:bg-primary hover:text-on-primary transition-colors font-label-sm text-label-sm uppercase tracking-wider text-on-surface cursor-pointer" :href="`/contacto?topic=${encodeURIComponent(chip)}`">
+              {{ chip }}
+            </a>
           </div>
         </div>
       </div>
@@ -17,6 +17,9 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
 
+const { tm } = useI18n()
+const quickChips = tm('inquiry.serviceTopics')
 </script>
 

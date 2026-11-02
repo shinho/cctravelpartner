@@ -87,5 +87,17 @@ export default {
         }
       }
     }
+  },
+  inquiry: {
+    eyebrow: 'Vamos planear', title: 'Fale-me da sua viagem', description: 'Partilhe alguns detalhes e entrarei em contacto consigo em breve.',
+    name: 'Nome', email: 'E-mail', phone: 'Telefone (opcional)', topic: 'Assunto', message: 'Mensagem',
+    submit: 'Enviar pedido', sending: 'A enviar…', success: 'Pedido enviado. Obrigada pelo seu contacto!', error: 'Não foi possível enviar o pedido. Tente novamente.',
+    serviceTopics: ['Planeamento de viagem', 'Transferes', 'Aluguer de automóvel', 'Experiências', 'Viagens de várias etapas']
+  },
+  privacy: {
+    eyebrow: 'Política de privacidade', title: 'Privacidade',
+    intro: 'Tratamos os dados pessoais partilhados através deste site apenas para responder aos pedidos recebidos e prestar os serviços solicitados.',
+    inquiriesTitle: 'Pedidos de contacto',
+    inquiries: 'Ao enviar um pedido, os dados fornecidos são processados e armazenados pela Netlify Forms para que possamos responder à sua mensagem. Inclua apenas informação necessária ao seu pedido. Pode solicitar acesso ou apagamento dos seus dados através dos contactos disponíveis neste site.'
   }
 }
